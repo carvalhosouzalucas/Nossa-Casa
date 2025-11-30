@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ONG cristã em Vitória da Conquista-BA oferecendo atendimento médico voluntário, cursos, casa de apoio e assistência social">
+    <title>Projeto Nossa Casa</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+
+<style>
+/* ============================================
+   RESET E CONFIGURAÇÕES GERAIS
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #1e5799 0%,#207cca 51%,#2989d8 100%);
+    min-height: 100vh;
+    color: #000;
+    line-height: 1.6;
+}
+
+/* NAVBAR */
+.main-nav {
+    background: rgba(5,165,229,0.9);
+    backdrop-filter: blur(12px);
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+.nav-link {
+    text-decoration: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
+    background: rgba(255,255,255,0.1);
+}
+
+.nav-link:hover {
+    background: #0dc30d;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(13, 195, 13, 0.4);
+}
+
+/* SEÇÕES */
+.section {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    margin: 6rem 2rem 2rem;
+    border-radius: 18px;
+    box-shadow: 0 6px 26px rgba(0,0,0,0.18);
+}
+
+/* Hero */
+.hero-section {
+    text-align: center;
+    padding-top: 8rem;
+    color: #fff;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 5px rgba(0,0,0,.3);
+    margin-bottom: 1.5rem;
+}
+
+.hero-description {
+    margin: 2rem auto 0;
+    font-size: 1.2rem;
+    background: rgba(255,255,255,0.95);
+    padding: 2rem;
+    color: #333;
+    border-radius: 15px;
+    max-width: 800px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Títulos */
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    color: #2c3e50;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+}
+
+/* Missão, Visão e Valores */
+.missao-valores {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.missao-valores-item {
+    background: rgba(255,255,255,0.92);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-top: 4px solid #0dc30d;
+}
+
+.missao-valores-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.item-title {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.item-text {
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* Equipe */
+.equipe {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.membro-equipe {
+    background: rgba(255,255,255,0.92);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.membro-equipe:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.membro-equipe img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(0,0,0,.3);
+    margin-bottom: 1rem;
+}
+
+.membro-descricao {
+    line-height: 1.6;
+}
+
+/* Botões */
+.btn-inscricao {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #0dc30d;
+    color: white;
+    font-weight: 600;
+    border-radius: 30px;
+    margin: 1rem 0.5rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(13, 195, 13, 0.3);
+}
+
+.btn-inscricao:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    background: #0bb30b;
+}
+
+/* PIX */
+.pix-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.qr-code {
+    text-align: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.qr-code img {
+    width: 240px;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+}
+
+.pix-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.pix-item {
+    padding: 1.3rem;
+    background: white;
+    border-radius: 10px;
+    border-left: 4px solid #0dc30d;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.pix-item h3 {
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.btn-copiar {
+    background: #0dc30d;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+    transition: all 0.3s;
+}
+
+.btn-copiar:hover {
+    background: #0bb30b;
+}
+
+/* Agendamentos */
+.agendamentos-wrap {
+    background: rgba(255,255,255,0.98);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.agendamentos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.day-card {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+    background: #f8f9fa;
+}
+
+.day-card:hover {
+    background: #e9ecef;
+}
+
+.day-card.active {
+    border-color: #0dc30d;
+    background: #e8f5e8;
+}
+
+.slot-btn {
+    padding: 0.45rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid #ddd;
+    background: #fff;
+    cursor: pointer;
+    font-size: .95rem;
+    transition: all 0.3s;
+}
+
+.slot-btn:hover {
+    background: #f0f0f0;
+}
+
+.slot-btn.selected {
+    background: #0dc30d;
+    color: #fff;
+    border-color: #0db21e;
+}
+
+.form-row {
+    margin-bottom: 1rem;
+}
+
+.form-row label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-row input[type="text"],
+.form-row textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: "Poppins", sans-serif;
+}
+
+.form-row textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.radio-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.checkbox-group input {
+    margin-top: 0.25rem;
+}
+
+.small {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.btn-primary {
+    background: #0dc30d;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background: #0bb30b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(13, 195, 13, 0.3);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+}
+
+/* Páginas de cursos */
+.pagina-curso {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.formulario-inscricao {
+    margin-top: 2rem;
+}
+
+.formulario-inscricao .form-row {
+    margin-bottom: 1.5rem;
+}
+
+/* Rodapé */
+footer {
+    margin-top: 1.5rem;
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255,255,255,0.9);
+    border-radius: 15px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .main-nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .section {
+        padding: 2rem 1.5rem;
+        margin: 5rem 1rem 1rem;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .agendamentos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .pix-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .equipe {
+        grid-template-columns: 1fr;
+    }
+    
+    .missao-valores {
+        grid-template-columns: 1fr;
+    }
+    
+    .radio-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+</style>
+</head>
+
+<body>
+    
+<!-- NAVBAR -->
+<nav class="main-nav">
+    <a href="#inicio" class="nav-link">Home</a>
+    <a href="#atuacao" class="nav-link">Atuação</a>
+    <a href="#sobre-nos" class="nav-link">Sobre Nós</a>
+    <a href="#cursos" class="nav-link">Cursos</a>
+    <a href="#colabore" class="nav-link">Colabore</a>
+    <a href="#agendamentos" class="nav-link">Agendamentos</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero-section" id="inicio">
+    <h1 class="hero-title">OLÁ!</h1>
+    <div class="hero-description">
+        Somos uma entidade social sem fins lucrativos que atua nas áreas de Saúde, Casa de Apoio, Assistência Social, 
+        Música, Cursos e missão cristã. Fundada na fé, servindo em Vitória da Conquista-BA.
+    </div>
+</div>
+
+<!-- =======================================================
+     SEÇÃO ATUAÇÃO
+======================================================= -->
+<div id="atuacao" class="section">
+    <h2 class="section-subtitle">ATUAÇÃO</h2>
+    <h1 class="section-title">O que fazemos</h1>
+
+    <div class="missao-valores">
+        <div class="missao-valores-item">
+            <h2 class="item-title">Nossa missão</h2>
+            <p class="item-text">
+                Servir ao próximo com amor cristão através de ações sociais, saúde, apoio emocional e espiritual.
+            </p>
+        </div>
+
+        <div class="missao-valores-item">
+            <h2 class="item-title">Nossa visão</h2>
+            <p class="item-text">
+                Ser uma instituição de referência em cuidado humanizado, fé, saúde e inclusão social.
+            </p>
+        </div>
+
+        <div class="missao-valores-item">
+            <h2 class="item-title">Nossos valores</h2>
+            <p class="item-text">
+                Fé, amor, ética, serviço ao próximo, excelência, organização e transparência.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- =======================================================
+     SEÇÃO SOBRE NÓS / EQUIPE
+======================================================= -->
+<div id="sobre-nos" class="section">
+    <h2 class="section-subtitle">Sobre nós</h2>
+    <h1 class="section-title">Conheça nossa equipe</h1>
+
+    <div class="equipe">
+        <div class="membro-equipe">
+            <div class="avatar-placeholder" style="width:200px;height:200px;border-radius:50%;background:#ddd;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:0.9rem;color:#666;">
+                <img src="fotos/norman.png" 
+                     alt="norman" 
+                     style="width:100%;height:100%;object-fit:cover;display:block;">
+            </div>
+            <p class="membro-descricao">
+                A apostola Normacy é serva do Senhor que advém da Igreja Nova Sião, do pastor
+Edilson de Souza da Silva, e da Comunidade Deus Vivo, do Pastor Rubens Cavalcante em
+Vitoria da Conquista-BA. É a pastora presidente da Igreja Batista Renovada Restaurando
+Vidas. Possui formação pela RHEMA do Verbo da Vida – Brasil, organização ligada ao
+“Kenneth Hagin Ministres”, em Tulsa-OK, Estados Unidos. Possui ampla experiência
+no campo de manejo de problemas psiquicoemocionais. Ela já ajudou na implantaçao
+de diversas igrejas locais, na geração de projetos sociais como o Cristo Liberta
+e faz parte do resgaste de muitas vidas para Jesus em um
+ministério de entrega, verdade, compromisso e amor ao próximo.
+Integra as igrejas aliançadas ao
+ministério MEVAM presidido pelo apostolo Luís Hermínio, em Itajaí-SC. Normaçy é presidente
+e fundadora do Instituto Nossa Casa.
+            </p>
+        </div>
+
+        <div class="membro-equipe">
+
+            <div class="avatar-placeholder" 
+                 style="width:200px;height:200px;border-radius:50%;overflow:hidden;margin:0 auto 1rem;background:#ddd;">
+                <img src="fotos/Dr_Jana.png" 
+                     alt="Dra Jana" 
+                     style="width:100%;height:100%;object-fit:cover;display:block;">
+            </div>
+        
+            <p class="membro-descricao">
+                Dra Jana é discípula da pastora Normacy, serva do Senhor, diaconisa da Igreja
+                Batista Renovada Restaurando Vidas, graduada em Medicina pela Universidade
+                Estadual de Santa Cruz (UESC), em Ilhéus-BA (2010), mestrado em Medicina da
+                Família pela Universidade Federal do Sul da Bahia (UFSB). Titulada em Medicina
+                da Família e Comunidade pela Sociedade Brasileira de Medicina de Família e
+                Comunidade. Realizou Especialização em UTI no Hospital Albert Einstein,
+                Preceptoria em Residência Médica pelo Hospital Sírio-Libanês, MBA em Gestão de
+                Saúde pela USP e Gestão e liderança de pessoas pela FASU/UNIGRAD. Atua como
+                tutora do programa de pós-graduação da Universidade Federal de São Paulo -
+                UNIFESP e no internato de Medicina da Universidade Federal da Bahia - UFBA e
+                da Faculdade Santo Agostinho, pertencente ao grupo Afya. Busca o cuidado aos
+                seus pacientes com amor, compromisso e resolutividade. Dedica-se ao
+                voluntariado desde a época da graduação e, o encontro com Cristo a fez ser
+                direcionada para seu verdadeiro propósito para utilizar sua profissão como
+                instrumento de empatia, ajuda social e, acima de tudo, resgate de almas para o
+                Senhor através da Medicina. Jana é gestora médica, tesoureira e fundadora do
+                Instituto Nossa Casa.
+            </p>
+        
+        </div>               
+
+        <div class="membro-equipe">
+            <div class="avatar-placeholder" style="width:200px;height:200px;border-radius:50%;background:#ddd;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:0.9rem;color:#666;">
+                <img src="fotos/Fabricio.png" 
+                     alt="Fabricio" 
+                     style="width:100%;height:100%;object-fit:cover;display:block;">
+            </div>
+            <p class="membro-descricao">
+                Fabrício Silva Pinheiro é profissional de educação física com especialização em treinamento
+integrado especialização em fisiologia do exercício em grupos especiais, CEO Academia
+Senso Vital fundador do método 7in7, CEO DA ACADEMIA ON-LINE. Ajudou em emagrecer
+mais de 9000 pessoas mudando seu estilo de vida mais ativo, autoridade em resultados
+rápidos com treino em casa e academia, criador do programa qualidade de vida e
+saúde laboral atua há mais de 16 anos.
+Apaixonado pelo o que faz, e grato por ter uma profissão que promove saúde e
+bem-estar.
+Atua como Vice-presidente do Instituto Nossa Casa.
+            </p>
+        </div>
+
+        <div class="membro-equipe">
+            <div class="avatar-placeholder" style="width:200px;height:200px;border-radius:50%;background:#ddd;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:0.9rem;color:#666;">
+                <img src="fotos/Fernanda.png" 
+                     alt="Fernanda" 
+                     style="width:100%;height:100%;object-fit:cover;display:block;">
+            </div>
+            <p class="membro-descricao">
+                Fernanda Carvalho é formada em administração, profissão em cabeleireira com
+especialização em mega Hair, sócia- proprietária do salão Sônia Carvalho localizado no
+Bairro Recreio. Muito comunicativa, esbanja simpatia e compromisso com seus clientes.
+Exerce a função de 2ª secretária do Instituto Nossa Casa.
+            </p>
+        </div>
+
+        <div class="membro-equipe">
+            <div class="avatar-placeholder" style="width:200px;height:200px;border-radius:50%;background:#ddd;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:0.9rem;color:#666;">
+                <img src="fotos/Marizene.png" 
+                     alt="Marizene" 
+                     style="width:100%;height:100%;object-fit:cover;display:block;">
+            </div>
+            <p class="membro-descricao">
+                Professora e pastora Marizene Chagas Fiuza, graduada em Letras Vernáculas pela UESB. Pós
+graduada em "O Ensino da Língua Portuguesa" pelo instituto Pró Saber. Especializada em
+:Neuropsicopedagogia pela Faveni;Neurociência das Emoções e Inteligência Emocional pelo
+Instituto Brasileiro de Desenvolvimento Emocional .Graduada pelo Centro de Treinamento
+Bíblico Rhema. Atua há 26 anos como professora da rede Municipal de Ensino de Vitória da
+Conquista. Utiliza a palavra de Deus como ferramenta de trabalho para ajudar e aconselhar
+crianças e adolescentes em situação de abandono e vulnerabilidade social. Lidera e coordena
+o ministério de crianças da Igreja Batista Renovada Restaurando Vidas e também lidera o
+Ministério de Estudos da referida Igreja. . No Instituto Nossa Casa atua como conselheira
+fiscal
+            </p>
+        </div>
+
+        <div class="membro-equipe">
+            <div class="avatar-placeholder" style="width:200px;height:200px;border-radius:50%;background:#ddd;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:0.9rem;color:#666;">
+                <img src="fotos/Sonia.png" 
+                     alt="Sonia" 
+                     style="width:100%;height:100%;object-fit:cover;display:block;">
+            </div>
+            <p class="membro-descricao">
+                Sonia Caetano Veiga trabalhou mais de 20 anos no Hospital São Geraldo no setor da
+nutrição. Atua como líder nas atividades realizadas no Centro de Recuperação. Exerce
+atividades variadas no Ministério , sempre muito solicita e alegre seja na tesouraria, na
+higienização dos ambientes, no preparo das refeições para atividades externas e internas.
+Sonia é diaconisa no Ministério e exerce a função de 2ª tesoureira do Instituto Nossa Casa.
+            </p>
+        </div>
+
+        <div class="membro-equipe">
+            <div class="avatar-placeholder" style="width:200px;height:200px;border-radius:50%;background:#ddd;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:0.9rem;color:#666;">
+                <img src="fotos/Valter.png" 
+                     alt="Valter" 
+                     style="width:100%;height:100%;object-fit:cover;display:block;">
+            </div>
+            <p class="membro-descricao">
+                O pastor Valter Rodrigues é motorista de formação e conduz os transportes do projeto e do
+Ministério. É reconhecido pelo amor ao próximo, dedicando-se ao cuidado das crianças
+carentes em municípios como Porto Seguro, Ipiaú e Vitoria da Conquista há mais de 10 anos.
+Possui um forte chamado evangelístico e nas atitudes de servir a todos aqueles a seu redor.
+No Projeto, atua como 2º secretário.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- =======================================================
+     SEÇÃO CURSOS
+======================================================= -->
+<div id="cursos" class="section">
+    <h2 class="section-subtitle">CURSOS</h2>
+    <h1 class="section-title">Aprimore seus conhecimentos</h1>
+
+    <div id="cursos-principal">
+        <p style="font-size:1.1rem;line-height:1.7;margin-bottom:1.8rem;text-align:center;">
+            Oferecemos aulas de música (violão, guitarra, teclado, bateria e percussão),
+            cursos profissionalizantes, cursos de idiomas e atividades de inclusão social.
+        </p>
+
+        <div style="text-align: center;">
+            <button class="btn-inscricao" onclick="mostrarCurso('musica')">Inscreva-se nas aulas de música</button>
+            <button class="btn-inscricao" onclick="mostrarCurso('ingles')">Inscreva-se nas aulas de inglês</button>
+        </div>
+    </div>
+
+    <!-- Página de Música -->
+    <div id="pagina-musica" class="pagina-curso" style="display: none;">
+        <h2>Aulas de Música</h2>
+        <p>Oferecemos aulas de diversos instrumentos para todas as idades:</p>
+        <ul style="margin: 1rem 0 1rem 2rem;">
+            <li>Violão</li>
+            <li>Guitarra</li>
+            <li>Teclado</li>
+            <li>Bateria</li>
+            <li>Percussão</li>
+        </ul>
+        
+        <div class="formulario-inscricao">
+            <h3>Formulário de Inscrição</h3>
+            <div class="form-row">
+                <label for="nome-musica">Nome Completo *</label>
+                <input type="text" id="nome-musica" placeholder="Seu nome completo" required>
+            </div>
+            <div class="form-row">
+                <label for="email-musica">E-mail *</label>
+                <input type="email" id="email-musica" placeholder="seu@email.com" required>
+            </div>
+            <div class="form-row">
+                <label for="telefone-musica">Telefone *</label>
+                <input type="tel" id="telefone-musica" placeholder="(77) 99999-9999" required>
+            </div>
+            <div class="form-row">
+                <label for="instrumento">Instrumento de Interesse *</label>
+                <select id="instrumento" style="width:100%;padding:0.75rem;border-radius:8px;border:1px solid #ddd;" required>
+                    <option value="">Selecione um instrumento</option>
+                    <option value="violao">Violão</option>
+                    <option value="guitarra">Guitarra</option>
+                    <option value="teclado">Teclado</option>
+                    <option value="bateria">Bateria</option>
+                    <option value="percussao">Percussão</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Nível de Experiência *</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="experiencia-musica" value="iniciante" required> Iniciante</label>
+                    <label><input type="radio" name="experiencia-musica" value="intermediario"> Intermediário</label>
+                    <label><input type="radio" name="experiencia-musica" value="avancado"> Avançado</label>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn-secondary" onclick="voltarCursos()">Voltar</button>
+                <button type="button" class="btn-primary" onclick="inscreverCurso('musica')">Enviar Inscrição</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Página de Inglês -->
+    <div id="pagina-ingles" class="pagina-curso" style="display: none;">
+        <h2>Aulas de Inglês</h2>
+        <p>Aprenda inglês de forma prática e acessível com nossos professores voluntários:</p>
+        <ul style="margin: 1rem 0 1rem 2rem;">
+            <li>Aulas para iniciantes, intermediários e avançados</li>
+            <li>Foco em conversação</li>
+            <li>Material didático inclusivo</li>
+            <li>Turmas reduzidas para melhor aprendizado</li>
+            <li>Aulas presenciais e online</li>
+        </ul>
+        
+        <div class="formulario-inscricao">
+            <h3>Formulário de Inscrição</h3>
+            <div class="form-row">
+                <label for="nome-ingles">Nome Completo *</label>
+                <input type="text" id="nome-ingles" placeholder="Seu nome completo" required>
+            </div>
+            <div class="form-row">
+                <label for="email-ingles">E-mail *</label>
+                <input type="email" id="email-ingles" placeholder="seu@email.com" required>
+            </div>
+            <div class="form-row">
+                <label for="telefone-ingles">Telefone *</label>
+                <input type="tel" id="telefone-ingles" placeholder="(77) 99999-9999" required>
+            </div>
+            <div class="form-row">
+                <label for="nivel-ingles">Nível de Inglês *</label>
+                <select id="nivel-ingles" style="width:100%;padding:0.75rem;border-radius:8px;border:1px solid #ddd;" required>
+                    <option value="">Selecione seu nível</option>
+                    <option value="iniciante">Iniciante (nunca estudei)</option>
+                    <option value="basico">Básico (entendo o básico)</option>
+                    <option value="intermediario">Intermediário (consigo me comunicar)</option>
+                    <option value="avancado">Avançado (fluente/conversação)</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label for="horario">Horário Preferencial *</label>
+                <select id="horario" style="width:100%;padding:0.75rem;border-radius:8px;border:1px solid #ddd;" required>
+                    <option value="">Selecione um horário</option>
+                    <option value="manha">Manhã (8h-12h)</option>
+                    <option value="tarde">Tarde (14h-18h)</option>
+                    <option value="noite">Noite (19h-21h)</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label for="tipo-aula">Tipo de Aula *</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="tipo-aula" value="presencial" required> Presencial</label>
+                    <label><input type="radio" name="tipo-aula" value="online"> Online</label>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn-secondary" onclick="voltarCursos()">Voltar</button>
+                <button type="button" class="btn-primary" onclick="inscreverCurso('ingles')">Enviar Inscrição</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- =======================================================
+     SEÇÃO COLABORE / DOAÇÃO PIX
+======================================================= -->
+<div id="colabore" class="section">
+    <h1 class="section-title">Colabore com o Instituto Nossa Casa</h1>
+
+    <p style="font-size:1.2rem;text-align:center;line-height:1.7;margin:1.5rem 0;">
+        Seu apoio transforma vidas! Com apenas R$ 19,90 mensais você ajuda em atendimentos médicos,
+        casa de apoio, alimentação, cursos e apoio emocional a crianças, adultos e idosos.
+    </p>
+
+    <div class="pix-container">
+        <div class="qr-code">
+            <img src="qr_pix.png" alt="QR Code PIX do Instituto Nossa Casa" 
+                 style="width:240px;height:auto;border-radius:10px;margin-bottom:1rem;">
+            <p>Escaneie com o app do seu banco</p>
+        </div>        
+
+        <div class="pix-info">
+            <div class="pix-item">
+                <h3>Chave PIX (E-mail)</h3>
+                <p>projetonossacasa@gmail.com 
+                    <button class="btn-copiar" data-text="projetonossacasa@gmail.com">Copiar</button>
+                </p>
+            </div>
+
+            <div class="pix-item">
+                <h3>Chave PIX (CNPJ)</h3>
+                <p>38.266.204/0801-41
+                    <button class="btn-copiar" data-text="38.266.204/0801-41">Copiar</button>
+                </p>
+            </div>
+
+            <div class="pix-item">
+                <h3>Beneficiário</h3>
+                <p>Instituto Nossa Casa</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- =======================================================
+     SEÇÃO AGENDAMENTOS
+======================================================= -->
+<div id="agendamentos" class="section">
+    <h2 class="section-subtitle">Agendamentos</h2>
+    <h1 class="section-title">Agende sua consulta</h1>
+
+    <div class="agendamentos-wrap">
+        <p class="small" style="margin-bottom:1rem;">Escolha dia, horário, tipo de atendimento (presencial/online) e forma de pagamento.</p>
+
+        <div class="agendamentos-grid">
+            <!-- LADO ESQUERDO: dias -->
+            <div id="daysList" style="padding-right:1rem;border-right:1px solid #eee;">
+                <!-- dias serão inseridos dinamicamente -->
+            </div>
+
+            <!-- LADO DIREITO: formulário -->
+            <div>
+                <div id="selectedInfo" style="margin-bottom:1.5rem;">
+                    <strong>Seleção atual:</strong>
+                    <div id="currentSelection" class="small" style="margin-top:.4rem;">Nenhum dia / Nenhum horário selecionado</div>
+                </div>
+
+                <form id="appointmentForm">
+                    <div class="form-row">
+                        <label for="patientName">Nome do paciente *</label>
+                        <input id="patientName" type="text" placeholder="Nome completo" required />
+                    </div>
+
+                    <div class="form-row">
+                        <label for="patientEmail">E-mail *</label>
+                        <input id="patientEmail" type="email" placeholder="seu@email.com" required />
+                    </div>
+
+                    <div class="form-row">
+                        <label for="patientPhone">Telefone *</label>
+                        <input id="patientPhone" type="tel" placeholder="(77) 99999-9999" required />
+                    </div>
+
+                    <div class="form-row">
+                        <label>Tipo de atendimento *</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="type" value="presencial" checked> Presencial</label>
+                            <label><input type="radio" name="type" value="online"> Online</label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label>Forma de pagamento (aplica-se a atendimentos online)</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="pay" value="online" checked> Pagar taxa online (R$ <span id="feeValue">30,00</span>)</label>
+                            <label><input type="radio" name="pay" value="doacao"> Pagar com 1kg de alimento / produtos de limpeza/higiene</label>
+                        </div>
+                        <div class="small" style="margin-top:.4rem;">(Forma de pagamento apenas para atendimentos online.)</div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="autismEval">
+                            <label for="autismEval">Solicitar avaliação para Autismo</label>
+                        </div>
+                        <div class="small">Ao selecionar esta opção, o agendamento será marcado como avaliação especializada.</div>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="notes">Observações</label>
+                        <textarea id="notes" rows="3" placeholder="Informações adicionais (medicamentos, necessidades, preferências)"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" id="btnClear" class="btn-secondary">Limpar</button>
+                        <button type="submit" class="btn-primary">Solicitar agendamento</button>
+                    </div>
+                </form>
+
+                <div style="margin-top:1.5rem;font-size:.95rem;color:#555;">
+                    <strong>Importante:</strong> Este formulário executa a validação no front-end e mostra o objeto do agendamento no console (para demonstração). Para produção, integre a um endpoint via fetch/POST.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- =======================================================
+     RODAPÉ
+======================================================= -->
+<footer class="section">
+    <p style="margin-bottom:.6rem;">© Instituto Nossa Casa — Todos os direitos reservados</p>
+    <p style="font-size:.9rem;color:#666;">Endereço: Vitória da Conquista - BA · CNPJ: 38.266.204/0801-41</p>
+    <p style="font-size:.9rem;color:#666;margin-top:.5rem;">Telefone: (77) 99999-9999 · Email: contato@institutonossacasa.org</p>
+</footer>
+
+<!-- =======================================================
+     SCRIPTS
+======================================================= -->
+<script>
+// Funções para os cursos
+function mostrarCurso(tipo) {
+    document.getElementById('cursos-principal').style.display = 'none';
+    
+    if (tipo === 'musica') {
+        document.getElementById('pagina-musica').style.display = 'block';
+    } else if (tipo === 'ingles') {
+        document.getElementById('pagina-ingles').style.display = 'block';
+    }
+    
+    // Rolar para a seção de cursos
+    document.getElementById('cursos').scrollIntoView({ behavior: 'smooth' });
+}
+
+function voltarCursos() {
+    document.getElementById('pagina-musica').style.display = 'none';
+    document.getElementById('pagina-ingles').style.display = 'none';
+    document.getElementById('cursos-principal').style.display = 'block';
+}
+
+function inscreverCurso(tipo) {
+    if (tipo === 'musica') {
+        const nome = document.getElementById('nome-musica').value;
+        const email = document.getElementById('email-musica').value;
+        const telefone = document.getElementById('telefone-musica').value;
+        const instrumento = document.getElementById('instrumento').value;
+        const experiencia = document.querySelector('input[name="experiencia-musica"]:checked');
+        
+        if (!nome || !email || !telefone || !instrumento || !experiencia) {
+            alert('Por favor, preencha todos os campos obrigatórios.');
+            return;
+        }
+        
+        const dados = { 
+            nome, 
+            email, 
+            telefone, 
+            instrumento, 
+            experiencia: experiencia.value,
+            curso: 'Música',
+            data: new Date().toISOString()
+        };
+        
+        console.log('Inscrição em Música:', dados);
+        alert('Inscrição para aulas de música enviada com sucesso! Entraremos em contato em breve.');
+        voltarCursos();
+        
+        // Limpar formulário
+        document.getElementById('nome-musica').value = '';
+        document.getElementById('email-musica').value = '';
+        document.getElementById('telefone-musica').value = '';
+        document.getElementById('instrumento').value = '';
+        document.querySelectorAll('input[name="experiencia-musica"]').forEach(radio => radio.checked = false);
+        
+    } else if (tipo === 'ingles') {
+        const nome = document.getElementById('nome-ingles').value;
+        const email = document.getElementById('email-ingles').value;
+        const telefone = document.getElementById('telefone-ingles').value;
+        const nivel = document.getElementById('nivel-ingles').value;
+        const horario = document.getElementById('horario').value;
+        const tipoAula = document.querySelector('input[name="tipo-aula"]:checked');
+        
+        if (!nome || !email || !telefone || !nivel || !horario || !tipoAula) {
+            alert('Por favor, preencha todos os campos obrigatórios.');
+            return;
+        }
+        
+        const dados = { 
+            nome, 
+            email, 
+            telefone, 
+            nivel, 
+            horario,
+            tipoAula: tipoAula.value,
+            curso: 'Inglês',
+            data: new Date().toISOString()
+        };
+        
+        console.log('Inscrição em Inglês:', dados);
+        alert('Inscrição para aulas de inglês enviada com sucesso! Entraremos em contato em breve.');
+        voltarCursos();
+        
+        // Limpar formulário
+        document.getElementById('nome-ingles').value = '';
+        document.getElementById('email-ingles').value = '';
+        document.getElementById('telefone-ingles').value = '';
+        document.getElementById('nivel-ingles').value = '';
+        document.getElementById('horario').value = '';
+        document.querySelectorAll('input[name="tipo-aula"]').forEach(radio => radio.checked = false);
+    }
+}
+
+// Sistema de Agendamentos
+(function() {
+    // Horários por dia
+    const schedule = [
+        { day: "Segunda-feira", slots: [{ from: "06:00", to: "20:00" }] },
+        { day: "Terça-feira", slots: [{ from: "06:30", to: "08:00" }] },
+        { day: "Quarta-feira", slots: [{ from: "19:00", to: "20:00" }] },
+        { day: "Quinta-feira", slots: [{ from: "16:30", to: "21:00" }] },
+        { day: "Sexta-feira", slots: [{ from: "16:00", to: "18:00" }] },
+    ];
+
+    const ONLINE_FEE = 30.00;
+
+    function toMinutes(t) {
+        const [hh, mm] = t.split(":").map(Number);
+        return hh*60 + mm;
+    }
+    function minutesToTime(m) {
+        const hh = Math.floor(m/60).toString().padStart(2,"0");
+        const mm = (m%60).toString().padStart(2,"0");
+        return hh + ":" + mm;
+    }
+    function generateBlocks(from, to, blockMins=30) {
+        const start = toMinutes(from);
+        const end = toMinutes(to);
+        const blocks = [];
+        for (let m = start; m + blockMins <= end; m += blockMins) {
+            blocks.push({ from: minutesToTime(m), to: minutesToTime(m+blockMins) });
+        }
+        return blocks;
+    }
+
+    // DOM refs
+    const daysList = document.getElementById("daysList");
+    const currentSelection = document.getElementById("currentSelection");
+    const appointmentForm = document.getElementById("appointmentForm");
+    const feeValueSpan = document.getElementById("feeValue");
+    const btnClear = document.getElementById("btnClear");
+
+    feeValueSpan.textContent = ONLINE_FEE.toFixed(2).replace(".", ",");
+
+    let selectedDayObj = null;
+    let selectedBlock = null;
+
+    // render days
+    schedule.forEach((d, idx) => {
+        const div = document.createElement("div");
+        div.className = "day-card";
+        div.dataset.index = idx;
+        div.innerHTML = `<div style="font-weight:600">${d.day}</div>
+                         <div style="font-size:.95rem;color:#555;">${d.slots.map(s => s.from + " — " + s.to).join(", ")}</div>
+                         <div class="slots-container" style="margin-top:.5rem;"></div>`;
+        daysList.appendChild(div);
+
+        div.addEventListener("click", () => {
+            document.querySelectorAll(".day-card").forEach(c => c.classList.remove("active"));
+            div.classList.add("active");
+            selectedDayObj = d;
+            selectedBlock = null;
+            // clear previous slot lists
+            document.querySelectorAll(".slots-container").forEach(sc => sc.innerHTML = "");
+            renderBlocksForDay(div.querySelector(".slots-container"), d);
+            updateCurrentSelection();
+        });
+    });
+
+    function renderBlocksForDay(container, day) {
+        container.innerHTML = "";
+        const blocks = generateBlocks(day.slots[0].from, day.slots[0].to, 30);
+        const wrap = document.createElement("div");
+        wrap.style.display = "flex";
+        wrap.style.flexWrap = "wrap";
+        wrap.style.gap = ".4rem";
+        blocks.forEach(b => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "slot-btn";
+            btn.textContent = `${b.from} — ${b.to}`;
+
+            btn.addEventListener("click", () => {
+                // remove selected from this container
+                container.querySelectorAll(".slot-btn").forEach(x => {
+                    x.classList.remove("selected");
+                });
+                btn.classList.add("selected");
+                selectedBlock = { from: b.from, to: b.to };
+                updateCurrentSelection();
+            });
+
+            wrap.appendChild(btn);
+        });
+        container.appendChild(wrap);
+    }
+
+    function updateCurrentSelection() {
+        if (!selectedDayObj) {
+            currentSelection.textContent = "Nenhum dia / Nenhum horário selecionado";
+            return;
+        }
+        const day = selectedDayObj.day;
+        const slotText = selectedBlock ? `${selectedBlock.from} — ${selectedBlock.to}` : "Nenhum horário";
+        currentSelection.textContent = `${day} — ${slotText}`;
+    }
+
+    // limpar
+    btnClear.addEventListener("click", () => {
+        appointmentForm.reset();
+        selectedDayObj = null;
+        selectedBlock = null;
+        document.querySelectorAll(".day-card").forEach(c => c.classList.remove("active"));
+        document.querySelectorAll(".slots-container").forEach(sc => sc.innerHTML = "");
+        updateCurrentSelection();
+    });
+
+    // submit
+    appointmentForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const name = document.getElementById("patientName").value.trim();
+        const email = document.getElementById("patientEmail").value.trim();
+        const phone = document.getElementById("patientPhone").value.trim();
+        const notes = document.getElementById("notes").value.trim();
+        const isAutismEval = document.getElementById("autismEval").checked;
+        const type = appointmentForm.querySelector('input[name="type"]:checked').value;
+        const pay = appointmentForm.querySelector('input[name="pay"]:checked').value;
+
+        if (!selectedDayObj || !selectedBlock) {
+            alert("Por favor selecione um dia e um horário antes de enviar.");
+            return;
+        }
+        if (!name || !email || !phone) {
+            alert("Por favor informe todos os campos obrigatórios.");
+            return;
+        }
+
+        const payload = {
+            patientName: name,
+            patientEmail: email,
+            patientPhone: phone,
+            day: selectedDayObj.day,
+            slot: selectedBlock,
+            appointmentType: type,
+            paymentMethod: pay,
+            isAutismEval: isAutismEval,
+            notes: notes,
+            fee: (type === "online" && pay === "online") ? ONLINE_FEE : 0,
+            donationRequired: (type === "online" && pay === "doacao") ? "1kg alimento/produtos higiene" : null,
+            createdAt: new Date().toISOString()
+        };
+
+        console.log("Agendamento solicitado:", payload);
+        alert("Agendamento solicitado com sucesso! Entraremos em contato para confirmar.");
+
+        // limpa
+        appointmentForm.reset();
+        selectedDayObj = null;
+        selectedBlock = null;
+        document.querySelectorAll(".day-card").forEach(c => c.classList.remove("active"));
+        document.querySelectorAll(".slots-container").forEach(sc => sc.innerHTML = "");
+        updateCurrentSelection();
+    });
+
+    // Copiar PIX
+    document.querySelectorAll('.btn-copiar').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const text = btn.dataset.text;
+            if (!text) return;
+            navigator.clipboard?.writeText(text).then(() => {
+                const original = btn.textContent;
+                btn.textContent = 'Copiado!';
+                setTimeout(() => btn.textContent = original, 1500);
+            }).catch(() => {
+                alert('Não foi possível copiar automaticamente. Copie manualmente: ' + text);
+            });
+        });
+    });
+
+})();
+</script>
+
+</body>
+</html>
