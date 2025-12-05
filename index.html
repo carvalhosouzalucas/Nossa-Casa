@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ONG cristã em Vitória da Conquista-BA oferecendo atendimento médico voluntário, cursos, casa de apoio e assistência social">
+    <title>Projeto Nossa Casa</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+
+<style>
+/* ============================================
+   RESET E CONFIGURAÇÕES GERAIS
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #1e5799 0%,#207cca 51%,#2989d8 100%);
+    min-height: 100vh;
+    color: #000;
+    line-height: 1.6;
+}
+
+/* NAVBAR */
+.main-nav {
+    background: rgb(5, 165, 229, 0.3);
+    backdrop-filter: blur(20px);
+    transition: all 0.3s ease;
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+.nav-link {
+    text-decoration: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
+    background: rgba(255,255,255,0.1);
+}
+
+.nav-link:hover {
+    background: #0dc30d;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(13, 195, 13, 0.4);
+}
+
+/* SEÇÕES */
+.section {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    margin: 6rem 2rem 2rem;
+    border-radius: 18px;
+    box-shadow: 0 6px 26px rgba(0,0,0,0.18);
+}
+
+/* Hero */
+.hero-section {
+    text-align: center;
+    padding-top: 8rem;
+    color: #fff;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 5px rgba(0,0,0,.3);
+    margin-bottom: 1.5rem;
+}
+
+.hero-description {
+    margin: 2rem auto 0;
+    font-size: 1.2rem;
+    background: rgba(255,255,255,0.95);
+    padding: 2rem;
+    color: #333;
+    border-radius: 15px;
+    max-width: 800px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Títulos */
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    color: #2c3e50;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+}
+
+/* Missão, Visão e Valores */
+.missao-valores {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.missao-valores-item {
+    background: rgba(255,255,255,0.92);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-top: 4px solid #0dc30d;
+}
+
+.missao-valores-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.item-title {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.item-text {
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* Equipe */
+.equipe {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.membro-equipe {
+    background: rgba(255,255,255,0.92);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.membro-equipe:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.membro-equipe img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(0,0,0,.3);
+    margin-bottom: 1rem;
+}
+
+.membro-descricao {
+    line-height: 1.6;
+}
+
+/* Botões */
+.btn-inscricao {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #0dc30d;
+    color: white;
+    font-weight: 600;
+    border-radius: 30px;
+    margin: 1rem 0.5rem;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(13, 195, 13, 0.3);
+}
+
+.btn-inscricao:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    background: #0bb30b;
+}
+
+/* PIX */
+.pix-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.qr-code {
+    text-align: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.qr-code img {
+    width: 240px;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+}
+
+.pix-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.pix-item {
+    padding: 1.3rem;
+    background: white;
+    border-radius: 10px;
+    border-left: 4px solid #0dc30d;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.pix-item h3 {
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.btn-copiar {
+    background: #0dc30d;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+    transition: all 0.3s;
+}
+
+.btn-copiar:hover {
+    background: #0bb30b;
+}
+
+/* Agendamentos */
+.agendamentos-wrap {
+    background: rgba(255,255,255,0.98);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.agendamentos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.day-card {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+    background: #f8f9fa;
+}
+
+.day-card:hover {
+    background: #e9ecef;
+}
+
+.day-card.active {
+    border-color: #0dc30d;
+    background: #e8f5e8;
+}
+
+.slot-btn {
+    padding: 0.45rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid #ddd;
+    background: #fff;
+    cursor: pointer;
+    font-size: .95rem;
+    transition: all 0.3s;
+}
+
+.slot-btn:hover {
+    background: #f0f0f0;
+}
+
+.slot-btn.selected {
+    background: #0dc30d;
+    color: #fff;
+    border-color: #0db21e;
+}
+
+.form-row {
+    margin-bottom: 1rem;
+}
+
+.form-row label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-row input[type="text"],
+.form-row textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: "Poppins", sans-serif;
+}
+
+.form-row textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.radio-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.checkbox-group input {
+    margin-top: 0.25rem;
+}
+
+.small {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.btn-primary {
+    background: #0dc30d;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background: #0bb30b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(13, 195, 13, 0.3);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+}
+
+/* Páginas de cursos */
+.pagina-curso {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.formulario-inscricao {
+    margin-top: 2rem;
+}
+
+.formulario-inscricao .form-row {
+    margin-bottom: 1.5rem;
+}
+
+/* Rodapé */
+footer {
+    margin-top: 1.5rem;
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255,255,255,0.9);
+    border-radius: 15px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .main-nav {
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .section {
+        padding: 2rem 1.5rem;
+        margin: 5rem 1rem 1rem;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .agendamentos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .pix-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .equipe {
+        grid-template-columns: 1fr;
+    }
+    
+    .missao-valores {
+        grid-template-columns: 1fr;
+    }
+    
+    .radio-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+}
+
+/* Estilos Gerais */
+.section {
+    padding: 4rem 2rem;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cabeçalho da Seção */
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.section-intro {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Grid da Equipe */
+.equipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+/* Cartão do Membro */
+.membro-equipe {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.membro-equipe:hover {
+    transform: translateY(-5px);
+}
+
+/* Avatar */
+.avatar-container {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1.5rem;
+    border: 5px solid #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Informações do Membro */
+.membro-info {
+    text-align: center;
+}
+
+.membro-nome {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.membro-cargo {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.membro-descricao {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.membro-descricao p {
+    margin-bottom: 1rem;
+}
+
+.membro-descricao p:last-child {
+    margin-bottom: 0;
+}
+
+/* Modalidades */
+.modalidades-container {
+    display: grid;
+    gap: 2rem;
+}
+
+.modalidade-card {
+    background: #f5f5f5;
+    border-radius: 8px;
+    padding: 2rem;
+    border-left: 4px solid #4CAF50;
+}
+
+.modalidade-titulo {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.modalidade-descricao {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.modalidade-descricao p {
+    margin-bottom: 1rem;
+}
+
+.modalidade-descricao p:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .section {
+        padding: 2rem 1rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .equipe-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .membro-equipe {
+        padding: 1.5rem;
+    }
+    
+    .avatar-container {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .modalidade-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .avatar-container {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .membro-nome {
+        font-size: 1.3rem;
+    }
+    
+    .modalidade-titulo {
+        font-size: 1.2rem;
+    }
+}
+</style>
+</head>
+
+<body>
+    
+<!-- NAVBAR -->
+<nav class="main-nav">
+    <a href="#inicio" class="nav-link">Home</a>
+    <a href="#atuacao" class="nav-link">Atuação</a>
+    <a href="#sobre-nos" class="nav-link">Sobre Nós</a>
+    <a href="#atividades" class="nav-link">atividades</a>
+    <a href="#cursos" class="nav-link">Cursos</a>
+    <a href="#colabore" class="nav-link">Colabore</a>
+    <a href="#agendamentos" class="nav-link">Agendamentos</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero-section" id="inicio">
+    <h1 class="hero-title">OLÁ!</h1>
+    <div class="hero-description">
+        Somos uma entidade social sem fins lucrativos que atua nas áreas de Saúde, Casa de Apoio, Assistência Social, 
+        Música, Cursos e missão cristã. Fundada na fé, servindo em Vitória da Conquista-BA.
+    </div>
+</div>
+
+<!-- =======================================================
+     SEÇÃO ATUAÇÃO
+======================================================= -->
+<div id="atuacao" class="section">
+    <h2 class="section-subtitle">ATUAÇÃO</h2>
+    <h1 class="section-title">O que fazemos</h1>
+
+    <div class="missao-valores">
+        <div class="missao-valores-item">
+            <h2 class="item-title">Nossa missão</h2>
+            <p class="item-text">
+                Servir ao próximo com amor cristão através de ações sociais, saúde, apoio emocional e espiritual.
+            </p>
+        </div>
+
+        <div class="missao-valores-item">
+            <h2 class="item-title">Nossa visão</h2>
+            <p class="item-text">
+                Ser uma instituição de referência em cuidado humanizado, fé, saúde e inclusão social.
+            </p>
+        </div>
+
+        <div class="missao-valores-item">
+            <h2 class="item-title">Nossos valores</h2>
+            <p class="item-text">
+                Fé, amor, ética, serviço ao próximo, excelência, organização e transparência.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- =======================================================
+     SEÇÃO SOBRE NÓS / EQUIPE
+======================================================= -->
+<section id="sobre-nos" class="section" aria-label="Sobre nós e nossa equipe">
+    <div class="container">
+        <header class="section-header">
+            <h2 class="section-subtitle">Sobre nós</h2>
+            <h1 class="section-title">Conheça nossa equipe</h1>
+        </header>
+
+        <div class="equipe-grid">
+            <!-- Membro 1: Normacy -->
+            <article class="membro-equipe">
+                <div class="avatar-container">
+                    <img src="fotos/norman.png" alt="Apóstola Normacy - Pastora Presidente" class="avatar">
+                </div>
+                <div class="membro-info">
+                    <h3 class="membro-nome">Apóstola Normacy</h3>
+                    <p class="membro-cargo">Pastora Presidente e Fundadora do Instituto Nossa Casa</p>
+                    <div class="membro-descricao">
+                        <p>A apostola Normacy é serva do Senhor que advém da Igreja Nova Sião, do pastor Edilson de Souza da Silva, e da Comunidade Deus Vivo, do Pastor Rubens Cavalcante em Vitoria da Conquista-BA. É a pastora presidente da Igreja Batista Renovada Restaurando Vidas. Possui formação pela RHEMA do Verbo da Vida – Brasil, organização ligada ao "Kenneth Hagin Ministres", em Tulsa-OK, Estados Unidos. Possui ampla experiência no campo de manejo de problemas psicoemocionais. Ela já ajudou na implantaçao de diversas igrejas locais, na geração de projetos sociais como o Cristo Liberta e faz parte do resgaste de muitas vidas para Jesus em um ministério de entrega, verdade, compromisso e amor ao próximo. Integra as igrejas aliançadas ao ministério MEVAM presidido pelo apostolo Luís Hermínio, em Itajaí-SC. Normacy é presidente e fundadora do Instituto Nossa Casa.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Membro 2: Dra. Jana -->
+            <article class="membro-equipe">
+                <div class="avatar-container">
+                    <img src="fotos/Dr_Jana.png" alt="Dra. Jana - Médica e Tesoureira" class="avatar">
+                </div>
+                <div class="membro-info">
+                    <h3 class="membro-nome">Dra. Jana</h3>
+                    <p class="membro-cargo">Médica, Tesoureira e Fundadora do Instituto Nossa Casa</p>
+                    <div class="membro-descricao">
+                        <p>Dra Jana é discípula da pastora Normacy, serva do Senhor, diaconisa da Igreja Batista Renovada Restaurando Vidas, graduada em Medicina pela Universidade Estadual de Santa Cruz (UESC), em Ilhéus-BA (2010), mestrado em Medicina da Família pela Universidade Federal do Sul da Bahia (UFSB). Titulada em Medicina da Família e Comunidade pela Sociedade Brasileira de Medicina de Família e Comunidade. Realizou Especialização em UTI no Hospital Albert Einstein, Preceptoria em Residência Médica pelo Hospital Sírio-Libanês, MBA em Gestão de Saúde pela USP e Gestão e liderança de pessoas pela FASU/UNIGRAD. Atua como tutora do programa de pós-graduação da Universidade Federal de São Paulo - UNIFESP e no internato de Medicina da Universidade Federal da Bahia - UFBA e da Faculdade Santo Agostinho, pertencente ao grupo Afya. Busca o cuidado aos seus pacientes com amor, compromisso e resolutividade. Dedica-se ao voluntariado desde a época da graduação e, o encontro com Cristo a fez ser direcionada para seu verdadeiro propósito para utilizar sua profissão como instrumento de empatia, ajuda social e, acima de tudo, resgate de almas para o Senhor através da Medicina. Jana é gestora médica, tesoureira e fundadora do Instituto Nossa Casa.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Membro 3: Fabrício -->
+            <article class="membro-equipe">
+                <div class="avatar-container">
+                    <img src="fotos/Fabricio.png" alt="Fabrício Silva Pinheiro - Profissional de Educação Física" class="avatar">
+                </div>
+                <div class="membro-info">
+                    <h3 class="membro-nome">Fabrício Silva Pinheiro</h3>
+                    <p class="membro-cargo">Vice-presidente do Instituto Nossa Casa</p>
+                    <div class="membro-descricao">
+                        <p>Fabrício Silva Pinheiro é profissional de educação física com especialização em treinamento integrado especialização em fisiologia do exercício em grupos especiais, CEO Academia Senso Vital fundador do método 7in7, CEO DA ACADEMIA ON-LINE. Ajudou em emagrecer mais de 9000 pessoas mudando seu estilo de vida mais ativo, autoridade em resultados rápidos com treino em casa e academia, criador do programa qualidade de vida e saúde laboral atua há mais de 16 anos. Apaixonado pelo o que faz, e grato por ter uma profissão que promove saúde e bem-estar. Atua como Vice-presidente do Instituto Nossa Casa.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Membro 4: Fernanda -->
+            <article class="membro-equipe">
+                <div class="avatar-container">
+                    <img src="fotos/Fernanda.png" alt="Fernanda Carvalho - Administradora e Cabeleireira" class="avatar">
+                </div>
+                <div class="membro-info">
+                    <h3 class="membro-nome">Fernanda Carvalho</h3>
+                    <p class="membro-cargo">2ª Secretária do Instituto Nossa Casa</p>
+                    <div class="membro-descricao">
+                        <p>Fernanda Carvalho é formada em administração, profissão em cabeleireira com especialização em mega Hair, sócia- proprietária do salão Sônia Carvalho localizado no Bairro Recreio. Muito comunicativa, esbanja simpatia e compromisso com seus clientes. Exerce a função de 2ª secretária do Instituto Nossa Casa.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Membro 5: Marizene -->
+            <article class="membro-equipe">
+                <div class="avatar-container">
+                    <img src="fotos/Marizene.png" alt="Professora e Pastora Marizene Chagas Fiuza" class="avatar">
+                </div>
+                <div class="membro-info">
+                    <h3 class="membro-nome">Professora e Pastora Marizene Chagas Fiuza</h3>
+                    <p class="membro-cargo">Conselheira Fiscal do Instituto Nossa Casa</p>
+                    <div class="membro-descricao">
+                        <p>Professora e pastora Marizene Chagas Fiuza, graduada em Letras Vernáculas pela UESB. Pós graduada em "O Ensino da Língua Portuguesa" pelo instituto Pró Saber. Especializada em: Neuropsicopedagogia pela Faveni; Neurociência das Emoções e Inteligência Emocional pelo Instituto Brasileiro de Desenvolvimento Emocional. Graduada pelo Centro de Treinamento Bíblico Rhema. Atua há 26 anos como professora da rede Municipal de Ensino de Vitória da Conquista. Utiliza a palavra de Deus como ferramenta de trabalho para ajudar e aconselhar crianças e adolescentes em situação de abandono e vulnerabilidade social. Lidera e coordena o ministério de crianças da Igreja Batista Renovada Restaurando Vidas e também lidera o Ministério de Estudos da referida Igreja. No Instituto Nossa Casa atua como conselheira fiscal.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Membro 6: Sonia -->
+            <article class="membro-equipe">
+                <div class="avatar-container">
+                    <img src="fotos/Sonia.png" alt="Sonia Caetano Veiga - Diaconisa" class="avatar">
+                </div>
+                <div class="membro-info">
+                    <h3 class="membro-nome">Sonia Caetano Veiga</h3>
+                    <p class="membro-cargo">2ª Tesoureira do Instituto Nossa Casa</p>
+                    <div class="membro-descricao">
+                        <p>Sonia Caetano Veiga trabalhou mais de 20 anos no Hospital São Geraldo no setor da nutrição. Atua como líder nas atividades realizadas no Centro de Recuperação. Exerce atividades variadas no Ministério, sempre muito solicita e alegre seja na tesouraria, na higienização dos ambientes, no preparo das refeições para atividades externas e internas. Sonia é diaconisa no Ministério e exerce a função de 2ª tesoureira do Instituto Nossa Casa.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Membro 7: Valter -->
+            <article class="membro-equipe">
+                <div class="avatar-container">
+                    <img src="fotos/Valter.png" alt="Pastor Valter Rodrigues - Motorista e Secretário" class="avatar">
+                </div>
+                <div class="membro-info">
+                    <h3 class="membro-nome">Pastor Valter Rodrigues</h3>
+                    <p class="membro-cargo">2º Secretário do Instituto Nossa Casa</p>
+                    <div class="membro-descricao">
+                        <p>O pastor Valter Rodrigues é motorista de formação e conduz os transportes do projeto e do Ministério. É reconhecido pelo amor ao próximo, dedicando-se ao cuidado das crianças carentes em municípios como Porto Seguro, Ipiaú e Vitoria da Conquista há mais de 10 anos. Possui um forte chamado evangelístico e nas atitudes de servir a todos aqueles a seu redor. No Projeto, atua como 2º secretário.</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- Seção separada para as Modalidades do Instituto -->
+<section id="modalidades" class="section" aria-label="Modalidades do Instituto Nossa Casa">
+    <div class="container">
+        <header class="section-header">
+            <h2 class="section-title">Modalidades do Instituto Nossa Casa</h2>
+            <p class="section-intro">Nosso trabalho se desenvolve através de diferentes modalidades de atuação:</p>
+        </header>
+
+        <div class="modalidades-container">
+            <!-- Introdução do Instituto -->
+            <div class="modalidade-card">
+                <h3 class="modalidade-titulo">Sobre o Instituto</h3>
+                <div class="modalidade-descricao">
+                    <p>O Instituto Nossa Casa trabalha com serviço voluntário e rede colaborativa via parceria. Nesta rede, o colaborador adere ao Instituto, sendo cadastrado como parceiro. A proposta é fornecer uma atendimento de qualidade, comprometido, integrado, acessível aos usuários. Buscamos profissionais com capacidade técnica aliada a princípios éticos para ampliação da assistência aos que procuram socorro.</p>
+                    <p>Sabemos que vivenciamos uma realidade na qual as unidades de saúde se encontram lotadas, as filas de espera são gigantes, o acolhimento e a empatia ocorrem muitas vezes de fachada e o amor ao próximo se esfriou. Muitos profissionais estão sobrecarregados por cobranças e fadigados por Burnout e, infelizmente, as profissões se mecanizaram. Por sua vez, as pessoas falecem aos poucos em suas casas aguardando vaga, recursos monetários ou condição de ter um plano de saúde suplementar. As barreiras para realizar exames de diferentes complexidades vão desde as financeiras até mesmo à explicação adequada para preparo de um exame ou flexibilidade para agendamento de horários compatíveis com o trabalho do cidadão.</p>
+                    <p>Neste cenário, pessoas se deslocam de seus municípios de origem para centros de referência para tratamento de saúde. Alguns deles demandam tempo prolongado e necessidade de permanência na cidade maior para efetividade da assistência, sobretudo, realização de exames e consultas com especialista na área afetada. Nem sempre existe a disponibilidade de transporte diário para este percurso, além de ser cansativo e custoso. Além do mais, as condições de saúde física agregam sofrimento psíquico e emocional aos cuidadores e familiares, algo que não se resolve simplesmente com medicalização. Em um ciclo vicioso, há uma agravamento da doença individual/familiar, aumento das despesas públicas e privadas com medicação/reabilitação e luta por regulação de leito de internação hospitalar devido a superlotação por paciente que já chegaram fora do time ao "fim de linha do sistema", o sistema terciário. As pessoas estão cada vez mais sofrendo com ansiedade e depressão, independente da sua classe social, o que desencadeia outras doenças físicas.</p>
+                    <p>Em uma proposta adjuvante, o nosso projeto trabalha com o modelo de Casa de Apoio organizado para acolher este público familiar no campo físico, mental e espiritual em diferentes patologias. Atualmente, recebemos neste novo ciclo os acompanhantes dos pacientes que estão em tratamento de saúde, a saber em hospitais e clínicas.</p>
+                </div>
+            </div>
+
+            <!-- Modalidade 1 -->
+            <div class="modalidade-card">
+                <h3 class="modalidade-titulo">Modalidade 1: Colaborador Voluntário</h3>
+                <div class="modalidade-descricao">
+                    <p>O colaborador se cadastra, opta com que tipo de serviço ajudará e o turno e dias do mês. Informa o local de prestação de serviço, a quantidade de vidas atendidas por mês. O médico gatekeeper (regulador/acolhedor) faz triagem presencial ou via teleconsulta e entra em contato com o colaborador parceiro para encaminhamento ou teleconsultoria. Estabelece-se termo de parceria entre o colaborador e a instituição.</p>
+                    <p>Em contrapartida, o colaborador recebe a carteirinha da instituição e a declaração de voluntariado "que pode ser útil como critério de desempate em concursos, seleções, licitações, entre outros, além de visibilidade social no caso de sua empresa/profissão com a concessão de um "selo" de entidade parceira filantrópica.</p>
+                    <p>Aos serviços públicos, braços de apoio para a atenção primária e secundária com rede de voluntariado e atendimentos de saúde nos bairros.</p>
+                </div>
+            </div>
+
+            <!-- Modalidade 2 -->
+            <div class="modalidade-card">
+                <h3 class="modalidade-titulo">Modalidade 2: Cartão de Encaminhamentos com Desconto</h3>
+                <div class="modalidade-descricao">
+                    <p>O colaborador também realiza o cadastro e se estabelece o termo de compromisso entre o instituto e o parceiro. A proposta é fornecer, sobretudo, aos pacientes uma assistência de qualidade, sem sucateamento ou massificação, preservando a integralidade, a individualidade, melhorando o acesso.</p>
+                    <p>Oportuniza ao profissional ampliar sua carteira de clientes e ao paciente a oportunidade de desfrutar de profissionais comprometidos na assistência à sua saúde. Para participar como assistido na modalidade de cartão de encaminhamento de descontos, o assistido fará uma contribuição mensal com o instituto filantrópico no valor de R$ 19,90.</p>
+                    <p>Caso necessite de consulta/procedimento para aqueles cadastrados no rol de parceiros, o assistido pelo instituto terá desconto sobre o valor integral a combinar com o profissional na modalidade de desconto. O profissional colaborador receberá o valor da prestação de serviço e repassará para o instituto uma taxa de contribuição a combinar, evitando bitributação.</p>
+                    <p>As marcações para retornos deveram ocorrer no período de 30 dias e conforme a agenda do profissional a ser pactuado com o paciente em seu consultório, podendo ser presencial ou online. Tanto a contribuição mensal do assistido, quanto a taxa do colaborador serão revertidas destinadas para manutenção das atividades da casa de apoio de saúde, custeio de mão-de-obra profissional, realização de oficinas profissionalizantes para geração de emprego, atividades inclusivas cristãs voltadas para o público infantil e jovem.</p>
+                </div>
+            </div>
+
+            <!-- Modalidade 3 -->
+            <div class="modalidade-card">
+                <h3 class="modalidade-titulo">Modalidade 3: Casa de Apoio</h3>
+                <div class="modalidade-descricao">
+                    <p>O apoio ambulatorial a pacientes e acompanhantes em situação de vulnerabilidade de saúde constitui a principal atividade social do Instituto Nossa Casa. Segundo o Ministério da Saúde, casas de apoio são organizações que oferecem serviços de acolhimento temporário e suporte a pacientes do Sistema Único de Saúde (SUS), ajudando-os a superar as barreiras sociais e econômicas que poderiam impedir o acesso aos tratamentos.</p>
+                    <p>Para fortalecer este braço, o projeto busca outras atividades mantenedoras, além dos recursos próprios dos participantes, doações e contribuições da sociedade civil. Ao longo deste tempo, acolhemos muitos pacientes para subsídio em tratamento de saúde. Atualmente, funcionamos no regime casa de passagem recebemos os acompanhantes de pacientes hospitalizados, bem acompanhantes daqueles pacientes de perfil ambulatorial que demandem mais tempo no município para realização de consultas/procedimentos/exames.</p>
+                    <p>A prefeitura interessada e o Instituto celebraram entre si convênio e estabelecem pactuação dos termos. Em contrapartida, a Casa de Apoio fornece acolhimento físico, mental e espiritual. A casa de apoio conta com médica reguladora gatekeeper que reavalia as necessidades dos assistidos e encaminha aos especialistas devidos, articulando a integralidade da assistência, bem como fornecer apoio médico local. Conta ainda com serviço social, jurídico, psicólogo, educador físico fisioterapia e enfermagem.</p>
+                    <p>Não se trata de uma pensão, casa de estudante ou pousada, mas sim uma organização dotada sob os princípios cristãos para apoio a sociedade civil.</p>
+                </div>
+            </div>
+
+            <!-- Modalidade 4 -->
+            <div class="modalidade-card">
+                <h3 class="modalidade-titulo">Modalidade 4: Projeto de Música</h3>
+                <div class="modalidade-descricao">
+                    <p>O projeto fornece aulas de música a saber, violão, guitarra, bateria, teclado, percussão. Contamos com professores parceiros. Para participar do projeto, como aluno realizamos uma taxa simbólica de matrícula + uma contribuição mensal que é revertida para transporte do professor voluntário, manutenção de instrumentos e para as próprias atividades do projeto.</p>
+                    <p>São organizadas em pequenas turmas simultâneas a fim de otimizar o aprendizado. O professor colaborador recebe uma ajuda de custo e uma declaração de parceria. O aluno tem acesso a atividades que dificilmente teria como custear com recursos próprios e estará incluído em um ambiente saudável voltado para atividades produtivas geradoras de vida, o que trabalha no controle das suas emoções como ansiedade.</p>
+                </div>
+            </div>
+
+            <!-- Modalidade 5 -->
+            <div class="modalidade-card">
+                <h3 class="modalidade-titulo">Modalidade 5: Oficinas Profissionalizantes e Cursos de Línguas</h3>
+                <div class="modalidade-descricao">
+                    <p>O projeto possui um campo educacional voltado para capacitação e inclusão social. Tratam-se de realização de aulas semanais de línguas estrangeiras, cursos profissionalizantes como de cuidadores, palestras educativas na área de saúde, entre outros.</p>
+                    <p>Em relação ao curso de línguas, o aluno realiza a matrícula e contribui com uma taxa mensal de R$ 60,00 reais que será destinada a ajuda de custo com voluntários como transporte, alimentação, bem como despesas com o próprio projeto. O professor colaborador recebe uma ajuda de custo e uma declaração de parceria.</p>
+                    <p>O aluno tem acesso a atividades que dificilmente teria como custear com recursos próprios e está incluído em um ambiente saudável, voltado para atividades produtivas geradoras de emprego e de vida.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="atividades" class="atividades-container">
+    <h3 class="section-subtitle">Nossa causa</h3>
+    <h1 class="section-subtitle">Conheça nossas atividades</h1>
+</div>
+
+<div class="galeria">
+    <img src="Imagens_atividade/foto1.png" alt="Foto 1">
+    <img src="Imagens_atividade/foto2.png" alt="Foto 2">
+    <img src="Imagens_atividade/foto3.png" alt="Foto 3">
+    <img src="Imagens_atividade/foto4.png" alt="Foto 4">
+    <img src="Imagens_atividade/foto5.png" alt="Foto 5">
+    <img src="Imagens_atividade/foto6.png" alt="Foto 6">
+    <img src="Imagens_atividade/foto7.png" alt="Foto 7">
+    <img src="Imagens_atividade/foto8.png" alt="Foto 8">
+</div>
+
+<!-- =======================================================
+     SEÇÃO CURSOS
+======================================================= -->
+<div id="cursos" class="section">
+    <h2 class="section-subtitle">CURSOS</h2>
+    <h1 class="section-title">Aprimore seus conhecimentos</h1>
+
+    <div id="cursos-principal">
+        <p style="font-size:1.1rem;line-height:1.7;margin-bottom:1.8rem;text-align:center;">
+            Oferecemos aulas de música (violão, guitarra, teclado, bateria e percussão),
+            cursos profissionalizantes, cursos de idiomas e atividades de inclusão social.
+        </p>
+
+        <div style="text-align: center;">
+            <button class="btn-inscricao" onclick="mostrarCurso('musica')">Inscreva-se nas aulas de música</button>
+            <button class="btn-inscricao" onclick="mostrarCurso('ingles')">Inscreva-se nas aulas de inglês</button>
+        </div>
+    </div>
+
+    <!-- Página de Música -->
+    <div id="pagina-musica" class="pagina-curso" style="display: none;">
+        <h2>Aulas de Música</h2>
+        <p>Oferecemos aulas de diversos instrumentos para todas as idades:</p>
+        <ul style="margin: 1rem 0 1rem 2rem;">
+            <li>Violão</li>
+            <li>Guitarra</li>
+            <li>Teclado</li>
+            <li>Bateria</li>
+            <li>Percussão</li>
+        </ul>
+        
+        <div class="formulario-inscricao">
+            <h3>Formulário de Inscrição</h3>
+            <div class="form-row">
+                <label for="nome-musica">Nome Completo *</label>
+                <input type="text" id="nome-musica" placeholder="Seu nome completo" required>
+            </div>
+            <div class="form-row">
+                <label for="email-musica">E-mail *</label>
+                <input type="email" id="email-musica" placeholder="seu@email.com" required>
+            </div>
+            <div class="form-row">
+                <label for="telefone-musica">Telefone *</label>
+                <input type="tel" id="telefone-musica" placeholder="(77) 99999-9999" required>
+            </div>
+            <div class="form-row">
+                <label for="instrumento">Instrumento de Interesse *</label>
+                <select id="instrumento" style="width:100%;padding:0.75rem;border-radius:8px;border:1px solid #ddd;" required>
+                    <option value="">Selecione um instrumento</option>
+                    <option value="violao">Violão</option>
+                    <option value="guitarra">Guitarra</option>
+                    <option value="teclado">Teclado</option>
+                    <option value="bateria">Bateria</option>
+                    <option value="percussao">Percussão</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Nível de Experiência *</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="experiencia-musica" value="iniciante" required> Iniciante</label>
+                    <label><input type="radio" name="experiencia-musica" value="intermediario"> Intermediário</label>
+                    <label><input type="radio" name="experiencia-musica" value="avancado"> Avançado</label>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn-secondary" onclick="voltarCursos()">Voltar</button>
+                <button type="button" class="btn-primary" onclick="inscreverCurso('musica')">Enviar Inscrição</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Página de Inglês -->
+    <div id="pagina-ingles" class="pagina-curso" style="display: none;">
+        <h2>Aulas de Inglês</h2>
+        <p>Aprenda inglês de forma prática e acessível com nossos professores voluntários:</p>
+        <ul style="margin: 1rem 0 1rem 2rem;">
+            <li>Aulas para iniciantes, intermediários e avançados</li>
+            <li>Foco em conversação</li>
+            <li>Material didático inclusivo</li>
+            <li>Turmas reduzidas para melhor aprendizado</li>
+            <li>Aulas presenciais e online</li>
+        </ul>
+        
+        <div class="formulario-inscricao">
+            <h3>Formulário de Inscrição</h3>
+            <div class="form-row">
+                <label for="nome-ingles">Nome Completo *</label>
+                <input type="text" id="nome-ingles" placeholder="Seu nome completo" required>
+            </div>
+            <div class="form-row">
+                <label for="email-ingles">E-mail *</label>
+                <input type="email" id="email-ingles" placeholder="seu@email.com" required>
+            </div>
+            <div class="form-row">
+                <label for="telefone-ingles">Telefone *</label>
+                <input type="tel" id="telefone-ingles" placeholder="(77) 99999-9999" required>
+            </div>
+            <div class="form-row">
+                <label for="nivel-ingles">Nível de Inglês *</label>
+                <select id="nivel-ingles" style="width:100%;padding:0.75rem;border-radius:8px;border:1px solid #ddd;" required>
+                    <option value="">Selecione seu nível</option>
+                    <option value="iniciante">Iniciante (nunca estudei)</option>
+                    <option value="basico">Básico (entendo o básico)</option>
+                    <option value="intermediario">Intermediário (consigo me comunicar)</option>
+                    <option value="avancado">Avançado (fluente/conversação)</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label for="horario">Horário Preferencial *</label>
+                <select id="horario" style="width:100%;padding:0.75rem;border-radius:8px;border:1px solid #ddd;" required>
+                    <option value="">Selecione um horário</option>
+                    <option value="manha">Manhã (8h-12h)</option>
+                    <option value="tarde">Tarde (14h-18h)</option>
+                    <option value="noite">Noite (19h-21h)</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label for="tipo-aula">Tipo de Aula *</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="tipo-aula" value="presencial" required> Presencial</label>
+                    <label><input type="radio" name="tipo-aula" value="online"> Online</label>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn-secondary" onclick="voltarCursos()">Voltar</button>
+                <button type="button" class="btn-primary" onclick="inscreverCurso('ingles')">Enviar Inscrição</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- =======================================================
+     SEÇÃO COLABORE / DOAÇÃO PIX
+======================================================= -->
+<div id="colabore" class="section">
+    <h1 class="section-title">Colabore com o Instituto Nossa Casa</h1>
+
+    <p style="font-size:1.2rem;text-align:center;line-height:1.7;margin:1.5rem 0;">
+        Seu apoio transforma vidas! Com apenas R$ 19,90 mensais você ajuda em atendimentos médicos,
+        casa de apoio, alimentação, cursos e apoio emocional a crianças, adultos e idosos.
+    </p>
+
+    <div class="pix-container">
+        <div class="qr-code">
+            <img src="qr_pix.png" alt="QR Code PIX do Instituto Nossa Casa" 
+                 style="width:240px;height:auto;border-radius:10px;margin-bottom:1rem;">
+            <p>Escaneie com o app do seu banco</p>
+        </div>        
+
+        <div class="pix-info">
+            <div class="pix-item">
+                <h3>Chave PIX (E-mail)</h3>
+                <p>projetonossacasa@gmail.com 
+                    <button class="btn-copiar" data-text="projetonossacasa@gmail.com">Copiar</button>
+                </p>
+            </div>
+
+            <div class="pix-item">
+                <h3>Chave PIX (CNPJ)</h3>
+                <p>38.266.204/0801-41
+                    <button class="btn-copiar" data-text="38.266.204/0801-41">Copiar</button>
+                </p>
+            </div>
+
+            <div class="pix-item">
+                <h3>Beneficiário</h3>
+                <p>Instituto Nossa Casa</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- =======================================================
+     SEÇÃO AGENDAMENTOS
+======================================================= -->
+<div id="agendamentos" class="section">
+    <h2 class="section-subtitle">Agendamentos</h2>
+    <h1 class="section-title">Agende sua consulta</h1>
+
+    <div class="agendamentos-wrap">
+        <p class="small" style="margin-bottom:1rem;">Escolha dia, horário, tipo de atendimento (presencial/online) e forma de pagamento.</p>
+
+        <div class="agendamentos-grid">
+            <!-- LADO ESQUERDO: dias -->
+            <div id="daysList" style="padding-right:1rem;border-right:1px solid #eee;">
+                <!-- dias serão inseridos dinamicamente -->
+            </div>
+
+            <!-- LADO DIREITO: formulário -->
+            <div>
+                <div id="selectedInfo" style="margin-bottom:1.5rem;">
+                    <strong>Seleção atual:</strong>
+                    <div id="currentSelection" class="small" style="margin-top:.4rem;">Nenhum dia / Nenhum horário selecionado</div>
+                </div>
+
+                <form id="appointmentForm">
+                    <div class="form-row">
+                        <label for="patientName">Nome do paciente *</label>
+                        <input id="patientName" type="text" placeholder="Nome completo" required />
+                    </div>
+
+                    <div class="form-row">
+                        <label for="patientEmail">E-mail *</label>
+                        <input id="patientEmail" type="email" placeholder="seu@email.com" required />
+                    </div>
+
+                    <div class="form-row">
+                        <label for="patientPhone">Telefone *</label>
+                        <input id="patientPhone" type="tel" placeholder="(77) 99999-9999" required />
+                    </div>
+
+                    <div class="form-row">
+                        <label>Tipo de atendimento *</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="type" value="presencial" checked> Presencial</label>
+                            <label><input type="radio" name="type" value="online"> Online</label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label>Forma de pagamento (aplica-se a atendimentos online)</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="pay" value="online" checked> Pagar taxa online (R$ <span id="feeValue">30,00</span>)</label>
+                            <label><input type="radio" name="pay" value="doacao"> Pagar com 1kg de alimento / produtos de limpeza/higiene</label>
+                        </div>
+                        <div class="small" style="margin-top:.4rem;">(Forma de pagamento apenas para atendimentos online.)</div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="autismEval">
+                            <label for="autismEval">Solicitar avaliação para Autismo</label>
+                        </div>
+                        <div class="small">Ao selecionar esta opção, o agendamento será marcado como avaliação especializada.</div>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="notes">Observações</label>
+                        <textarea id="notes" rows="3" placeholder="Informações adicionais (medicamentos, necessidades, preferências)"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" id="btnClear" class="btn-secondary">Limpar</button>
+                        <button type="submit" class="btn-primary">Solicitar agendamento</button>
+                    </div>
+                </form>
+
+                <div style="margin-top:1.5rem;font-size:.95rem;color:#555;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- =======================================================
+     RODAPÉ
+======================================================= -->
+<footer class="section">
+    <p style="margin-bottom:.6rem;">© Instituto Nossa Casa — Todos os direitos reservados</p>
+    <p style="font-size:.9rem;color:#666;">Endereço: Vitória da Conquista - BA · CNPJ: 38.266.204/0801-41</p>
+    <p style="font-size:.9rem;color:#666;margin-top:.5rem;">Telefone: (77) 99999-9999 · Email: contato@institutonossacasa.org</p>
+</footer>
+
+<!-- =======================================================
+     SCRIPTS
+======================================================= -->
+<script>
+// Funções para os cursos
+function mostrarCurso(tipo) {
+    document.getElementById('cursos-principal').style.display = 'none';
+    
+    if (tipo === 'musica') {
+        document.getElementById('pagina-musica').style.display = 'block';
+    } else if (tipo === 'ingles') {
+        document.getElementById('pagina-ingles').style.display = 'block';
+    }
+    
+    // Rolar para a seção de cursos
+    document.getElementById('cursos').scrollIntoView({ behavior: 'smooth' });
+}
+
+function voltarCursos() {
+    document.getElementById('pagina-musica').style.display = 'none';
+    document.getElementById('pagina-ingles').style.display = 'none';
+    document.getElementById('cursos-principal').style.display = 'block';
+}
+
+function inscreverCurso(tipo) {
+    if (tipo === 'musica') {
+        const nome = document.getElementById('nome-musica').value;
+        const email = document.getElementById('email-musica').value;
+        const telefone = document.getElementById('telefone-musica').value;
+        const instrumento = document.getElementById('instrumento').value;
+        const experiencia = document.querySelector('input[name="experiencia-musica"]:checked');
+        
+        if (!nome || !email || !telefone || !instrumento || !experiencia) {
+            alert('Por favor, preencha todos os campos obrigatórios.');
+            return;
+        }
+        
+        const dados = { 
+            nome, 
+            email, 
+            telefone, 
+            instrumento, 
+            experiencia: experiencia.value,
+            curso: 'Música',
+            data: new Date().toISOString()
+        };
+        
+        console.log('Inscrição em Música:', dados);
+        alert('Inscrição para aulas de música enviada com sucesso! Entraremos em contato em breve.');
+        voltarCursos();
+        
+        // Limpar formulário
+        document.getElementById('nome-musica').value = '';
+        document.getElementById('email-musica').value = '';
+        document.getElementById('telefone-musica').value = '';
+        document.getElementById('instrumento').value = '';
+        document.querySelectorAll('input[name="experiencia-musica"]').forEach(radio => radio.checked = false);
+        
+    } else if (tipo === 'ingles') {
+        const nome = document.getElementById('nome-ingles').value;
+        const email = document.getElementById('email-ingles').value;
+        const telefone = document.getElementById('telefone-ingles').value;
+        const nivel = document.getElementById('nivel-ingles').value;
+        const horario = document.getElementById('horario').value;
+        const tipoAula = document.querySelector('input[name="tipo-aula"]:checked');
+        
+        if (!nome || !email || !telefone || !nivel || !horario || !tipoAula) {
+            alert('Por favor, preencha todos os campos obrigatórios.');
+            return;
+        }
+        
+        const dados = { 
+            nome, 
+            email, 
+            telefone, 
+            nivel, 
+            horario,
+            tipoAula: tipoAula.value,
+            curso: 'Inglês',
+            data: new Date().toISOString()
+        };
+        
+        console.log('Inscrição em Inglês:', dados);
+        alert('Inscrição para aulas de inglês enviada com sucesso! Entraremos em contato em breve.');
+        voltarCursos();
+        
+        // Limpar formulário
+        document.getElementById('nome-ingles').value = '';
+        document.getElementById('email-ingles').value = '';
+        document.getElementById('telefone-ingles').value = '';
+        document.getElementById('nivel-ingles').value = '';
+        document.getElementById('horario').value = '';
+        document.querySelectorAll('input[name="tipo-aula"]').forEach(radio => radio.checked = false);
+    }
+}
+
+// Sistema de Agendamentos
+(function() {
+    // Horários por dia
+    const schedule = [
+        { day: "Segunda-feira", slots: [{ from: "06:00", to: "20:00" }] },
+        { day: "Terça-feira", slots: [{ from: "06:30", to: "08:00" }] },
+        { day: "Quarta-feira", slots: [{ from: "19:00", to: "20:00" }] },
+        { day: "Quinta-feira", slots: [{ from: "16:30", to: "21:00" }] },
+        { day: "Sexta-feira", slots: [{ from: "16:00", to: "18:00" }] },
+    ];
+
+    const ONLINE_FEE = 30.00;
+
+    function toMinutes(t) {
+        const [hh, mm] = t.split(":").map(Number);
+        return hh*60 + mm;
+    }
+    function minutesToTime(m) {
+        const hh = Math.floor(m/60).toString().padStart(2,"0");
+        const mm = (m%60).toString().padStart(2,"0");
+        return hh + ":" + mm;
+    }
+    function generateBlocks(from, to, blockMins=30) {
+        const start = toMinutes(from);
+        const end = toMinutes(to);
+        const blocks = [];
+        for (let m = start; m + blockMins <= end; m += blockMins) {
+            blocks.push({ from: minutesToTime(m), to: minutesToTime(m+blockMins) });
+        }
+        return blocks;
+    }
+
+    // DOM refs
+    const daysList = document.getElementById("daysList");
+    const currentSelection = document.getElementById("currentSelection");
+    const appointmentForm = document.getElementById("appointmentForm");
+    const feeValueSpan = document.getElementById("feeValue");
+    const btnClear = document.getElementById("btnClear");
+
+    feeValueSpan.textContent = ONLINE_FEE.toFixed(2).replace(".", ",");
+
+    let selectedDayObj = null;
+    let selectedBlock = null;
+
+    // render days
+    schedule.forEach((d, idx) => {
+        const div = document.createElement("div");
+        div.className = "day-card";
+        div.dataset.index = idx;
+        div.innerHTML = `<div style="font-weight:600">${d.day}</div>
+                         <div style="font-size:.95rem;color:#555;">${d.slots.map(s => s.from + " — " + s.to).join(", ")}</div>
+                         <div class="slots-container" style="margin-top:.5rem;"></div>`;
+        daysList.appendChild(div);
+
+        div.addEventListener("click", () => {
+            document.querySelectorAll(".day-card").forEach(c => c.classList.remove("active"));
+            div.classList.add("active");
+            selectedDayObj = d;
+            selectedBlock = null;
+            // clear previous slot lists
+            document.querySelectorAll(".slots-container").forEach(sc => sc.innerHTML = "");
+            renderBlocksForDay(div.querySelector(".slots-container"), d);
+            updateCurrentSelection();
+        });
+    });
+
+    function renderBlocksForDay(container, day) {
+        container.innerHTML = "";
+        const blocks = generateBlocks(day.slots[0].from, day.slots[0].to, 30);
+        const wrap = document.createElement("div");
+        wrap.style.display = "flex";
+        wrap.style.flexWrap = "wrap";
+        wrap.style.gap = ".4rem";
+        blocks.forEach(b => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "slot-btn";
+            btn.textContent = `${b.from} — ${b.to}`;
+
+            btn.addEventListener("click", () => {
+                // remove selected from this container
+                container.querySelectorAll(".slot-btn").forEach(x => {
+                    x.classList.remove("selected");
+                });
+                btn.classList.add("selected");
+                selectedBlock = { from: b.from, to: b.to };
+                updateCurrentSelection();
+            });
+
+            wrap.appendChild(btn);
+        });
+        container.appendChild(wrap);
+    }
+
+    function updateCurrentSelection() {
+        if (!selectedDayObj) {
+            currentSelection.textContent = "Nenhum dia / Nenhum horário selecionado";
+            return;
+        }
+        const day = selectedDayObj.day;
+        const slotText = selectedBlock ? `${selectedBlock.from} — ${selectedBlock.to}` : "Nenhum horário";
+        currentSelection.textContent = `${day} — ${slotText}`;
+    }
+
+    // limpar
+    btnClear.addEventListener("click", () => {
+        appointmentForm.reset();
+        selectedDayObj = null;
+        selectedBlock = null;
+        document.querySelectorAll(".day-card").forEach(c => c.classList.remove("active"));
+        document.querySelectorAll(".slots-container").forEach(sc => sc.innerHTML = "");
+        updateCurrentSelection();
+    });
+
+    // submit
+    appointmentForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const name = document.getElementById("patientName").value.trim();
+        const email = document.getElementById("patientEmail").value.trim();
+        const phone = document.getElementById("patientPhone").value.trim();
+        const notes = document.getElementById("notes").value.trim();
+        const isAutismEval = document.getElementById("autismEval").checked;
+        const type = appointmentForm.querySelector('input[name="type"]:checked').value;
+        const pay = appointmentForm.querySelector('input[name="pay"]:checked').value;
+
+        if (!selectedDayObj || !selectedBlock) {
+            alert("Por favor selecione um dia e um horário antes de enviar.");
+            return;
+        }
+        if (!name || !email || !phone) {
+            alert("Por favor informe todos os campos obrigatórios.");
+            return;
+        }
+
+        const payload = {
+            patientName: name,
+            patientEmail: email,
+            patientPhone: phone,
+            day: selectedDayObj.day,
+            slot: selectedBlock,
+            appointmentType: type,
+            paymentMethod: pay,
+            isAutismEval: isAutismEval,
+            notes: notes,
+            fee: (type === "online" && pay === "online") ? ONLINE_FEE : 0,
+            donationRequired: (type === "online" && pay === "doacao") ? "1kg alimento/produtos higiene" : null,
+            createdAt: new Date().toISOString()
+        };
+
+        console.log("Agendamento solicitado:", payload);
+        alert("Agendamento solicitado com sucesso! Entraremos em contato para confirmar.");
+
+        // limpa
+        appointmentForm.reset();
+        selectedDayObj = null;
+        selectedBlock = null;
+        document.querySelectorAll(".day-card").forEach(c => c.classList.remove("active"));
+        document.querySelectorAll(".slots-container").forEach(sc => sc.innerHTML = "");
+        updateCurrentSelection();
+    });
+
+    // Copiar PIX
+    document.querySelectorAll('.btn-copiar').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const text = btn.dataset.text;
+            if (!text) return;
+            navigator.clipboard?.writeText(text).then(() => {
+                const original = btn.textContent;
+                btn.textContent = 'Copiado!';
+                setTimeout(() => btn.textContent = original, 1500);
+            }).catch(() => {
+                alert('Não foi possível copiar automaticamente. Copie manualmente: ' + text);
+            });
+        });
+    });
+
+})();
+</script>
+
+</body>
+</html>
