@@ -1,0 +1,3311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ONG cristã em Vitória da Conquista-BA oferecendo atendimento médico voluntário, cursos, casa de apoio e assistência social">
+    <title>Projeto Nossa Casa</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+    
+    <style>
+        /* ============================================
+        RESET E CONFIGURAÇÕES GERAIS
+        ============================================ */
+        
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #1e5799 0%,#207cca 51%,#2989d8 100%);
+            min-height: 100vh;
+            color: #000;
+            line-height: 1.6;
+        }
+
+        .logo1 {
+            width: 120px;
+            height: auto;
+            margin-right: 18px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        
+        .logo1:hover {
+            transform: scale(1.3);
+            transition: transform 0.3s ease;
+        }
+
+        .logo2 {
+            width: 120px;
+            height: auto;
+            margin-right: 18px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .logo2:hover {
+            transform: scale(1.3);
+            transition: transform 0.3s ease;
+        }
+        
+        /* Personalização da barra - CORREÇÃO AQUI */
+        .main-nav {
+            background: rgba(5, 165, 229, 0.3);
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+            padding: 0.8rem 1.5rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            flex-wrap: nowrap;
+            min-height: 70px;
+        }
+        
+        .logo-box {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        
+        .links-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        
+        /* estilo padrão dos links */
+        .nav-link {
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            color: white;
+            font-weight: 500;
+            position: relative;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+        
+        .nav-link:not(.bible-link):hover {
+            background: #33ff00;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(190, 227, 4, 0.8);
+        }
+        
+        /* estilo do link "Bíblia" */
+        .bible-link {
+            color: #FFD700;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+        
+        /* underline animado */
+        .bible-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 3px;
+            background: #FFD700;
+            transition: width 0.3s ease;
+        }
+        
+        /* quando passar o mouse, o underline cresce */
+        .bible-link:hover::after {
+            width: 100%;
+        }
+        
+        .bible-link:hover {
+            color: #fff; 
+        }
+
+        /* Texto de Atos */
+        .bible-quote {
+            font-family: 'Lobster', cursive;
+            font-size: 1.8rem;
+            color: #2c3e50;
+            text-align: center;
+            padding: 2.5rem;
+            margin: 3rem 0;
+        }
+        
+        /* SEÇÕES - AJUSTE DA MARGEM TOP */
+        .section {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            margin: 5rem 2rem 2rem;
+            border-radius: 18px;
+            box-shadow: 0 6px 26px rgba(0,0,0,0.18);
+            overflow: hidden;
+        }
+        
+        /* Hero - AJUSTE DA MARGEM TOP */
+        .hero-section {
+            padding: 3rem 1rem;
+            max-width: 1200px;
+            margin: 5rem auto 2rem;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 5px rgba(0,0,0,.3);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #333;
+            overflow: hidden;
+        }
+
+        /* Resto do CSS permanece igual... */
+        /* Títulos */
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            color: #2c3e50;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+        }
+
+        .modelo-title {
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+        }
+
+        .intro-text {
+            text-align: justify;
+            margin-bottom: 2.5rem;
+            font-size: 1.15rem;
+            color: #2c3e50;
+            text-indent: 2rem;
+        }
+
+        /* Conteúdo do modelo */
+        .modelo-content {
+            text-align: justify;
+            margin-top: 2.5rem;
+        }
+
+        .modelo-content p {
+            margin-bottom: 1.8rem;
+            text-indent: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        /* Remove recuo do primeiro parágrafo após títulos */
+        h1 + p, h2 + p, .modelo-title + p {
+            text-indent: 0;
+        }
+
+        /* ============================================
+           GRÁFICO DE ROSCA (DONUT CHART) PARA MODALIDADES
+           (Substituição do quebra-cabeças)
+        ============================================ */
+
+        .donut-chart-container {
+            margin: 3rem 0;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255,255,255,0.9);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .donut-title {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .donut-subtitle {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .donut-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            margin: 2rem auto;
+            max-width: 1000px;
+        }
+
+        .donut-chart {
+            width: 280px;
+            height: 280px;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+        }
+
+        .donut-ring {
+            stroke-dasharray: 283;
+            stroke-dashoffset: 0;
+        }
+
+        .donut-center-text {
+            font-size: 5px;
+            font-weight: bold;
+            fill: #2c3e50;
+        }
+
+        .donut-center-subtext {
+            font-size: 3px;
+            fill: #666;
+        }
+
+        /* Legenda do Gráfico */
+        .donut-legend {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            margin-bottom: 0.8rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .legend-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .legend-item.active {
+            background: #e8f5e8;
+            border-left-color: #0dc30d;
+            font-weight: 500;
+        }
+
+        .legend-color {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        .legend-label {
+            flex: 1;
+            font-size: 0.95rem;
+        }
+
+        .legend-value {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-left: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        /* Missão, Visão e Valores */
+        .missao-valores {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .missao-valores-item {
+            background: rgba(255,255,255,0.92);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-top: 4px solid #0eec0e;
+        }
+
+        .missao-valores-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .item-title {
+            text-align: center;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .item-text {
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* Equipe */
+        .equipe {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .membro-equipe {
+            background: rgba(255,255,255,0.92);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .membro-equipe:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .membro-equipe img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(0,0,0,.3);
+            margin-bottom: 1rem;
+        }
+
+        .membro-descricao {
+            line-height: 1.6;
+        }
+
+        /* Veredinha */
+        .cenario-projeto {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        /* Botões */
+        .btn-inscricao {
+            display: inline-block;
+            padding: 12px 28px;
+            background: #0dc30d;
+            color: white;
+            font-weight: 600;
+            border-radius: 30px;
+            margin: 1rem 0.5rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(13, 195, 13, 0.3);
+        }
+
+        .btn-inscricao:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            background: #0bb30b;
+        }
+
+        /* PIX */
+        .pix-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .qr-code {
+            text-align: center;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .qr-code img {
+            width: 240px;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+        }
+
+        .pix-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .pix-item {
+            padding: 1.3rem;
+            background: white;
+            border-radius: 10px;
+            border-left: 4px solid #0dc30d;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .pix-item h3 {
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+
+        .btn-copiar {
+            background: #0dc30d;
+            color: white;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .btn-copiar:hover {
+            background: #0bb30b;
+        }
+
+        /* Agendamentos */
+        .agendamentos-wrap {
+            background: rgba(255,255,255,0.98);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .agendamentos-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .day-card {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.3s;
+            background: #f8f9fa;
+        }
+
+        .day-card:hover {
+            background: #e9ecef;
+        }
+
+        .day-card.active {
+            border-color: #0dc30d;
+            background: #e8f5e8;
+        }
+
+        .slot-btn {
+            padding: 0.45rem 0.6rem;
+            border-radius: 999px;
+            border: 1px solid #ddd;
+            background: #fff;
+            cursor: pointer;
+            font-size: .95rem;
+            transition: all 0.3s;
+        }
+
+        .slot-btn:hover {
+            background: #f0f0f0;
+        }
+
+        .slot-btn.selected {
+            background: #0dc30d;
+            color: #fff;
+            border-color: #0db21e;
+        }
+
+        .form-row {
+            margin-bottom: 1rem;
+        }
+
+        .form-row label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-row input[type="text"],
+        .form-row input[type="date"],
+        .form-row input[type="email"],
+        .form-row input[type="tel"],
+        .form-row textarea,
+        .form-row select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .form-row textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .checkbox-group input {
+            margin-top: 0.25rem;
+        }
+
+        .small {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .btn-primary {
+            background: #0dc30d;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #0bb30b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(13, 195, 13, 0.3);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.6rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Formulário de Lista de Espera para TDAH/Autismo */
+        .espera-form {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .espera-form h3 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .espera-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        /* Páginas de cursos */
+        .pagina-curso {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .formulario-inscricao {
+            margin-top: 2rem;
+        }
+
+        /* Rodapé */
+        footer {
+            margin-top: 1.5rem;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255,255,255,0.9);
+            border-radius: 15px;
+        }
+
+        /* Estilos Gerais */
+        .section {
+            padding: 4rem 2rem;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Cabeçalho da Seção */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .section-intro {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Grid da Equipe */
+        .equipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        /* Cartão do Membro */
+        .membro-equipe {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .membro-equipe:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Avatar */
+        .avatar-container {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 1.5rem;
+            border: 5px solid #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Informações do Membro */
+        .membro-info {
+            text-align: center;
+        }
+
+        .membro-nome {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .membro-cargo {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .membro-descricao {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .membro-descricao p {
+            margin-bottom: 1rem;
+        }
+
+        .membro-descricao p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Modalidades */
+        .modalidades-container {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .modalidade-card {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 2rem;
+            border-left: 4px solid #4CAF50;
+            transition: all 0.3s ease;
+        }
+
+        .modalidade-card.active {
+            background: #e8f5e9;
+            border-left: 4px solid #FF5722;
+            transform: translateX(5px);
+        }
+
+        .modalidade-titulo {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .modalidade-descricao {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .modalidade-descricao p {
+            margin-bottom: 1rem;
+        }
+
+        .modalidade-descricao p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Nota importante */
+        .nota-importante {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+
+        .nota-importante strong {
+            color: #856404;
+        }
+
+        /* Novos estilos para seção Veredinha */
+        .veredinha-container {
+            margin: 2rem auto;
+            max-width: 1200px;
+        }
+
+        .midia-projeto {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .midia-projeto img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Estilos para horários */
+        .dados_horarios {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .texto_horarios p {
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .valter_foto {
+            width: 100%;
+            height: auto;
+        }
+
+        /* ============================================
+           ESTILOS PARA AS FICHAS DE CADASTRO
+        ============================================ */
+        
+        .fichas-container {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+        
+        .ficha-wrapper {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+            border: 2px solid #0dc30d;
+        }
+        
+        .ficha-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #0dc30d;
+        }
+        
+        .ficha-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        .ficha-content {
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            line-height: 1.8;
+            overflow: hidden;
+            width: 100%;
+        }
+        
+        .ficha-field {
+            margin-bottom: 1.5rem;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .ficha-label {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-weight: bold;
+            word-wrap: break-word;
+        }
+        
+        .ficha-input {
+            width: 100%;
+            border: none;
+            border-bottom: 1px dashed #999;
+            background: transparent;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            padding: 0.3rem 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .ficha-checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 0.5rem;
+            margin: 1rem 0;
+            width: 100%;
+        }
+        
+        .ficha-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: nowrap;
+        }
+        
+        .ficha-address {
+            font-style: italic;
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ddd;
+            word-wrap: break-word;
+        }
+        
+        .btn-print {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: #0dc30d;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-print:hover {
+            background: #0bb30b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(13, 195, 13, 0.3);
+        }
+        
+        .ficha-instructions {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 4px solid #0dc30d;
+            word-wrap: break-word;
+        }
+        
+        .ficha-instructions h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .ficha-instructions ul {
+            margin-left: 1.5rem;
+        }
+        
+        .ficha-instructions li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* ============================================
+           GALERIA MISTA (IMAGENS E VÍDEOS)
+        ============================================ */
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .galeria-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .galeria-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .galeria-item.video-item {
+            position: relative;
+        }
+
+        .galeria-item video {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            background: #000;
+        }
+
+        .video-label {
+            padding: 0.8rem;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            text-align: center;
+            font-size: 0.9rem;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        /* Controles de vídeo personalizados */
+        video::-webkit-media-controls-panel {
+            background: rgba(0,0,0,0.5);
+        }
+
+        video::-webkit-media-controls-play-button,
+        video::-webkit-media-controls-volume-slider,
+        video::-webkit-media-controls-mute-button {
+            filter: brightness(1.5);
+        }
+
+        /* ============================================
+           PARTICLES.JS BACKGROUND
+        ============================================ */
+
+        #particles-js {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: linear-gradient(135deg, #0b1a2a, #15344f, #284c72);
+            pointer-events: none;
+        }
+
+        /* ============================================
+           RESPONSIVIDADE - CORREÇÃO DA NAVBAR
+        ============================================ */
+
+        @media (max-width: 1200px) {
+            .links-box {
+                gap: 0.6rem;
+            }
+            
+            .nav-link, .bible-link {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .main-nav {
+                padding: 0.8rem 1rem;
+            }
+            
+            .logo1, .logo2 {
+                width: 100px;
+                margin-right: 10px;
+            }
+            
+            .links-box {
+                gap: 0.5rem;
+            }
+            
+            .nav-link, .bible-link {
+                padding: 0.4rem 0.7rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .main-nav {
+                flex-direction: column;
+                padding: 0.8rem;
+                min-height: auto;
+            }
+            
+            .logo-box {
+                margin-bottom: 0.8rem;
+            }
+            
+            .links-box {
+                justify-content: center;
+                width: 100%;
+                flex-wrap: wrap;
+            }
+            
+            .section, .hero-section {
+                margin-top: 7rem;
+            }
+            
+            .donut-wrapper {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .donut-legend {
+                min-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-nav {
+                padding: 0.7rem;
+            }
+            
+            .logo1, .logo2 {
+                width: 90px;
+            }
+            
+            .links-box {
+                gap: 0.4rem;
+            }
+            
+            .nav-link, .bible-link {
+                padding: 0.35rem 0.6rem;
+                font-size: 0.8rem;
+            }
+            
+            .section {
+                padding: 2rem 1.5rem;
+                margin: 7rem 1rem 1rem;
+                overflow: hidden;
+            }
+            
+            .hero-section {
+                padding: 2rem 1rem;
+                margin: 7rem auto 2rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .agendamentos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pix-container {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .equipe-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .missao-valores {
+                grid-template-columns: 1fr;
+            }
+            
+            .radio-group {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            html, body {
+                height: 100%;
+                margin: 0;
+            }
+            
+            .espera-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .galeria {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1rem;
+            }
+            
+            .galeria-item img,
+            .galeria-item video {
+                height: 180px;
+            }
+            
+            .ficha-wrapper {
+                padding: 1.5rem;
+            }
+            
+            .ficha-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .ficha-title {
+                font-size: 1.5rem;
+            }
+            
+            .ficha-checkbox-group {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+            
+            .ficha-input {
+                font-size: 0.9rem;
+            }
+            
+            .ficha-field > div {
+                flex-direction: column !important;
+                gap: 1rem !important;
+            }
+            
+            .ficha-field > div > div {
+                flex: 1 1 100% !important;
+                width: 100% !important;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .main-nav {
+                padding: 0.6rem;
+            }
+            
+            .logo-box {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .logo1, .logo2 {
+                width: 80px;
+                margin: 0 5px 5px 5px;
+            }
+            
+            .links-box {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-link, .bible-link {
+                padding: 0.3rem 0.5rem;
+                font-size: 0.75rem;
+            }
+            
+            .section, .hero-section {
+                margin-top: 8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .equipe-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .membro-equipe {
+                padding: 1.5rem;
+            }
+            
+            .avatar-container {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .membro-nome {
+                font-size: 1.3rem;
+            }
+            
+            .modalidade-card {
+                padding: 1.5rem;
+            }
+            
+            .modalidade-titulo {
+                font-size: 1.2rem;
+            }
+            
+            .galeria {
+                grid-template-columns: 1fr;
+            }
+            
+            .galeria-item img,
+            .galeria-item video {
+                height: 220px;
+            }
+            
+            .ficha-wrapper {
+                padding: 1rem;
+            }
+            
+            .ficha-title {
+                font-size: 1.3rem;
+            }
+            
+            .ficha-checkbox-group {
+                grid-template-columns: 1fr;
+            }
+            
+            .ficha-input {
+                font-size: 0.85rem;
+            }
+            
+            .main-nav {
+                padding: 0.5rem;
+            }
+            
+            .links-box {
+                gap: 0.3rem;
+            }
+            
+            .nav-link, .bible-link {
+                padding: 0.25rem 0.4rem;
+                font-size: 0.7rem;
+            }
+        }
+
+        /* Estilos para impressão - IMPORTANTE: Só imprimir a ficha específica */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            
+            .ficha-wrapper,
+            .ficha-wrapper * {
+                visibility: visible;
+            }
+            
+            .ficha-wrapper {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                box-shadow: none;
+                border: 1px solid #000;
+                padding: 2rem;
+            }
+            
+            .btn-print, .ficha-instructions, .main-nav, .pix-container, footer {
+                display: none !important;
+            }
+            
+            .ficha-input {
+                white-space: normal;
+                word-wrap: break-word;
+            }
+            
+            /* Garantir que cada ficha seja impressa em uma página separada */
+            .ficha-wrapper {
+                page-break-before: always;
+                page-break-after: always;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="particles-js" style="position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;"></div>
+    
+    <!-- NAVBAR CORRIGIDA -->
+    <nav class="main-nav">
+        <div class="logo-box">
+            <a href="#home">
+                <img class="logo1" src="Logo/logo1.jpeg" alt="Logo Projeto Nossa Casa">
+                <img class="logo2" src="Logo/logo2.jpeg" alt="Logo Instituto Nossa Casa">
+            </a>
+        </div>
+    
+        <div class="links-box">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#atuacao" class="nav-link">Atuação</a>
+            <a href="#sobre" class="nav-link">Sobre Nós</a>
+            <a href="#modalidades" class="nav-link">Modalidades</a>
+            <a href="#atividades" class="nav-link">Atividades</a>
+            <a href="#veredinha" class="nav-link">Veredinha</a>
+            <a href="#cursos" class="nav-link">Cursos</a>
+            <a href="#colabore" class="nav-link">Colabore</a>
+            <a href="#agendamentos" class="nav-link">Agendamentos</a>
+            <a href="#Bíblia" class="nav-link bible-link">Bíblia</a>
+        </div>
+    </nav>
+
+<!-- O restante do código HTML permanece igual... -->
+<!-- HOME - REMOVI O QUEBRA-CABEÇAS DAQUI -->
+<div class="hero-section" id="home">
+    <h1 class="hero-title">OLÁ!</h1>
+    <div class="hero-description">
+        <p class="intro-text">Somos uma entidade social de princípios cristãos, sem fins lucrativos, que exerce atividades nas áreas de Saúde, Assistência jurídica, Serviço Social sediada em Vitória da Conquista-BA. Iniciou-se há mais de 20 anos, mas, oficializou-se no ano de 2019/2020, o Instituto de Gestão Médico Hospitalar da Bahia Nossa Casa com atendimentos médicos gratuitos e voluntários, além de prestação de serviços de casa de apoio a pessoas que necessitavam realizar tratamento de saúde e assistência psíquica emocional. Possuímos projeto de música, inclusão social com treinamentos, curso de línguas.</p>
+        
+        <h2 class="modelo-title">MODELO DE REDE COLABORATIVO</h2>
+        
+        <blockquote class="bible-quote">
+            <p>Atos 4:32 - E era um o coração e a alma da multidão dos que criam, e ninguém dizia que coisa alguma do que possuía era sua própria, mas todas as coisas lhes eram comuns.</p>
+        </blockquote>
+        
+        <div class="modelo-content">
+            <p>O Instituto Nossa Casa trabalha com serviço voluntário e rede colaborativa via parceria. Nesta rede, o colaborador adere ao Instituto, sendo cadastrado como parceiro. A proposta é fornecer uma atendimento de qualidade, comprometido, integrado, acessível aos usuarios. Buscamos profissionais com capacidade técnica aliada a princípios éticos para ampliação da assistência aos que procuram socorro. Sabemos que vivenciamos uma realidade na qual as unidades de saúde se encontram lotadas, as filas de espera são gigantes, o acolhimento e a empatia ocorrem muitas vezes de faixada e o amor ao próximo se esfriou. Muitos profissionais estão sobrecarregados por cobranças e fadigados por Burnout e, infelizmente, as profissões se mecanizaram. Por sua vez, as pessoas falecem aos poucos em suas casas aguardando vaga, recursos monetários ou condiçao de ter um plano de saúde suplementar. As barreiras para realizar exames de diferentes complexidades vão desde as financeiras até mesmo à explicação adequada para preparo de um exame ou flexibilidade para agendamento de horários compatíveis com o trabalho do cidadão.</p>
+
+            <p>Neste cenário, pessoas se deslocam de seus municípios de origem para centros de referência para tratamento de saúde. Alguns deles demandam tempo prolongado e necessidade de permanência na cidade maior para efetividade da assistência, sobretudo, realização de exames e consultas com especialista na área afetada. Nem sempre existe a disponibilidade de transporte diário para este percurso, além de ser cansativo e custoso. Além do mais, as condições de saúde física agregam sofrimento psíquico e emocional aos cuidadores e familiares, algo que não se resolve simplesmente com medicalização. Em um ciclo vicioso, há uma agravamento da doença individual/familiar, aumento das despesas públicas e privadas com medicação/reabilitaçao e luta por regulação de leito de internação hospitalar devido a superlotação por paciente que já chegaram fora do time ao "fim de linha do sistema", o sistema terciário. As pessoas estão cada vez mais sofrendo com ansiedade e depressão, independente da sua classe social,o que desencadeia outras doenças físicas. Em uma proposta adjuvante, o nosso projeto trabalha com o modelo de Casa de Apoio organizado para acolher este público familiar no campo fisico, mental e espiritual em diferentes patologias.Atualmente, recebemos neste novo ciclo os acompanhantes dos pacientes que estão em tratamento de saúde, a saber em hospitais e clínicas.</p>
+        </div>
+        
+    </div>
+</div>
+
+<!-- =======================================================
+     SEÇÃO ATUAÇÃO
+======================================================= -->
+<div id="atuacao" class="section">
+    <h2 class="section-subtitle">ATUAÇÃO</h2>
+    <h1 class="section-title">O que fazemos</h1>
+
+    <div class="missao-valores">
+        <div class="missao-valores-item">
+            <h2 class="item-title">Nossa missão</h2>
+            <p class="item-text">
+                Utilizar as atividades sociais colaborativas para anunciar o amor de Deus às vidas e Seu Reino.
+            </p>
+        </div>
+
+        <div class="missao-valores-item">
+            <h2 class="item-title">Nossa visão</h2>
+            <p class="item-text">
+                Ser uma instituição de excelência respeitada na sua atuação humanizada, comprometida, organizada, sólida no cuidado ao próximo com base no amor e nos princípios cristãos, ampliando o acesso aos serviços de saúde e à dignidade da pessoa humana.
+            </p>
+        </div>
+
+        <div class="missao-valores-item">
+            <h2 class="item-title">Nossos valores</h2>
+            <p class="item-text">
+                Amor ao próximo, temor e cumprimento dos princípios cristãos, orientação familiar, valorização de cada ser humano para Deus através da identidade em Cristo Jesus, compromisso e ética, Organização informatizada e integrada, Transparência, Oferecer aos profissionais a oportunidade utilizar sua profissão como instrumento de colaboração e reciprocidade em rede colaborativa.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- =======================================================
+     SEÇÃO SOBRE NÓS / EQUIPE
+======================================================= -->
+<section id="sobre" class="section" aria-label="Sobre nós e nossa equipe">
+    <div class="container">
+        <header class="section-header">
+            <h2 class="section-subtitle">Sobre nós</h2>
+            <h1 class="section-title">Conheça nossa equipe</h1>
+        </header>
+
+        <div class="equipe-grid">
+            <!-- Membro 1: Normacy -->
+            <article class="membro-equipe">
+                <div class="avatar-container">
+                    <img src="fotos/pastora.jpg" alt="Apóstola Normacy - Pastora Presidente" class="avatar">
+                </div>
+                <div class="membro-info">
+                    <h3 class="membro-nome">Apóstola Normacy</h3>
+                    <p class="membro-cargo">Pastora Presidente e Fundadora do Instituto Nossa Casa</p>
+                    <div class="membro-descricao">
+                        <p>A apostola Normacy é serva do Senhor que advém da Igreja Nova Sião, do pastor Edilson de Souza da Silva, e da Comunidade Deus Vivo, do Pastor Rubens Cavalcante em Vitoria da Conquista-BA. É a pastora presidente da Igreja Batista Renovada Restaurando Vidas. Possui formação pela RHEMA do Verbo da Vida – Brasil, organização ligada ao "Kenneth Hagin Ministres", em Tulsa-OK, Estados Unidos. Possui ampla experiência no campo de manejo de problemas psicoemocionais. Ela já ajudou na implantaçao de diversas igrejas locais, na geração de projetos sociais como o Cristo Liberta e faz parte do resgaste de muitas vidas para Jesus em um ministério de entrega, verdade, compromisso e amor ao próximo. Integra as igrejas aliançadas ao ministério MEVAM presidido pelo apostolo Luís Hermínio, em Itajaí-SC. Normacy é presidente e fundadora do Instituto Nossa Casa.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Membro 2: Dra. Jana -->
+            <article class="membro-equipe">
+                <div class="avatar-container">
+                    <img src="fotos/jana.enc" alt="Dra. Jana - Médica e Tesoureira" class="avatar">
+                </div>
+                <div class="membro-info">
+                    <h3 class="membro-nome">Dra. Jana</h3>
+                    <p class="membro-cargo">Médica, Tesoureira e Fundadora do Instituto Nossa Casa</p>
+                    <div class="membro-descricao">
+                        <p>Dra Jana é discípula da pastora Normacy, serva do Senhor, diaconisa da Igreja Batista Renovada Restaurando Vidas, graduada em Medicina pela Universidade Estadual de Santa Cruz (UESC), em Ilhéus-BA (2010), mestrado em Medicina da Família pela Universidade Federal do Sul da Bahia (UFSB). Titulada em Medicina da Família e Comunidade pela Sociedade Brasileira de Medicina de Família e Comunidade. Realizou Especialização em UTI no Hospital Albert Einstein, Preceptoria em Residência Médica pelo Hospital Sírio-Libanês, MBA em Gestão de Saúde pela USP e Gestão e liderança de pessoas pela FASU/UNIGRAD. Atua como tutora do programa de pós-graduação da Universidade Federal de São Paulo - UNIFESP e no internato de Medicina da Universidade Federal da Bahia - UFBA e da Faculdade Santo Agostinho, pertencente ao grupo Afya. Busca o cuidado aos seus pacientes com amor, compromisso e resolutividade. Dedica-se ao voluntariado desde a época da graduação e, o encontro com Cristo a fez ser direcionada para seu verdadeiro propósito para utilizar sua profissão como instrumento de empatia, ajuda social e, acima de tudo, resgate de almas para o Senhor através da Medicina. Jana é gestora médica, tesoureira e fundadora do Instituto Nossa Casa.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Membro 3: Fabrício -->
+            <article class="membro-equipe">
+                <div class="avatar-container">
+                    <img src="fotos/fabricio.jpg" alt="Fabrício Silva Pinheiro - Profissional de Educação Física" class="avatar">
+                </div>
+                <div class="membro-info">
+                    <h3 class="membro-nome">Fabrício Silva Pinheiro</h3>
+                    <p class="membro-cargo">Vice-presidente do Instituto Nossa Casa</p>
+                    <div class="membro-descricao">
+                        <p>Fabrício Silva Pinheiro é profissional de educação física com especialização em treinamento integrado especialização em fisiologia do exercício em grupos especiais, CEO Academia Senso Vital fundador do método 7in7, CEO DA ACADEMIA ON-LINE. Ajudou em emagrecer mais de 9000 pessoas mudando seu estilo de vida mais ativo, autoridade em resultados rápidos com treino em casa e academia, criador do programa qualidade de vida e saúde laboral atua há mais de 16 anos. Apaixonado pelo o que faz, e grato por ter uma profissão que promove saúde e bem-estar. Atua como Vice-presidente do Instituto Nossa Casa.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Membro 4: Fernanda -->
+            <article class="membro-equipe">
+                <div class="avatar-container">
+                    <img src="fotos/fernanda.jpg" alt="Fernanda Carvalho - Administradora e Cabeleireira" class="avatar">
+                </div>
+                <div class="membro-info">
+                    <h3 class="membro-nome">Fernanda Carvalho</h3>
+                    <p class="membro-cargo">2ª Secretária do Instituto Nossa Casa</p>
+                    <div class="membro-descricao">
+                        <p>Fernanda Carvalho é formada em administração, profissão em cabeleireira com especialização em mega Hair, sócia- proprietária do salão Sônia Carvalho localizado no Bairro Recreio. Muito comunicativa, esbanja simpatia e compromisso com seus clientes. Exerce a função de 2ª secretária do Instituto Nossa Casa.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Membro 5: Marizene -->
+            <article class="membro-equipe">
+                <div class="avatar-container">
+                    <img src="fotos/Marizene.png" alt="Professora e Pastora Marizene Chagas Fiuza" class="avatar">
+                </div>
+                <div class="membro-info">
+                    <h3 class="membro-nome">Professora e Pastora Marizene Chagas Fiuza</h3>
+                    <p class="membro-cargo">Conselheira Fiscal do Instituto Nossa Casa</p>
+                    <div class="membro-descricao">
+                        <p>Professora e pastora Marizene Chagas Fiuza, graduada em Letras Vernáculas pela UESB. Pós graduada em "O Ensino da Língua Portuguesa" pelo instituto Pró Saber. Especializada em: Neuropsicopedagogia pela Faveni; Neurociência das Emoções e Inteligência Emocional pelo Instituto Brasileiro de Desenvolvimento Emocional. Graduada pelo Centro de Treinamento Bíblico Rhema. Atua há 26 anos como professora da rede Municipal de Ensino de Vitória da Conquista. Utiliza a palavra de Deus como ferramenta de trabalho para ajudar e aconselhar crianças e adolescentes em situação de abandono e vulnerabilidade social. Lidera e coordena o ministério de crianças da Igreja Batista Renovada Restaurando Vidas e também lidera o Ministério de Estudos da referida Igreja. No Instituto Nossa Casa atua como conselheira fiscal.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Membro 6: Sonia -->
+            <article class="membro-equipe">
+                <div class="avatar-container">
+                    <img src="fotos/sonia.jpg" alt="Sonia Caetano Veiga - Diaconisa" class="avatar">
+                </div>
+                <div class="membro-info">
+                    <h3 class="membro-nome">Sonia Caetano Veiga</h3>
+                    <p class="membro-cargo">2ª Tesoureira do Instituto Nossa Casa</p>
+                    <div class="membro-descricao">
+                        <p>Sonia Caetano Veiga trabalhou mais de 20 anos no Hospital São Geraldo no setor da nutrição. Atua como líder nas atividades realizadas no Centro de Recuperação. Exerce atividades variadas no Ministério, sempre muito solicita e alegre seja na tesouraria, na higienização dos ambientes, no preparo das refeições para atividades externas e internas. Sonia é diaconisa no Ministério e exerce a função de 2ª tesoureira do Instituto Nossa Casa.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Membro 7: Valter -->
+            <article class="membro-equipe">
+                <div class="avatar-container">
+                    <img class="valter_foto" src="fotos/Valter.jpg" alt="Pastor Valter Rodrigues - Motorista e Secretário" class="avatar">
+                </div>
+                <div class="membro-info">
+                    <h3 class="membro-nome">Pastor Valter Rodrigues</h3>
+                    <p class="membro-cargo">2º Secretário do Instituto Nossa Casa</p>
+                    <div class="membro-descricao">
+                        <p>O pastor Valter Rodrigues é motorista de formação e conduz os transportes do projeto e do Ministério. É reconhecido pelo amor ao próximo, dedicando-se ao cuidado das crianças carentes em municípios como Porto Seguro, Ipiaú e Vitoria da Conquista há mais de 10 anos. Possui um forte chamado evangelístico e nas atitudes de servir a todos aqueles a seu redor. No Projeto, atua como 2º secretário.</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- Seção separada para as Modalidades do Instituto - AGORA COM GRÁFICO DE ROSCA -->
+<section id="modalidades" class="section" aria-label="Modalidades do Instituto Nossa Casa">
+    <div class="container">
+        <header class="section-header">
+            <h2 class="section-title">Modalidades do Instituto Nossa Casa</h2>
+            <p class="section-intro">Nosso trabalho se desenvolve através de diferentes modalidades de atuação:</p>
+        </header>
+
+        <!-- =======================================================
+             GRÁFICO DE ROSCA DAS MODALIDADES
+             (Substituição do quebra-cabeças)
+        ======================================================== -->
+        <div class="donut-chart-container">
+            <h3 class="donut-title">Distribuição das Modalidades de Atuação</h3>
+            <p class="donut-subtitle">Clique em uma fatia do gráfico para conhecer as modalidades:</p>
+            
+            <div class="donut-wrapper">
+                <!-- SVG do Gráfico de Rosca -->
+                <svg class="donut-chart" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Anel externo decorativo -->
+                    <circle class="donut-ring" cx="50" cy="50" r="45" fill="transparent" stroke="#e0e0e0" stroke-width="10"></circle>
+                    
+                    <!-- Fatias do gráfico (serão geradas por JavaScript) -->
+                    <g class="donut-slices"></g>
+                    
+                    <!-- Área central para informações -->
+                    <g class="donut-center">
+                        <circle cx="50" cy="50" r="25" fill="white"></circle>
+                        <text class="donut-center-text" x="50" y="48" text-anchor="middle" dy="0.3em">5 Modalidades</text>
+                        <text class="donut-center-subtext" x="50" y="55" text-anchor="middle" dy="0.3em">Clique uma fatia</text>
+                    </g>
+                </svg>
+                
+                <!-- Legenda interativa -->
+                <div class="donut-legend">
+                    <div class="legend-item" data-index="0">
+                        <span class="legend-color" style="background-color: #4CAF50;"></span>
+                        <span class="legend-label">Colaborador Voluntário</span>
+                        <span class="legend-value">20%</span>
+                    </div>
+                    <div class="legend-item" data-index="1">
+                        <span class="legend-color" style="background-color: #2196F3;"></span>
+                        <span class="legend-label">Cartão com Desconto</span>
+                        <span class="legend-value">20%</span>
+                    </div>
+                    <div class="legend-item" data-index="2">
+                        <span class="legend-color" style="background-color: #FF9800;"></span>
+                        <span class="legend-label">Casa de Apoio</span>
+                        <span class="legend-value">25%</span>
+                    </div>
+                    <div class="legend-item" data-index="3">
+                        <span class="legend-color" style="background-color: #9C27B0;"></span>
+                        <span class="legend-label">Projeto de Música</span>
+                        <span class="legend-value">15%</span>
+                    </div>
+                    <div class="legend-item" data-index="4">
+                        <span class="legend-color" style="background-color: #f44336;"></span>
+                        <span class="legend-label">Cursos e Oficinas</span>
+                        <span class="legend-value">20%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="margin-top: 1.5rem; font-style: italic; color: #666;">
+                Cada fatia representa uma modalidade do Instituto Nossa Casa. 
+                Juntas, formam nossa rede colaborativa completa.
+            </p>
+        </div>
+
+        <div class="modalidades-container">
+            <!-- Introdução do Instituto -->
+            <div class="modalidade-card" id="modalidade-0">
+                <h3 class="modalidade-titulo">Sobre o Instituto</h3>
+                <div class="modalidade-descricao">
+                    <p>O Instituto Nossa Casa trabalha com serviço voluntário e rede colaborativa via parceria. Nesta rede, o colaborador adere ao Instituto, sendo cadastrado como parceiro. A proposta é fornecer uma atendimento de qualidade, comprometido, integrado, acessível aos usuários. Buscamos profissionais com capacidade técnica aliada a princípios éticos para ampliação da assistência aos que procuram socorro.</p>
+                    <p>Sabemos que vivenciamos uma realidade na qual as unidades de saúde se encontram lotadas, as filas de espera são gigantes, o acolhimento e a empatia ocorrem muitas vezes de fachada e o amor ao próximo se esfriou. Muitos profissionais estão sobrecarregados por cobranças e fadigados por Burnout e, infelizmente, as profissões se mecanizaram. Por sua vez, as pessoas falecem aos poucos em suas casas aguardando vaga, recursos monetários ou condição de ter um plano de saúde suplementar. As barreiras para realizar exames de diferentes complexidades vão desde as financeiras até mesmo à explicação adequada para preparo de um exame ou flexibilidade para agendamento de horários compatíveis com o trabalho do cidadão.</p>
+                    <p>Neste cenário, pessoas se deslocam de seus municípios de origem para centros de referência para tratamento de saúde. Alguns deles demandam tempo prolongado e necessidade de permanência na cidade maior para efetividade da assistência, sobretudo, realização de exames e consultas com especialista na área afetada. Nem sempre existe a disponibilidade de transporte diário para este percurso, além de ser cansativo e custoso. Além do mais, as condições de saúde física agregam sofrimento psíquico e emocional aos cuidadores e familiares, algo que não se resolve simplesmente com medicalização. Em um ciclo vicioso, há uma agravamento da doença individual/familiar, aumento das despesas públicas e privadas com medicação/reabilitação e luta por regulação de leito de internação hospitalar devido a superlotação por paciente que já chegaram fora do time ao "fim de linha do sistema", o sistema terciário. As pessoas estão cada vez mais sofrendo com ansiedade e depressão, independente da sua classe social, o que desencadeia outras doenças físicas.</p>
+                    <p>Em uma proposta adjuvante, o nosso projeto trabalha com o modelo de Casa de Apoio organizado para acolher este público familiar no campo físico, mental e espiritual em diferentes patologias. Atualmente, recebemos neste novo ciclo os acompanhantes dos pacientes que estão em tratamento de saúde, a saber em hospitais e clínicas.</p>
+                </div>
+            </div>
+
+            <!-- Modalidade 1 -->
+            <div class="modalidade-card" id="modalidade-1">
+                <h3 class="modalidade-titulo">Modalidade 1: Colaborador Voluntário</h3>
+                <div class="modalidade-descricao">
+                    <p>O colaborador se cadastra, opta com que tipo de serviço ajudará e o turno e dias do mês. Informa o local de prestação de serviço, a quantidade de vidas atendidas por mês. O médico gatekeeper (regulador/acolhedor) faz triagem presencial ou via teleconsulta e entra em contato com o colaborador parceiro para encaminhamento ou teleconsultoria. Estabelece-se termo de parceria entre o colaborador e a instituição.</p>
+                    <p>Em contrapartida, o colaborador recebe a carteirinha da instituição e a declaração de voluntariado "que pode ser útil como critério de desempate em concursos, seleções, licitações, entre outros, além de visibilidade social no caso de sua empresa/profissão com a concessão de um "selo" de entidade parceira filantrópica.</p>
+                    <p>Aos serviços públicos, braços de apoio para a atenção primária e secundária com rede de voluntariado e atendimentos de saúde nos bairros.</p>
+                </div>
+            </div>
+
+            <!-- Modalidade 2 -->
+            <div class="modalidade-card" id="modalidade-2">
+                <h3 class="modalidade-titulo">Modalidade 2: Cartão de Encaminhamentos com Desconto</h3>
+                <div class="modalidade-descricao">
+                    <p>O colaborador também realiza o cadastro e se estabelece o termo de compromisso entre o instituto e o parceiro. A proposta é fornecer, sobretudo, aos pacientes uma assistência de qualidade, sem sucateamento ou massificação, preservando a integralidade, a individualidade, melhorando o acesso.</p>
+                    <p>Oportuniza ao profissional ampliar sua carteira de clientes e ao paciente a oportunidade de desfrutar de profissionais comprometidos na assistência à sua saúde. Para participar como assistido na modalidade de cartão de encaminhamento de descontos, o assistido fará uma contribuição mensal com o instituto filantrópico no valor de R$ 19,90.</p>
+                    <p>Caso necessite de consulta/procedimento para aqueles cadastrados no rol de parceiros, o assistido pelo instituto terá desconto sobre o valor integral a combinar com o profissional na modalidade de desconto. O profissional colaborador receberá o valor da prestação de serviço e repassará para o instituto uma taxa de contribuição a combinar, evitando bitributação.</p>
+                    <p>As marcações para retornos deveram ocorrer no período de 30 dias e conforme a agenda do profissional a ser pactuado com o paciente em seu consultório, podendo ser presencial ou online. Tanto a contribuição mensal do assistido, quanto a taxa do colaborador serão revertidas destinadas para manutenção das atividades da casa de apoio de saúde, custeio de mão-de-obra profissional, realização de oficinas profissionalizantes para geração de emprego, atividades inclusivas cristãs voltadas para o público infantil e jovem.</p>
+                </div>
+            </div>
+
+            <!-- Modalidade 3 -->
+            <div class="modalidade-card" id="modalidade-3">
+                <h3 class="modalidade-titulo">Modalidade 3: Casa de Apoio</h3>
+                <div class="modalidade-descricao">
+                    <p>O apoio ambulatorial a pacientes e acompanhantes em situação de vulnerabilidade de saúde constitui a principal atividade social do Instituto Nossa Casa. Segundo o Ministério da Saúde, casas de apoio são organizações que oferecem serviços de acolhimento temporário e suporte a pacientes do Sistema Único de Saúde (SUS), ajudando-os a superar as barreiras sociais e econômicas que poderiam impedir o acesso aos tratamentos.</p>
+                    <p>Para fortalecer este braço, o projeto busca outras atividades mantenedoras, além dos recursos próprios dos participantes, doações e contribuições da sociedade civil. Ao longo deste tempo, acolhemos muitos pacientes para subsídio em tratamento de saúde. Atualmente, funcionamos no regime casa de passagem recebemos os acompanhantes de pacientes hospitalizados, bem acompanhantes daqueles pacientes de perfil ambulatorial que demandem mais tempo no município para realização de consultas/procedimentos/exames.</p>
+                    <p>A prefeitura interessada e o Instituto celebraram entre si convênio e estabelecem pactuação dos termos. Em contrapartida, a Casa de Apoio fornece acolhimento físico, mental e espiritual. A casa de apoio conta com médica reguladora gatekeeper que reavalia as necessidades dos assistidos e encaminha aos especialistas devidos, articulando a integralidade da assistência, bem como fornecer apoio médico local. Conta ainda com serviço social, jurídico, psicólogo, educador físico fisioterapia e enfermagem.</p>
+                    <p>Não se trata de uma pensão, casa de estudante ou pousada, mas sim uma organização dotada sob os princípios cristãos para apoio a sociedade civil.</p>
+                </div>
+            </div>
+
+            <!-- Modalidade 4 -->
+            <div class="modalidade-card" id="modalidade-4">
+                <h3 class="modalidade-titulo">Modalidade 4: Projeto de Música</h3>
+                <div class="modalidade-descricao">
+                    <p>O projeto fornece aulas de música a saber, violão, guitarra, bateria, teclado, percussão. Contamos com professores parceiros. Para participar do projeto, como aluno realizamos uma taxa simbólica de matrícula + uma contribuição mensal que é revertida para transporte do professor voluntário, manutenção de instrumentos e para as próprias atividades do projeto.</p>
+                    <p>São organizadas em pequenas turmas simultâneas a fim de otimizar o aprendizado. O professor colaborador recebe uma ajuda de custo e uma declaração de parceria. O aluno tem acesso a atividades que dificilmente teria como custear com recursos próprios e estará incluído em um ambiente saudável voltado para atividades produtivas geradoras de vida, o que trabalha no controle das suas emoções como ansiedade.</p>
+                </div>
+            </div>
+
+            <!-- Modalidade 5 -->
+            <div class="modalidade-card" id="modalidade-5">
+                <h3 class="modalidade-titulo">Modalidade 5: Oficinas Profissionalizantes e Cursos de Línguas</h3>
+                <div class="modalidade-descricao">
+                    <p>O projeto possui um campo educacional voltado para capacitação e inclusão social. Tratam-se de realização de aulas semanais de línguas estrangeiras, cursos profissionalizantes como de cuidadores, palestras educativas na área de saúde, entre outros.</p>
+                    <p>Em relação ao curso de línguas, o aluno realiza a matrícula e contribui com uma taxa mensal de R$ 60,00 reais que será destinada a ajuda de custo com voluntários como transporte, alimentação, bem como despesas com o próprio projeto. O professor colaborador recebe uma ajuda de custo e uma declaração de parceria.</p>
+                    <p>O aluno tem acesso a atividades que dificilmente teria como custear com recursos próprios e está incluído em um ambiente saudável, voltado para atividades produtivas geradoras de emprego e de vida.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =======================================================
+     SEÇÃO ATIVIDADES (CORRIGIDA)
+======================================================= -->
+<div id="atividades" class="section">
+    <h2 class="section-subtitle">Nossa causa</h2>
+    <h1 class="section-title">Conheça nossas atividades</h1>
+    
+    <p class="intro-text" style="text-align:center; margin-bottom:2rem;">
+        Conheça algumas das atividades realizadas pelo Instituto Nossa Casa em prol da comunidade.
+    </p>
+    
+    <div class="galeria">
+        <!-- IMAGENS -->
+        <div class="galeria-item">
+            <img src="Imagens_atividade/foto1.png" alt="Atividade 1 do Instituto Nossa Casa">
+        </div>
+        <div class="galeria-item">
+            <img src="Imagens_atividade/foto2.png" alt="Atividade 2 do Instituto Nossa Casa">
+        </div>
+        <div class="galeria-item">
+            <img src="Imagens_atividade/foto3.png" alt="Atividade 3 do Instituto Nossa Casa">
+        </div>
+        <div class="galeria-item">
+            <img src="Imagens_atividade/foto4.png" alt="Atividade 4 do Instituto Nossa Casa">
+        </div>
+        <div class="galeria-item">
+            <img src="Imagens_atividade/foto5.png" alt="Atividade 5 do Instituto Nossa Casa">
+        </div>
+        <div class="galeria-item">
+            <img src="Imagens_atividade/foto6.png" alt="Atividade 6 do Instituto Nossa Casa">
+        </div>
+        <div class="galeria-item">
+            <img src="Imagens_atividade/foto7.png" alt="Atividade 7 do Instituto Nossa Casa">
+        </div>
+        <div class="galeria-item">
+            <img src="Imagens_atividade/foto8.png" alt="Atividade 8 do Instituto Nossa Casa">
+        </div>
+        <div class="galeria-item">
+            <img src="Imagens_atividade/foto11.jpg" alt="Atividade 11 do Instituto Nossa Casa">
+        </div>
+        <div class="galeria-item">
+            <img src="Imagens_atividade/foto12.jpg" alt="Atividade 12 do Instituto Nossa Casa">
+        </div>
+        
+        <!-- VÍDEOS -->
+        <div class="galeria-item video-item">
+            <video controls>
+                <source src="Imagens_atividade/foto9.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos HTML5.
+            </video>
+            <div class="video-label">Vídeo: Atividade 9</div>
+        </div>
+        
+        <div class="galeria-item video-item">
+            <video controls>
+                <source src="Imagens_atividade/foto10.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos HTML5.
+            </video>
+            <div class="video-label">Vídeo: Atividade 10</div>
+        </div>
+        
+        <div class="galeria-item video-item">
+            <video controls>
+                <source src="Imagens_atividade/foto13.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos HTML5.
+            </video>
+            <div class="video-label">Vídeo: Atividade 13</div>
+        </div>
+    </div>
+</div>
+
+<!-- =======================================================
+     SEÇÃO VEREDINHA
+======================================================= -->
+<div id="veredinha" class="section veredinha-container">
+    <header class="cabecalho-projeto">
+        <h1>AÇÃO VEREDINHA</h1>
+    </header>
+
+    <section class="midia-projeto">
+        <img src="veredinha/foto_jana1.png" alt="Médica atendendo criança na Ação Veredinha">
+        <img src="veredinha/foto_jana2.png" alt="Equipe em ação coletiva na Veredinha">
+        <img src="veredinha/foto_veredinha.png" alt="Unidade de Saúde da Família Veredinha">
+    </section>
+
+    <section class="conteudo-projeto">
+        <section class="propostas-projeto">
+            <h2>Propostas</h2>
+            <ol class="lista-propostas">
+                <li>Atendimento médico especializado à lista de espera.</li>
+                <li>Ação coletiva.</li>
+                <li>
+                    Qualificação dos médicos da atenção primária e estudantes do internato
+                    no manejo de condições neuropsiquiátricas na infância e adolescência.
+                </li>
+            </ol>
+        </section>
+
+        <section class="cenario-projeto">
+            <h2>Cenário</h2>
+            <p>
+                A USF Veredinha está localizada na zona rural de Vitória da Conquista e atende
+                uma população estimada de 3.200 usuários, majoritariamente de baixa renda,
+                composta por trabalhadores rurais. Cerca de 17% da população é formada por
+                crianças e adolescentes de 0 a 14 anos.
+            </p>
+
+            <p>
+                A unidade abrange oito localidades: Veredinha, Baixão, Lamarão, Velame,
+                Abelhas, Baixa Seca, Baixa da Porteira e Lagoa de Melquiades.
+            </p>
+
+            <p>
+                O aumento no diagnóstico de transtornos neurológicos e mentais, como autismo,
+                TDAH e transtornos de comportamento, tem gerado grande demanda por
+                especialidades como neuropediatria, pediatria e psiquiatria.
+            </p>
+
+            <p>
+                Em abril de 2025, há 30 crianças aguardando consulta com neuropediatra,
+                algumas desde 2022. A baixa renda, as dificuldades de deslocamento até a
+                zona urbana e a escassez de profissionais especializados pelo SUS contribuem
+                para o atraso no diagnóstico e tratamento dessa população.
+            </p>
+
+            <h3>ATENDIMENTO INDIVIDUAL</h3>
+            <p><strong>PROPOSTA:</strong> Parceria com médicos neuropediatras, neurologistas,
+                psiquiatras, pediatras para as crianças que aguardam atendimento no
+                modelo triagem com olhar especializado e reavaliação. Serão previamente
+                triados pela médica gatekeeper do projeto que realizará a articulação.</p>
+
+            <p><strong>MODALIDADE:</strong> voluntariado</p>
+
+            <p><strong>LOCAL DO ATENDIMENTO:</strong>
+                A combinar com médico parceiro (a exemplo, pode ser no consultório, em
+                ambulatórios públicos ou filantrópicos, na própria unidade de saúde). O
+                médico parceiro receberá uma declaração de honraria pela colaboração no
+                projeto social e selo de participação como voluntario.</p>
+
+            <p><strong>Formato do atendimento ofertado:</strong>
+                individual ;
+                ação coletiva;
+                presencial ;
+                telemedicina com consulta individual;
+                telemedicina com suporte presencial da médica responsável na sala de
+                atendimento</p>
+
+            <p><strong>INÍCIO:</strong> Abril de 2025</p>
+
+            <p><strong>META:</strong> atender todas as crianças na lista de espera atual
+                até dezembro de 2025</p>
+
+            <p><strong>SEGUIMENTO:</strong> via posto de saúde</p>
+        </section>
+    </section>
+</div>
+
+<!-- =======================================================
+     SEÇÃO CURSOS
+======================================================= -->
+<div id="cursos" class="section">
+    <h2 class="section-subtitle">CURSOS</h2>
+    <h1 class="section-title">Aprimore seus conhecimentos</h1>
+
+    <div id="cursos-principal">
+        <p style="font-size:1.1rem;line-height:1.7;margin-bottom:1.8rem;text-align:center;">
+            Oferecemos aulas de música (violão, guitarra, teclado, bateria e percussão),
+            cursos profissionalizantes, cursos de idiomas e atividades de inclusão social.
+        </p>
+
+        <div style="text-align: center;">
+            <button class="btn-inscricao" onclick="mostrarCurso('musica')">Inscreva-se nas aulas de música</button>
+            <button class="btn-inscricao" onclick="mostrarCurso('ingles')">Inscreva-se nas aulas de inglês</button>
+        </div>
+    </div>
+
+    <!-- Página de Música -->
+    <div id="pagina-musica" class="pagina-curso" style="display: none;">
+        <h2>Aulas de Música</h2>
+        <p>Oferecemos aulas de diversos instrumentos para todas as idades:</p>
+        <ul style="margin: 1rem 0 1rem 2rem;">
+            <li>Violão</li>
+            <li>Guitarra</li>
+            <li>Teclado</li>
+            <li>Bateria</li>
+            <li>Percussão</li>
+        </ul>
+
+        <div class="dados_horarios">
+            <div class="texto_horarios">
+                <p>Horários e dias das aulas:</p>
+            </div>
+                <ul>
+                    <li>Quarta-Feira das 19h a 20h.</li>
+                    <li>Sábados às 15h a 16h.</li>
+                </ul>
+        </div>
+        
+        <div class="formulario-inscricao">
+            <h3>Formulário de Inscrição</h3>
+            <div class="form-row">
+                <label for="nome-musica">Nome Completo *</label>
+                <input type="text" id="nome-musica" placeholder="Seu nome completo" required>
+            </div>
+            <div class="form-row">
+                <label for="email-musica">E-mail *</label>
+                <input type="email" id="email-musica" placeholder="seu@email.com" required>
+            </div>
+            <div class="form-row">
+                <label for="telefone-musica">Telefone *</label>
+                <input type="tel" id="telefone-musica" placeholder="(77) 99999-9999" required>
+            </div>
+            <div class="form-row">
+                <label for="instrumento">Instrumento de Interesse *</label>
+                <select id="instrumento" style="width:100%;padding:0.75rem;border-radius:8px;border:1px solid #ddd;" required>
+                    <option value="">Selecione um instrumento</option>
+                    <option value="violao">Violão</option>
+                    <option value="guitarra">Guitarra</option>
+                    <option value="teclado">Teclado</option>
+                    <option value="bateria">Bateria</option>
+                    <option value="percussao">Percussão</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Nível de Experiência *</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="experiencia-musica" value="iniciante" required> Iniciante</label>
+                    <label><input type="radio" name="experiencia-musica" value="intermediario"> Intermediário</label>
+                    <label><input type="radio" name="experiencia-musica" value="avancado"> Avançado</label>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn-secondary" onclick="voltarCursos()">Voltar</button>
+                <button type="button" class="btn-primary" onclick="inscreverCurso('musica')">Enviar Inscrição</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Página de Inglês -->
+    <div id="pagina-ingles" class="pagina-curso" style="display: none;">
+        <h2>Aulas de Inglês</h2>
+        <p>Aprenda inglês de forma prática e acessível com nossos professores voluntários:</p>
+        <ul style="margin: 1rem 0 1rem 2rem;">
+            <li>Aulas para iniciantes, intermediários e avançados</li>
+            <li>Foco em conversação</li>
+            <li>Material didático inclusivo</li>
+            <li>Turmas reduzidas para melhor aprendizado</li>
+            <li>Aulas presenciais e online</li>
+        </ul>
+        
+        <div class="formulario-inscricao">
+            <h3>Formulário de Inscrição</h3>
+            <div class="form-row">
+                <label for="nome-ingles">Nome Completo *</label>
+                <input type="text" id="nome-ingles" placeholder="Seu nome completo" required>
+            </div>
+            <div class="form-row">
+                <label for="email-ingles">E-mail *</label>
+                <input type="email" id="email-ingles" placeholder="seu@email.com" required>
+            </div>
+            <div class="form-row">
+                <label for="telefone-ingles">Telefone *</label>
+                <input type="tel" id="telefone-ingles" placeholder="(77) 99999-9999" required>
+            </div>
+            <div class="form-row">
+                <label for="nivel-ingles">Nível de Inglês *</label>
+                <select id="nivel-ingles" style="width:100%;padding:0.75rem;border-radius:8px;border:1px solid #ddd;" required>
+                    <option value="">Selecione seu nível</option>
+                    <option value="iniciante">Iniciante (nunca estudei)</option>
+                    <option value="basico">Básico (entendo o básico)</option>
+                    <option value="intermediario">Intermediário (consigo me comunicar)</option>
+                    <option value="avancado">Avançado (fluente/conversação)</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label for="horario">Horário Preferencial *</label>
+                <select id="horario" style="width:100%;padding:0.75rem;border-radius:8px;border:1px solid #ddd;" required>
+                    <option value="">Selecione um horário</option>
+                    <option value="manha">Manhã (8h-12h)</option>
+                    <option value="tarde">Tarde (14h-18h)</option>
+                    <option value="noite">Noite (19h-21h)</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label for="tipo-aula">Tipo de Aula *</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="tipo-aula" value="presencial" required> Presencial</label>
+                    <label><input type="radio" name="tipo-aula" value="online"> Online</label>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn-secondary" onclick="voltarCursos()">Voltar</button>
+                <button type="button" class="btn-primary" onclick="inscreverCurso('ingles')">Enviar Inscrição</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- =======================================================
+     SEÇÃO COLABORE / DOAÇÃO PIX
+======================================================= -->
+<div id="colabore" class="section">
+    <h1 class="section-title">Colabore com o Instituto Nossa Casa</h1>
+
+    <p style="font-size:1.2rem;text-align:center;line-height:1.7;margin:1.5rem 0;">
+        Seu apoio transforma vidas! Com apenas R$ 19,90 mensais você ajuda em atendimentos médicos,
+        casa de apoio, alimentação, cursos e apoio emocional a crianças, adultos e idosos.
+    </p>
+
+    <div class="pix-container">
+        <div class="qr-code">
+            <img src="qr_pix.png" alt="QR Code PIX do Instituto Nossa Casa" 
+                 style="width:240px;height:auto;border-radius:10px;margin-bottom:1rem;">
+            <p>Escaneie com o app do seu banco</p>
+        </div>        
+
+        <div class="pix-info">
+            <div class="pix-item">
+                <h3>Chave PIX (E-mail)</h3>
+                <p>projetonossacasa@gmail.com 
+                    <button class="btn-copiar" data-text="projetonossacasa@gmail.com">Copiar</button>
+                </p>
+            </div>
+
+            <div class="pix-item">
+                <h3>Chave PIX (CNPJ)</h3>
+                <p>38.266.204/0801-41
+                    <button class="btn-copiar" data-text="38.266.204/0801-41">Copiar</button>
+                </p>
+            </div>
+
+            <div class="pix-item">
+                <h3>Beneficiário</h3>
+                <p>Instituto Nossa Casa</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- FICHAS PARA IMPRESSÃO -->
+    <div class="fichas-container">
+        <!-- FICHA 1: CADASTRO DE DOADORES CESTA BÁSICA -->
+        <div class="ficha-wrapper" id="ficha-cesta-basica">
+            <div class="ficha-header">
+                <h2 class="ficha-title">CADASTRO DE DOADORES CESTA BÁSICA</h2>
+                <button class="btn-print" onclick="imprimirFicha('ficha-cesta-basica')">Imprimir esta ficha</button>
+            </div>
+            
+            <div class="ficha-content">
+                <div class="ficha-field">
+                    <span class="ficha-label">Nome:</span>
+                    <div class="ficha-input">_________________________________________________________________</div>
+                </div>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; width: 100%;">
+                    <div style="flex: 1; min-width: 150px;">
+                        <span class="ficha-label">RG:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                    <div style="flex: 1; min-width: 150px;">
+                        <span class="ficha-label">CPF:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                    <div style="flex: 1; min-width: 150px;">
+                        <span class="ficha-label">Profissão:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                </div>
+                
+                <div class="ficha-field">
+                    <span class="ficha-label">Endereço:</span>
+                    <div class="ficha-input">_________________________________________________________________</div>
+                </div>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; width: 100%;">
+                    <div style="flex: 1; min-width: 120px;">
+                        <span class="ficha-label">Bairro:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                    <div style="flex: 1; min-width: 120px;">
+                        <span class="ficha-label">Cidade:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                    <div style="flex: 1; min-width: 80px;">
+                        <span class="ficha-label">Estado:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                    <div style="flex: 1; min-width: 100px;">
+                        <span class="ficha-label">CEP:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; width: 100%;">
+                    <div style="flex: 1; min-width: 150px;">
+                        <span class="ficha-label">Telefone:</span>
+                        <div class="ficha-input">(_____) _____________________</div>
+                    </div>
+                    <div style="flex: 2; min-width: 200px;">
+                        <span class="ficha-label">E-mail:</span>
+                        <div class="ficha-input">_____________________________________________________________</div>
+                    </div>
+                </div>
+                
+                <div class="ficha-field">
+                    <span class="ficha-label">TIPO DE ALIMENTO QUE VAI DOAR:</span>
+                    <div class="ficha-checkbox-group">
+                        <div class="ficha-checkbox">
+                            <input type="checkbox" id="feijao1">
+                            <label for="feijao1">FEIJÃO</label>
+                        </div>
+                        <div class="ficha-checkbox">
+                            <input type="checkbox" id="macarrao1">
+                            <label for="macarrao1">MACARRÃO</label>
+                        </div>
+                        <div class="ficha-checkbox">
+                            <input type="checkbox" id="cuscuz1">
+                            <label for="cuscuz1">CUSCUZ</label>
+                        </div>
+                        <div class="ficha-checkbox">
+                            <input type="checkbox" id="oleo1">
+                            <label for="oleo1">ÓLEO</label>
+                        </div>
+                        <div class="ficha-checkbox">
+                            <input type="checkbox" id="arroz1">
+                            <label for="arroz1">ARROZ</label>
+                        </div>
+                        <div class="ficha-checkbox">
+                            <input type="checkbox" id="acucar1">
+                            <label for="acucar1">AÇUCAR</label>
+                        </div>
+                        <div class="ficha-checkbox">
+                            <input type="checkbox" id="margarina1">
+                            <label for="margarina1">MARGARINA</label>
+                        </div>
+                        <div class="ficha-checkbox">
+                            <input type="checkbox" id="cafe1">
+                            <label for="cafe1">CAFÉ</label>
+                        </div>
+                        <div class="ficha-checkbox">
+                            <input type="checkbox" id="farinha1">
+                            <label for="farinha1">FARINHA DE MANDIOCA</label>
+                        </div>
+                    </div>
+                    <div style="margin-top: 0.5rem;">
+                        <span class="ficha-label">Outro:</span>
+                        <div class="ficha-input">_________________________________________________________________</div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; width: 100%;">
+                    <div style="flex: 1; min-width: 150px;">
+                        <span class="ficha-label">DATA DO MÊS PARA PEGAR O ALIMENTO:</span>
+                        <div class="ficha-input">Data ___/___/____</div>
+                    </div>
+                    <div style="flex: 2; min-width: 200px;">
+                        <span class="ficha-label">LOCAL:</span>
+                        <div class="ficha-input">_________________________________________________________________</div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; width: 100%;">
+                    <div style="flex: 1; min-width: 100px;">
+                        <span class="ficha-label">Data:</span>
+                        <div class="ficha-input">___/___/____</div>
+                    </div>
+                    <div style="flex: 2; min-width: 200px;">
+                        <span class="ficha-label">Assinatura:</span>
+                        <div class="ficha-input">_________________________________________________________________</div>
+                    </div>
+                </div>
+                
+                <div class="ficha-address">
+                    <strong>RUA LEONIDIO DE OLIVEIRA, 65, RECREIO, VITÓRIA DA CONQUISTA - BAHIA</strong>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FICHA 2: FICHA DE PARCERIA (TERMO DE PARCERIA) -->
+        <div class="ficha-wrapper" id="ficha-parceria">
+            <div class="ficha-header">
+                <h2 class="ficha-title">FICHA DE PARCERIA</h2>
+                <button class="btn-print" onclick="imprimirFicha('ficha-parceria')">Imprimir esta ficha</button>
+            </div>
+            
+            <div class="ficha-content">
+                <div style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; gap: 2rem; margin-bottom: 1rem;">
+                        <div class="ficha-checkbox">
+                            <input type="checkbox" id="tipo-voluntariado">
+                            <label for="tipo-voluntariado">VOLUNTARIADO</label>
+                        </div>
+                        <div class="ficha-checkbox">
+                            <input type="checkbox" id="tipo-cartao">
+                            <label for="tipo-cartao">CARTAO DE ENCAMINHAMENTO</label>
+                        </div>
+                    </div>
+                    <div style="font-weight: bold; text-align: center;">FICHA DE CADASTRO</div>
+                </div>
+                
+                <div class="ficha-field">
+                    <span class="ficha-label">1-NOME COMPLETO</span>
+                    <div class="ficha-input">_____________________________________________________________________________________________</div>
+                </div>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; width: 100%;">
+                    <div style="flex: 1; min-width: 150px;">
+                        <span class="ficha-label">Nascimento:</span>
+                        <div class="ficha-input">___/___/____</div>
+                    </div>
+                    <div style="flex: 1; min-width: 150px;">
+                        <span class="ficha-label">RG:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                    <div style="flex: 1; min-width: 150px;">
+                        <span class="ficha-label">CPF:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                </div>
+                
+                <div class="ficha-field">
+                    <span class="ficha-label">Endereço:</span>
+                    <div class="ficha-input">_____________________________________________________________________________________________</div>
+                </div>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; width: 100%;">
+                    <div style="flex: 1; min-width: 80px;">
+                        <span class="ficha-label">Nº:</span>
+                        <div class="ficha-input">_________</div>
+                    </div>
+                    <div style="flex: 2; min-width: 150px;">
+                        <span class="ficha-label">Bairro:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                    <div style="flex: 2; min-width: 150px;">
+                        <span class="ficha-label">Cidade:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; width: 100%;">
+                    <div style="flex: 1; min-width: 120px;">
+                        <span class="ficha-label">CEP:</span>
+                        <div class="ficha-input">_____________________</div>
+                    </div>
+                    <div style="flex: 1; min-width: 150px;">
+                        <span class="ficha-label">Tel. Residencial:</span>
+                        <div class="ficha-input">(_____) _____________</div>
+                    </div>
+                    <div style="flex: 1; min-width: 150px;">
+                        <span class="ficha-label">Cel:</span>
+                        <div class="ficha-input">(_____) _____________</div>
+                    </div>
+                </div>
+                
+                <div class="ficha-field">
+                    <span class="ficha-label">IREI CONTRIBUIR COM O INSTITUTO NOSSA CASA DA SEGUINTE FORMA:</span>
+                    <div class="ficha-input" style="min-height: 60px;">_____________________________________________________________________________________________</div>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1.5rem;">
+                        <div style="flex: 1; min-width: 150px;">
+                            <span class="ficha-label">TURNO POR MES:</span>
+                            <div class="ficha-input">_____________________</div>
+                        </div>
+                        <div style="flex: 1; min-width: 150px;">
+                            <span class="ficha-label">NÚMERO DE ATENDIMENTOS POR MES:</span>
+                            <div class="ficha-input">_____________________</div>
+                        </div>
+                        <div style="flex: 1; min-width: 150px;">
+                            <span class="ficha-label">LOCAL DO ATENDIMENTO POR MES:</span>
+                            <div class="ficha-input">_____________________</div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1.5rem;">
+                        <div style="flex: 1; min-width: 150px;">
+                            <span class="ficha-label">TAXA DE REPASSE PACTUADA:</span>
+                            <div class="ficha-input">_____________________</div>
+                        </div>
+                        <div style="flex: 1; min-width: 150px;">
+                            <span class="ficha-label">DOAÇÃO MENSAL / DATA DA DOAÇÃO:</span>
+                            <div class="ficha-input">_____________________</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FICHA 3: TERMO DE ADESÃO DE SERVIÇO VOLUNTÁRIO -->
+        <div class="ficha-wrapper" id="ficha-termo-voluntario">
+            <div class="ficha-header">
+                <h2 class="ficha-title">TERMO DE ADESÃO DE SERVIÇO VOLUNTÁRIO</h2>
+                <button class="btn-print" onclick="imprimirFicha('ficha-termo-voluntario')">Imprimir esta ficha</button>
+            </div>
+            
+            <div class="ficha-content">
+                <div style="text-align: center; margin-bottom: 1.5rem;">
+                    <div style="font-style: italic;">Pelo presente <strong>Termo de Adesão</strong>, que entre si fazem:</div>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <div class="ficha-label">ENTIDADE:</div>
+                    <div class="ficha-input">_________________________________________________________________</div>
+                    <div style="font-size: 0.9rem; margin-top: 0.3rem;">instituição privada sem fins lucrativos</div>
+                </div>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
+                    <div style="flex: 1; min-width: 200px;">
+                        <span class="ficha-label">Finalidade:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                    <div style="flex: 1; min-width: 200px;">
+                        <span class="ficha-label">CNPJ nº:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
+                    <div style="flex: 1; min-width: 200px;">
+                        <span class="ficha-label">Nome fantasia:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                    <div style="flex: 1; min-width: 200px;">
+                        <span class="ficha-label">Endereço eletrônico:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                </div>
+                
+                <div class="ficha-field">
+                    <span class="ficha-label">VOLUNTÁRIO:</span>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <span class="ficha-label">Nome:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                    <div>
+                        <span class="ficha-label">Nacionalidade:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                    <div>
+                        <span class="ficha-label">Estado Civil:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                    <div>
+                        <span class="ficha-label">CPF:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                    <div>
+                        <span class="ficha-label">RG:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                    <div>
+                        <span class="ficha-label">Órg. Exp.:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                    <div>
+                        <span class="ficha-label">Profissão:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <span class="ficha-label">Rua:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                    <div>
+                        <span class="ficha-label">Nº:</span>
+                        <div class="ficha-input">_________</div>
+                    </div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <span class="ficha-label">Bairro:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                    <div>
+                        <span class="ficha-label">CEP:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                    <div>
+                        <span class="ficha-label">Cidade:</span>
+                        <div class="ficha-input">_____________________________</div>
+                    </div>
+                    <div>
+                        <span class="ficha-label">UF:</span>
+                        <div class="ficha-input">_______</div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <span class="ficha-label">Telefone/Celular:</span>
+                    <div class="ficha-input">_____________________________</div>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <span class="ficha-label">E-mail:</span>
+                    <div class="ficha-input">_____________________________</div>
+                </div>
+                
+                <div style="font-style: italic; text-align: center; margin: 2rem 0; padding: 1rem; border: 1px dashed #999;">
+                    <strong>CLAÚSULAS DO TERMO DE ADESÃO</strong>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <div class="ficha-label">DESCRIÇÃO DAS ATIVIDADES:</div>
+                    <div style="margin-left: 1rem;">
+                        <div>1. ________________________________________</div>
+                        <div>2. ________________________________________</div>
+                        <div>3. ________________________________________</div>
+                        <div>4. ________________________________________</div>
+                        <div>5. ________________________________________</div>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <div class="ficha-label">DIAS E HORÁRIOS:</div>
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 0.5rem;">
+                        <tr>
+                            <th style="border: 1px solid #000; padding: 0.3rem;">DIAS DA SEMANA</th>
+                            <th style="border: 1px solid #000; padding: 0.3rem;">MATUTINO</th>
+                            <th style="border: 1px solid #000; padding: 0.3rem;">VESPERTINO</th>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #000; padding: 0.3rem;">Segunda-Feira</td>
+                            <td style="border: 1px solid #000; padding: 0.3rem;">___________</td>
+                            <td style="border: 1px solid #000; padding: 0.3rem;">___________</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #000; padding: 0.3rem;">Terça-Feira</td>
+                            <td style="border: 1px solid #000; padding: 0.3rem;">___________</td>
+                            <td style="border: 1px solid #000; padding: 0.3rem;">___________</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #000; padding: 0.3rem;">Quarta-Feira</td>
+                            <td style="border: 1px solid #000; padding: 0.3rem;">___________</td>
+                            <td style="border: 1px solid #000; padding: 0.3rem;">___________</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #000; padding: 0.3rem;">Quinta-Feira</td>
+                            <td style="border: 1px solid #000; padding: 0.3rem;">___________</td>
+                            <td style="border: 1px solid #000; padding: 0.3rem;">___________</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #000; padding: 0.3rem;">Sexta-Feira</td>
+                            <td style="border: 1px solid #000; padding: 0.3rem;">___________</td>
+                            <td style="border: 1px solid #000; padding: 0.3rem;">___________</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #000; padding: 0.3rem;">Sábado</td>
+                            <td style="border: 1px solid #000; padding: 0.3rem;">___________</td>
+                            <td style="border: 1px solid #000; padding: 0.3rem;">___________</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid #000; padding: 0.3rem;">Domingo</td>
+                            <td style="border: 1px solid #000; padding: 0.3rem;">___________</td>
+                            <td style="border: 1px solid #000; padding: 0.3rem;">___________</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                        <div>
+                            <div class="ficha-label">Assinatura do colaborador</div>
+                            <div class="ficha-input" style="width: 200px; height: 40px;"></div>
+                        </div>
+                        <div>
+                            <div class="ficha-label">Representante legal do Instituto Nossa Casa</div>
+                            <div class="ficha-input" style="width: 200px; height: 40px;"></div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 1rem;">
+                        <div class="ficha-label">Data: ___/___/____</div>
+                        <div class="ficha-label" style="margin-top: 0.5rem;">Reconhecimento de firma:</div>
+                        <div class="ficha-input" style="height: 40px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="ficha-instructions">
+        <h3>Instruções para uso das fichas:</h3>
+        <ul>
+            <li>Cada ficha possui seu próprio botão de impressão</li>
+            <li>Clique no botão "Imprimir esta ficha" para imprimir apenas aquela ficha específica</li>
+            <li>Preencha as fichas manualmente com caneta</li>
+            <li>Use uma ficha por pessoa/parceria</li>
+            <li>Inclua data e assinatura no final de cada formulário</li>
+            <li>As fichas preenchidas devem ser entregues na sede do Instituto</li>
+        </ul>
+    </div>
+</div>
+
+<!-- =======================================================
+     SEÇÃO AGENDAMENTOS
+======================================================= -->
+<div id="agendamentos" class="section">
+    <h2 class="section-subtitle">Agendamentos</h2>
+    <h1 class="section-title">Agende sua consulta</h1>
+
+    <div class="nota-importante">
+        <strong>Horários disponíveis:</strong><br>
+        • Segunda a Sexta-feira: Dra. Jana Conceição - 16h às 20h<br>
+        • Sexta-feira: Atendimentos colaborativos - taxa de R$ 30,00 ou 1kg de alimento não perecível
+    </div>
+
+        <div class="agendamentos-grid">
+            <!-- LADO ESQUERDO: dias -->
+            <div id="daysList" style="padding-right:1rem;border-right:1px solid #eee;">
+                <!-- dias serão inseridos dinamicamente -->
+            </div>
+
+            <!-- LADO DIREITO: formulário -->
+            <div>
+                <div id="selectedInfo" style="margin-bottom:1.5rem;">
+                    <strong>Seleção atual:</strong>
+                    <div id="currentSelection" class="small" style="margin-top:.4rem;">Nenhum dia / Nenhum horário selecionado</div>
+                </div>
+
+                <form id="appointmentForm">
+                    <div class="form-row">
+                        <label for="patientName">Nome do paciente *</label>
+                        <input id="patientName" type="text" placeholder="Nome completo" required />
+                    </div>
+
+                    <div class="form-row">
+                        <label for="patientEmail">E-mail *</label>
+                        <input id="patientEmail" type="email" placeholder="seu@email.com" required />
+                    </div>
+
+                    <div class="form-row">
+                        <label for="patientPhone">Telefone *</label>
+                        <input id="patientPhone" type="tel" placeholder="(77) 99999-9999" required />
+                    </div>
+
+                    <div class="form-row">
+                        <label>Tipo de atendimento *</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="type" value="presencial" checked> Presencial</label>
+                            <label><input type="radio" name="type" value="online"> Online</label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label>Forma de pagamento (sexta-feira ou online)</label>
+                        <div class="radio-group">
+                            <label><input type="radio" name="pay" value="dinheiro" checked> Pagamento em dinheiro (R$ 30,00)</label>
+                            <label><input type="radio" name="pay" value="alimento"> 1kg de alimento não perecível</label>
+                        </div>
+                        <div class="small" style="margin-top:.4rem;">(Aplica-se apenas para sextas-feiras e atendimentos online)</div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" id="btnClear" class="btn-secondary">Limpar</button>
+                        <button type="submit" class="btn-primary">Solicitar agendamento</button>
+                    </div>
+                </form>
+
+                <!-- Formulário para Lista de Espera de TDAH/Autismo -->
+                <div class="espera-form">
+                    <h3>Lista de Espera para Avaliação de TDAH e Transtorno do Espectro Autista</h3>
+                    <p class="small" style="margin-bottom:1rem;">Preencha o formulário abaixo para incluir seu nome na lista de espera para avaliação especializada.</p>
+                    
+                    <form id="esperaForm">
+                        <div class="espera-grid">
+                            <div class="form-row">
+                                <label for="esperaNome">Nome completo *</label>
+                                <input type="text" id="esperaNome" placeholder="Nome completo" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <label for="esperaDataNasc">Data de nascimento *</label>
+                                <input type="date" id="esperaDataNasc" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <label for="esperaTelefone">Telefone *</label>
+                                <input type="tel" id="esperaTelefone" placeholder="(77) 99999-9999" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <label for="esperaEmail">E-mail *</label>
+                                <input type="email" id="esperaEmail" placeholder="seu@email.com" required>
+                            </div>
+                            
+                            <div class="form-row">
+                                <label for="esperaTipo">Tipo de avaliação *</label>
+                                <select id="esperaTipo" style="width:100%;padding:0.75rem;border-radius:8px;border:1px solid #ddd;" required>
+                                    <option value="">Selecione o tipo</option>
+                                    <option value="tdah">TDAH (Transtorno do Déficit de Atenção e Hiperatividade)</option>
+                                    <option value="autismo">TEA (Transtorno do Espectro Autista)</option>
+                                    <option value="ambos">Ambas as avaliações</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-row">
+                                <label for="esperaIdade">Idade da pessoa a ser avaliada *</label>
+                                <input type="number" id="esperaIdade" placeholder="Idade em anos" min="0" max="120" required>
+                            </div>
+                            
+                            <div class="form-row" style="grid-column: span 2;">
+                                <label for="esperaObservacoes">Observações / Sintomas principais</label>
+                                <textarea id="esperaObservacoes" rows="3" placeholder="Descreva brevemente os principais sintomas ou preocupações"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions" style="margin-top:1.5rem;">
+                            <button type="button" id="btnLimparEspera" class="btn-secondary">Limpar</button>
+                            <button type="button" id="btnEnviarEspera" class="btn-primary">Incluir na Lista de Espera</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- =======================================================
+     RODAPÉ
+======================================================= -->
+<footer>
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="margin-bottom: 1.5rem;">
+            <h3 style="color: #2c3e50; margin-bottom: 1rem;">Instituto Nossa Casa</h3>
+            <p style="margin-bottom: 0.5rem;"><strong>Endereço:</strong> Centro, N° 102, Vitória da Conquista - BA</p>
+            <p style="margin-bottom: 0.5rem;"><strong>Telefone:</strong> (77) 88471626-</p>
+            <p style="margin-bottom: 0.5rem;"><strong>E-mail:</strong> projetonossacasavca@gmail.com</p>
+            <p style="margin-bottom: 0.5rem;"><strong>CNPJ:</strong> 38.256.204/0001-41</p>
+            
+            <div style="margin-top: 1.5rem;">
+                <h4 style="color: #2c3e50; margin-bottom: 1rem;">Contatos da Equipe</h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+                    <div>
+                        <h5 style="margin-bottom: 0.5rem; color: #555;">Jana do Nascimento Conceição</h5>
+                        <p style="margin-bottom: 0.5rem; font-size: 0.9rem;"><strong>Telefone:</strong> (73) 99150-6855</p>
+                        <p style="margin-bottom: 0.5rem; font-size: 0.9rem;"><strong>E-mail:</strong> jananconceicao@gmail.com</p>
+                        <p style="margin-bottom: 0.5rem; font-size: 0.9rem;"><strong>Cargo:</strong> Secretária</p>
+                    </div>
+                    <div>
+                        <h5 style="margin-bottom: 0.5rem; color: #555;">Normacy Siva dos Santos</h5>
+                        <p style="margin-bottom: 0.5rem; font-size: 0.9rem;"><strong>Telefone:</strong> (77) 9106-3649</p>
+                        <p style="margin-bottom: 0.5rem; font-size: 0.9rem;"><strong>Instagram:</strong> <a href="https://www.instagram.com/normacysivadossantos/" target="_blank" style="color: #3498db; text-decoration: none;">@normacysivadossantos</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="border-top: 1px solid #ddd; padding-top: 1.5rem; text-align: center;">
+            <p style="color: #666; font-size: 0.9rem;">
+                &copy; 2026 Instituto Nossa Casa - Todos os direitos reservados.<br>
+                Uma instituição cristã de assistência social sem fins lucrativos.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts JavaScript -->
+<script>
+    // ============================================
+    // FUNÇÕES PARA GRÁFICO DE ROSCA DAS MODALIDADES
+    // (Substituição do quebra-cabeças)
+    // ============================================
+
+    // Dados das modalidades para o gráfico
+    const modalidadesData = [
+        { id: 1, nome: "Colaborador Voluntário", cor: "#4CAF50", valor: 20 },
+        { id: 2, nome: "Cartão de Encaminhamentos com Desconto", cor: "#2196F3", valor: 20 },
+        { id: 3, nome: "Casa de Apoio", cor: "#FF9800", valor: 25 },
+        { id: 4, nome: "Projeto de Música", cor: "#9C27B0", valor: 15 },
+        { id: 5, nome: "Oficinas Profissionalizantes e Cursos de Línguas", cor: "#f44336", valor: 20 }
+    ];
+
+    let fatiaAtiva = null;
+
+    function criarGraficoRosca() {
+        const svgSlices = document.querySelector('.donut-slices');
+        const total = modalidadesData.reduce((sum, item) => sum + item.valor, 0);
+        let offset = 0;
+        const raio = 45;
+        const circunferencia = 2 * Math.PI * raio;
+
+        svgSlices.innerHTML = '';
+
+        modalidadesData.forEach((item, index) => {
+            const porcentagem = item.valor / total;
+            const comprimento = circunferencia * porcentagem;
+            const restante = circunferencia - comprimento;
+
+            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            path.setAttribute('d', `
+                M 50,50
+                m 0,-${raio}
+                a ${raio},${raio} 0 1 1 0,${raio * 2}
+                a ${raio},${raio} 0 1 1 0,-${raio * 2}
+            `);
+            path.setAttribute('stroke', item.cor);
+            path.setAttribute('stroke-width', '10');
+            path.setAttribute('fill', 'transparent');
+            path.setAttribute('stroke-dasharray', `${comprimento} ${restante}`);
+            path.setAttribute('stroke-dashoffset', -offset);
+            path.setAttribute('class', 'donut-slice');
+            path.setAttribute('data-index', index);
+            path.style.cursor = 'pointer';
+            path.style.transition = 'stroke-width 0.3s, opacity 0.3s';
+
+            path.addEventListener('click', () => destacarModalidade(index));
+            path.addEventListener('mouseenter', () => {
+                if (fatiaAtiva !== index) path.style.strokeWidth = '12';
+            });
+            path.addEventListener('mouseleave', () => {
+                if (fatiaAtiva !== index) path.style.strokeWidth = '10';
+            });
+
+            svgSlices.appendChild(path);
+            offset += comprimento;
+        });
+
+        // Adicionar eventos à legenda
+        document.querySelectorAll('.legend-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const index = parseInt(this.getAttribute('data-index'));
+                destacarModalidade(index);
+            });
+        });
+    }
+
+    function destacarModalidade(index) {
+        const modalidade = modalidadesData[index];
+        const todasFatias = document.querySelectorAll('.donut-slice');
+        const todosItensLegenda = document.querySelectorAll('.legend-item');
+        const centroTexto = document.querySelector('.donut-center-text');
+        const centroSubtitulo = document.querySelector('.donut-center-subtext');
+
+        // Remover destaque anterior
+        if (fatiaAtiva !== null) {
+            todasFatias[fatiaAtiva].style.strokeWidth = '10';
+            todasFatias[fatiaAtiva].style.opacity = '1';
+            todosItensLegenda[fatiaAtiva].classList.remove('active');
+        }
+
+        // Aplicar novo destaque
+        todasFatias[index].style.strokeWidth = '14';
+        todasFatias[index].style.opacity = '0.9';
+        todosItensLegenda[index].classList.add('active');
+
+        // Atualizar centro do gráfico
+        centroTexto.textContent = `${modalidade.valor}%`;
+        centroSubtitulo.textContent = modalidade.nome.split(' ')[0];
+
+        // Rolagem suave para a modalidade correspondente
+        const modalidadeCard = document.getElementById(`modalidade-${modalidade.id}`);
+        if (modalidadeCard) {
+            fatiaAtiva = index;
+            modalidadeCard.classList.add('active');
+            modalidadeCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            // Remover destaque após 5 segundos
+            setTimeout(() => {
+                modalidadeCard.classList.remove('active');
+                if (fatiaAtiva === index) {
+                    resetarDestaque();
+                }
+            }, 5000);
+        }
+    }
+
+    function resetarDestaque() {
+        const todasFatias = document.querySelectorAll('.donut-slice');
+        const todosItensLegenda = document.querySelectorAll('.legend-item');
+        const centroTexto = document.querySelector('.donut-center-text');
+        const centroSubtitulo = document.querySelector('.donut-center-subtext');
+
+        todasFatias.forEach(slice => {
+            slice.style.strokeWidth = '10';
+            slice.style.opacity = '1';
+        });
+
+        todosItensLegenda.forEach(item => item.classList.remove('active'));
+        centroTexto.textContent = '5 Modalidades';
+        centroSubtitulo.textContent = 'Clique uma fatia';
+        fatiaAtiva = null;
+    }
+
+    // ============================================
+    // FUNÇÕES PARA NAVEGAÇÃO ENTRE CURSOS
+    // ============================================
+    
+    function mostrarCurso(curso) {
+        // Esconder todos os cursos
+        document.getElementById('cursos-principal').style.display = 'none';
+        document.getElementById('pagina-musica').style.display = 'none';
+        document.getElementById('pagina-ingles').style.display = 'none';
+        
+        // Mostrar o curso selecionado
+        if (curso === 'musica') {
+            document.getElementById('pagina-musica').style.display = 'block';
+        } else if (curso === 'ingles') {
+            document.getElementById('pagina-ingles').style.display = 'block';
+        }
+    }
+    
+    function voltarCursos() {
+        // Esconder todas as páginas de cursos
+        document.getElementById('pagina-musica').style.display = 'none';
+        document.getElementById('pagina-ingles').style.display = 'none';
+        
+        // Mostrar a página principal de cursos
+        document.getElementById('cursos-principal').style.display = 'block';
+    }
+    
+    function inscreverCurso(tipo) {
+        let nome, email, telefone;
+        
+        if (tipo === 'musica') {
+            nome = document.getElementById('nome-musica').value;
+            email = document.getElementById('email-musica').value;
+            telefone = document.getElementById('telefone-musica').value;
+            const instrumento = document.getElementById('instrumento').value;
+            const experiencia = document.querySelector('input[name="experiencia-musica"]:checked')?.value;
+            
+            if (!nome || !email || !telefone || !instrumento || !experiencia) {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+                return;
+            }
+            
+            alert(`Inscrição para aulas de música enviada com sucesso!\n\nNome: ${nome}\nInstrumento: ${instrumento}\nNível: ${experiencia}\n\nEntraremos em contato em breve!`);
+            
+        } else if (tipo === 'ingles') {
+            nome = document.getElementById('nome-ingles').value;
+            email = document.getElementById('email-ingles').value;
+            telefone = document.getElementById('telefone-ingles').value;
+            const nivel = document.getElementById('nivel-ingles').value;
+            const horario = document.getElementById('horario').value;
+            const tipoAula = document.querySelector('input[name="tipo-aula"]:checked')?.value;
+            
+            if (!nome || !email || !telefone || !nivel || !horario || !tipoAula) {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+                return;
+            }
+            
+            alert(`Inscrição para aulas de inglês enviada com sucesso!\n\nNome: ${nome}\nNível: ${nivel}\nHorário: ${horario}\nTipo: ${tipoAula}\n\nEntraremos em contato em breve!`);
+        }
+        
+        // Limpar formulário
+        if (tipo === 'musica') {
+            document.getElementById('nome-musica').value = '';
+            document.getElementById('email-musica').value = '';
+            document.getElementById('telefone-musica').value = '';
+            document.getElementById('instrumento').value = '';
+            document.querySelectorAll('input[name="experiencia-musica"]').forEach(radio => radio.checked = false);
+        } else {
+            document.getElementById('nome-ingles').value = '';
+            document.getElementById('email-ingles').value = '';
+            document.getElementById('telefone-ingles').value = '';
+            document.getElementById('nivel-ingles').value = '';
+            document.getElementById('horario').value = '';
+            document.querySelectorAll('input[name="tipo-aula"]').forEach(radio => radio.checked = false);
+        }
+        
+        voltarCursos();
+    }
+    
+    // ============================================
+    // FUNÇÕES PARA AGENDAMENTOS
+    // ============================================
+    
+    // Dias da semana para agendamento
+    const diasAgendamento = [
+        { dia: 'Segunda-feira', horarios: ['16:00', '17:00', '18:00', '19:00'] },
+        { dia: 'Terça-feira', horarios: ['16:00', '17:00', '18:00', '19:00'] },
+        { dia: 'Quarta-feira', horarios: ['16:00', '17:00', '18:00', '19:00'] },
+        { dia: 'Quinta-feira', horarios: ['16:00', '17:00', '18:00', '19:00'] },
+        { dia: 'Sexta-feira', horarios: ['16:00', '17:00', '18:00', '19:00'] }
+    ];
+    
+    let diaSelecionado = null;
+    let horarioSelecionado = null;
+    
+    // Inicializar lista de dias
+    function inicializarAgendamentos() {
+        const daysList = document.getElementById('daysList');
+        daysList.innerHTML = '';
+        
+        diasAgendamento.forEach((diaObj, index) => {
+            const dayCard = document.createElement('div');
+            dayCard.className = 'day-card';
+            dayCard.innerHTML = `
+                <strong>${diaObj.dia}</strong>
+                <div style="margin-top:.5rem;display:flex;flex-wrap:wrap;gap:.3rem;">
+                    ${diaObj.horarios.map(horario => 
+                        `<button class="slot-btn" data-dia="${index}" data-horario="${horario}">${horario}</button>`
+                    ).join('')}
+                </div>
+            `;
+            
+            daysList.appendChild(dayCard);
+        });
+        
+        // Adicionar eventos aos botões de horário
+        document.querySelectorAll('.slot-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const diaIndex = this.getAttribute('data-dia');
+                const horario = this.getAttribute('data-horario');
+                
+                // Remover seleção anterior
+                document.querySelectorAll('.slot-btn').forEach(b => {
+                    b.classList.remove('selected');
+                });
+                document.querySelectorAll('.day-card').forEach(card => {
+                    card.classList.remove('active');
+                });
+                
+                // Adicionar nova seleção
+                this.classList.add('selected');
+                this.closest('.day-card').classList.add('active');
+                
+                diaSelecionado = diasAgendamento[diaIndex].dia;
+                horarioSelecionado = horario;
+                
+                // Atualizar informação
+                document.getElementById('currentSelection').textContent = 
+                    `${diaSelecionado} às ${horarioSelecionado}`;
+            });
+        });
+        
+        // Formulário de agendamento
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!diaSelecionado || !horarioSelecionado) {
+                alert('Por favor, selecione um dia e horário para agendamento.');
+                return;
+            }
+            
+            const nome = document.getElementById('patientName').value;
+            const email = document.getElementById('patientEmail').value;
+            const telefone = document.getElementById('patientPhone').value;
+            const tipo = document.querySelector('input[name="type"]:checked').value;
+            const pagamento = document.querySelector('input[name="pay"]:checked').value;
+            
+            alert(`Agendamento solicitado com sucesso!\n\nNome: ${nome}\nDia: ${diaSelecionado}\nHorário: ${horarioSelecionado}\nTipo: ${tipo === 'presencial' ? 'Presencial' : 'Online'}\n\nEntraremos em contato para confirmação.`);
+            
+            // Limpar formulário
+            this.reset();
+            document.getElementById('currentSelection').textContent = 'Nenhum dia / Nenhum horário selecionado';
+            document.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('selected'));
+            document.querySelectorAll('.day-card').forEach(card => card.classList.remove('active'));
+            diaSelecionado = null;
+            horarioSelecionado = null;
+        });
+        
+        // Botão limpar
+        document.getElementById('btnClear').addEventListener('click', function() {
+            document.getElementById('appointmentForm').reset();
+            document.getElementById('currentSelection').textContent = 'Nenhum dia / Nenhum horário selecionado';
+            document.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('selected'));
+            document.querySelectorAll('.day-card').forEach(card => card.classList.remove('active'));
+            diaSelecionado = null;
+            horarioSelecionado = null;
+        });
+        
+        // Formulário de lista de espera
+        document.getElementById('btnEnviarEspera').addEventListener('click', function() {
+            const nome = document.getElementById('esperaNome').value;
+            const dataNasc = document.getElementById('esperaDataNasc').value;
+            const telefone = document.getElementById('esperaTelefone').value;
+            const email = document.getElementById('esperaEmail').value;
+            const tipo = document.getElementById('esperaTipo').value;
+            const idade = document.getElementById('esperaIdade').value;
+            
+            if (!nome || !dataNasc || !telefone || !email || !tipo || !idade) {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+                return;
+            }
+            
+            const tipoTexto = {
+                'tdah': 'TDAH',
+                'autismo': 'TEA (Autismo)',
+                'ambos': 'Ambas as avaliações'
+            }[tipo];
+            
+            alert(`Inscrição na lista de espera realizada com sucesso!\n\nNome: ${nome}\nTipo de avaliação: ${tipoTexto}\nIdade: ${idade} anos\n\nVocê receberá um e-mail quando houver vaga disponível.`);
+            
+            // Limpar formulário
+            document.getElementById('esperaForm').reset();
+        });
+        
+        document.getElementById('btnLimparEspera').addEventListener('click', function() {
+            document.getElementById('esperaForm').reset();
+        });
+    }
+    
+    // ============================================
+    // FUNÇÕES PARA COPIAR CHAVES PIX
+    // ============================================
+    
+    document.querySelectorAll('.btn-copiar').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const textToCopy = this.getAttribute('data-text');
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalText = this.textContent;
+                this.textContent = 'Copiado!';
+                this.style.background = '#28a745';
+                
+                setTimeout(() => {
+                    this.textContent = originalText;
+                    this.style.background = '';
+                }, 2000);
+            }).catch(err => {
+                console.error('Erro ao copiar: ', err);
+                alert('Não foi possível copiar. Tente manualmente: ' + textToCopy);
+            });
+        });
+    });
+    
+    // ============================================
+    // FUNÇÕES PARA IMPRESSÃO DAS FICHAS - CORRIGIDA
+    // ============================================
+    
+    function imprimirFicha(idFicha) {
+        const ficha = document.getElementById(idFicha);
+        if (!ficha) {
+            alert('Ficha não encontrada!');
+            return;
+        }
+        
+        // Criar um novo documento para impressão
+        const janelaImpressao = window.open('', '_blank', 'width=800,height=600');
+        
+        // Clonar a ficha para preservar os estilos
+        const fichaClone = ficha.cloneNode(true);
+        
+        // Remover o botão de impressão da cópia
+        const botaoImprimir = fichaClone.querySelector('.btn-print');
+        if (botaoImprimir) {
+            botaoImprimir.remove();
+        }
+        
+        // Criar o documento HTML completo para impressão
+        janelaImpressao.document.write(`
+            <!DOCTYPE html>
+            <html lang="pt-BR">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Imprimir Ficha - Instituto Nossa Casa</title>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        margin: 20px;
+                        padding: 0;
+                        background: white;
+                    }
+                    .ficha-wrapper {
+                        width: 100%;
+                        max-width: 800px;
+                        margin: 0 auto;
+                        padding: 20px;
+                        border: 2px solid #0dc30d;
+                        border-radius: 12px;
+                        background: white;
+                    }
+                    .ficha-title {
+                        font-size: 1.8rem;
+                        color: #2c3e50;
+                        margin-bottom: 15px;
+                        text-align: center;
+                        border-bottom: 2px solid #0dc30d;
+                        padding-bottom: 10px;
+                    }
+                    .ficha-content {
+                        font-family: 'Courier New', monospace;
+                        font-size: 1rem;
+                        line-height: 1.8;
+                    }
+                    .ficha-label {
+                        display: block;
+                        margin-bottom: 5px;
+                        font-weight: bold;
+                    }
+                    .ficha-input {
+                        border: none;
+                        border-bottom: 1px dashed #999;
+                        width: 100%;
+                        padding: 3px 0;
+                        margin-bottom: 15px;
+                        background: transparent;
+                    }
+                    .ficha-checkbox-group {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                        gap: 10px;
+                        margin: 10px 0;
+                    }
+                    .ficha-checkbox {
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                    }
+                    table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        margin: 15px 0;
+                    }
+                    th, td {
+                        border: 1px solid #000;
+                        padding: 8px;
+                        text-align: left;
+                    }
+                    @media print {
+                        body {
+                            margin: 0;
+                            padding: 10px;
+                        }
+                        .ficha-wrapper {
+                            border: 1px solid #000;
+                            box-shadow: none;
+                            page-break-inside: avoid;
+                        }
+                    }
+                </style>
+            </head>
+            <body>
+                ${fichaClone.outerHTML}
+                <script>
+                    window.onload = function() {
+                        window.print();
+                        setTimeout(function() {
+                            window.close();
+                        }, 500);
+                    };
+                <\/script>
+            </body>
+            </html>
+        `);
+        
+        janelaImpressao.document.close();
+    }
+    
+    // ============================================
+    // NAVEGAÇÃO SUAVE
+    // ============================================
+    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const navHeight = document.querySelector('.main-nav').offsetHeight;
+                const targetPosition = targetElement.offsetTop - navHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // ============================================
+    // INICIALIZAÇÃO
+    // ============================================
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        // Inicializar gráfico de rosca
+        criarGraficoRosca();
+        
+        // Inicializar agendamentos
+        inicializarAgendamentos();
+        
+        // Adicionar classe ativa à navegação baseada no scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.section, .hero-section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    });
+</script>
+
+<!-- Incluir particles.js do CDN -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<script>
+    // Configuração do particles.js
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#ffffff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#ffffff",
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "repulse" },
+                    onclick: { enable: true, mode: "push" }
+                }
+            },
+            retina_detect: true
+        });
+    }
+</script>
+
+</body>
+</html>
