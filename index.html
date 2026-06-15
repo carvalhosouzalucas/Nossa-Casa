@@ -1,0 +1,2355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="description" content="ONG cristã em Vitória da Conquista-BA oferecendo atendimento médico voluntário, cursos, casa de apoio e assistência social">
+    <meta property="og:title" content="Projeto Nossa Casa | Instituto Nossa Casa">
+    <meta property="og:description" content="ONG cristã em Vitória da Conquista-BA oferecendo atendimento médico voluntário, cursos, casa de apoio e assistência social">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="Logo/logo1.jpeg">
+    <title>Projeto Nossa Casa | Instituto Nossa Casa</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* ============================================
+           RESET E CONFIGURAÇÕES GERAIS
+        ============================================ */
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { 
+            scroll-behavior: smooth; 
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #0f2b3d 0%, #1a4a6f 50%, #2c6e8f 100%);
+            min-height: 100vh;
+            color: #1a1a2e;
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+        }
+
+        body.dark-mode .section,
+        body.dark-mode .hero-description,
+        body.dark-mode .veredinha-container .cenario-projeto,
+        body.dark-mode .modalidade-card,
+        body.dark-mode .membro-equipe,
+        body.dark-mode .missao-valores-item,
+        body.dark-mode .donut-chart-container,
+        body.dark-mode .pix-item,
+        body.dark-mode .qr-code,
+        body.dark-mode .ficha-wrapper,
+        body.dark-mode .day-card,
+        body.dark-mode .espera-form,
+        body.dark-mode .pagina-curso {
+            background: rgba(30, 30, 50, 0.96);
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .section-title,
+        body.dark-mode .hero-title,
+        body.dark-mode .item-title,
+        body.dark-mode .membro-nome,
+        body.dark-mode .modalidade-titulo,
+        body.dark-mode .donut-title {
+            color: #2ecc71;
+        }
+
+        /* Botão Dark Mode - POSIÇÃO CORRIGIDA */
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #1a1a2e;
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .dark-mode-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        body.dark-mode .dark-mode-toggle {
+            background: #2ecc71;
+            color: #1a1a2e;
+        }
+
+        /* Botões de Compartilhamento - REPOSICIONADOS */
+        .share-buttons {
+            position: fixed;
+            bottom: 90px;
+            right: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            z-index: 1000;
+        }
+
+        .share-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            font-size: 1.3rem;
+        }
+
+        .share-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .share-btn.whatsapp { background: #25d366; }
+        .share-btn.facebook { background: #1877f2; }
+        .share-btn.instagram { background: radial-gradient(circle at 30% 110%, #fdf497, #fd5949, #d6249f, #285AEB); }
+
+        /* Scrollbar Personalizada */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a4a6f;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #2ecc71;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #27ae60;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #2ecc71, #27ae60);
+            z-index: 10000;
+            transition: width 0.3s ease;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .logo1, .logo2 {
+            width: 100px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .logo1:hover, .logo2:hover {
+            transform: scale(1.05);
+        }
+
+        .logo1 { margin-right: 8px; }
+        .logo2 { margin-left: 8px; }
+
+        .main-nav {
+            background: rgba(10, 40, 60, 0.9);
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease;
+            padding: 0.8rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            flex-wrap: nowrap;
+            min-height: 70px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .main-nav.scrolled {
+            padding: 0.4rem 2rem;
+            background: rgba(10, 40, 60, 0.98);
+        }
+
+        .main-nav.scrolled .logo1,
+        .main-nav.scrolled .logo2 {
+            width: 70px;
+        }
+
+        body.dark-mode .main-nav {
+            background: rgba(0, 0, 0, 0.95);
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .links-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            padding: 0.5rem 1.2rem;
+            color: white;
+            font-weight: 500;
+            position: relative;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: #2ecc71;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 70%;
+        }
+
+        .nav-link:hover {
+            background: #2ecc71;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+        }
+
+        .bible-quote {
+            font-family: 'Lobster', cursive;
+            font-size: 1.6rem;
+            color: #1a4a6f;
+            text-align: center;
+            padding: 2rem;
+            margin: 2rem 0;
+            background: rgba(255,255,255,0.5);
+            border-radius: 20px;
+            font-style: italic;
+        }
+
+        body.dark-mode .bible-quote {
+            background: rgba(0,0,0,0.3);
+            color: #2ecc71;
+        }
+
+        .section {
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(5px);
+            padding: 3rem;
+            margin: 6rem auto 2rem;
+            max-width: 1280px;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-section {
+            padding: 2rem;
+            max-width: 1280px;
+            margin: 6rem auto 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .hero-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid #2ecc71;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: 2px;
+            animation: blinkCursor 0.75s step-end infinite;
+        }
+
+        @keyframes blinkCursor {
+            from, to { border-color: transparent; }
+            50% { border-color: #2ecc71; }
+        }
+
+        .hero-description {
+            background: rgba(255, 255, 255, 0.96);
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 1rem;
+            color: #2c3e50;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            font-weight: 700;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(46,204,113,0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 5px 20px rgba(46,204,113,0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 8px 30px rgba(46,204,113,0.6); }
+            100% { transform: scale(1); box-shadow: 0 5px 20px rgba(46,204,113,0.4); }
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(46,204,113,0.6);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            color: #2ecc71;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #1a4a6f;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .intro-text {
+            text-align: justify;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+            color: #2c3e50;
+            text-indent: 2rem;
+        }
+
+        .modelo-content p {
+            margin-bottom: 1.5rem;
+            text-indent: 2rem;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .donut-chart-container {
+            margin: 2rem 0;
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .donut-title {
+            color: #1a4a6f;
+            font-size: 1.8rem;
+        }
+
+        .donut-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .donut-chart {
+            width: 260px;
+            height: 260px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .donut-chart:hover {
+            transform: scale(1.02);
+        }
+
+        .donut-slices path {
+            transition: filter 0.3s ease;
+        }
+
+        .donut-slices path:hover {
+            filter: brightness(1.1);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            padding: 0.6rem 1rem;
+            margin-bottom: 0.5rem;
+            background: white;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        .legend-item:hover {
+            transform: translateX(5px);
+            background: #e8f5e9;
+        }
+
+        .missao-valores {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .missao-valores-item {
+            background: white;
+            padding: 1.8rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-top: 4px solid #2ecc71;
+        }
+
+        .missao-valores-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .missao-valores-item i {
+            font-size: 2.5rem;
+            color: #2ecc71;
+            margin-bottom: 1rem;
+        }
+
+        .item-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #1a4a6f;
+        }
+
+        .equipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .membro-equipe {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .membro-equipe::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(46,204,113,0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .membro-equipe:hover::before {
+            left: 100%;
+        }
+
+        .membro-equipe:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .avatar-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 1.2rem;
+            border: 4px solid #2ecc71;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .membro-equipe:hover .avatar-container {
+            transform: scale(1.05);
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .membro-nome {
+            font-size: 1.3rem;
+            color: #1a4a6f;
+            margin-bottom: 0.3rem;
+        }
+
+        .membro-cargo {
+            font-size: 0.85rem;
+            color: #2ecc71;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .membro-descricao {
+            font-size: 0.9rem;
+            color: #555;
+            text-align: left;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: #1a4a6f;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #2ecc71;
+            transform: translateY(-3px);
+        }
+
+        .modalidade-card {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #2ecc71;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modalidade-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #2ecc71, transparent);
+            transition: width 0.3s ease;
+        }
+
+        .modalidade-card:hover::after {
+            width: 100%;
+        }
+
+        .modalidade-card:hover {
+            background: #fff;
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .modalidade-titulo {
+            font-size: 1.2rem;
+            color: #1a4a6f;
+            margin-bottom: 0.8rem;
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .galeria-item {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .galeria-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .galeria-item img, .galeria-item video {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .galeria-item:hover img,
+        .galeria-item:hover video {
+            transform: scale(1.05);
+        }
+
+        .video-label {
+            padding: 0.5rem;
+            background: #1a4a6f;
+            color: white;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 10004;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .lightbox.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox img, .lightbox video {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 12px;
+        }
+
+        .btn-inscricao, .btn-primary {
+            display: inline-block;
+            padding: 12px 28px;
+            background: #2ecc71;
+            color: white;
+            font-weight: 600;
+            border-radius: 40px;
+            margin: 0.5rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: "Poppins", sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-inscricao::before, .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-inscricao:active::before, .btn-primary:active::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-inscricao:hover, .btn-primary:hover {
+            background: #27ae60;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(46, 204, 113, 0.4);
+        }
+
+        .btn-secondary {
+            background: #95a5a6;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #7f8c8d;
+            transform: translateY(-2px);
+        }
+
+        .btn-print {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-print:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .form-row {
+            margin-bottom: 1rem;
+        }
+
+        .form-row label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+            color: #2c3e50;
+            transition: all 0.3s ease;
+        }
+
+        .form-row input, .form-row select, .form-row textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            font-family: "Poppins", sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-row input:focus, .form-row select:focus {
+            outline: none;
+            border-color: #2ecc71;
+            box-shadow: 0 0 0 3px rgba(46,204,113,0.2);
+        }
+
+        .form-row.success input {
+            border-color: #2ecc71;
+        }
+
+        .form-row.error input {
+            border-color: #e74c3c;
+        }
+
+        .pix-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+            margin: 2rem 0;
+        }
+
+        .qr-code {
+            text-align: center;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .qr-code:hover {
+            transform: scale(1.05);
+        }
+
+        .qr-code img {
+            width: 200px;
+            border-radius: 12px;
+        }
+
+        .pix-item {
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 16px;
+            border-left: 4px solid #2ecc71;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .pix-item:hover {
+            transform: translateX(5px);
+            background: #fff;
+        }
+
+        .btn-copiar {
+            background: #2ecc71;
+            color: white;
+            border: none;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-left: 0.5rem;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-copiar.copied {
+            background: #27ae60;
+            transform: scale(1.05);
+        }
+
+        .ficha-wrapper {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 20px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .ficha-wrapper:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .ficha-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .ficha-input-editavel, .ficha-textarea-editavel {
+            width: 100%;
+            padding: 0.6rem;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .ficha-input-editavel:focus, .ficha-textarea-editavel:focus {
+            border-color: #2ecc71;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(46,204,113,0.2);
+        }
+
+        .agendamentos-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .day-card {
+            padding: 1rem;
+            border-radius: 16px;
+            background: #f8f9fa;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .day-card.active {
+            background: #e8f5e9;
+            border: 1px solid #2ecc71;
+        }
+
+        .slot-btn {
+            padding: 0.4rem 0.8rem;
+            border-radius: 30px;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            margin: 0.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .slot-btn.selected, .slot-btn:hover {
+            background: #2ecc71;
+            color: white;
+            border-color: #2ecc71;
+            transform: scale(1.05);
+        }
+
+        .notification {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            padding: 12px 24px;
+            border-radius: 12px;
+            color: white;
+            font-weight: 500;
+            z-index: 10002;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .notification.success { background: #2ecc71; }
+        .notification.error { background: #e74c3c; }
+        .notification.info { background: #3498db; }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10003;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #2ecc71;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: linear-gradient(135deg, #0f2b3d, #1a4a6f, #2c6e8f);
+        }
+
+        body.dark-mode #particles-js {
+            background: linear-gradient(135deg, #0a0a0a, #1a1a2e, #16213e);
+        }
+
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+            border-radius: 24px 24px 0 0;
+            text-align: center;
+        }
+
+        footer .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        footer .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        footer .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        footer .social-icons a:hover {
+            color: #2ecc71;
+            transform: translateY(-3px);
+        }
+
+        .newsletter input {
+            padding: 0.6rem;
+            border-radius: 30px;
+            border: none;
+            width: 70%;
+            margin-right: 0.5rem;
+        }
+
+        .newsletter button {
+            padding: 0.6rem 1rem;
+            border-radius: 30px;
+            background: #2ecc71;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.15);
+            background: #128C7E;
+        }
+
+        .menu-hamburguer {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes confetti {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #2ecc71;
+            position: fixed;
+            z-index: 10005;
+            pointer-events: none;
+            animation: confetti 2s ease-out forwards;
+        }
+
+        @media (max-width: 768px) {
+            .menu-hamburguer {
+                display: block;
+            }
+            .links-box {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 40, 60, 0.95);
+                flex-direction: column;
+                padding: 1rem;
+            }
+            .links-box.active {
+                display: flex;
+            }
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 0.8rem;
+            }
+            .agendamentos-grid {
+                grid-template-columns: 1fr;
+            }
+            .section, .hero-section {
+                margin: 5rem 1rem 1rem;
+                padding: 1.5rem;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .equipe-grid {
+                grid-template-columns: 1fr;
+            }
+            .donut-wrapper {
+                flex-direction: column;
+            }
+            .share-buttons {
+                bottom: 85px;
+                right: 15px;
+            }
+            .share-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            .dark-mode-toggle {
+                bottom: 20px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            .whatsapp-float {
+                bottom: 20px;
+                left: 15px;
+                width: 45px;
+                height: 45px;
+                font-size: 24px;
+            }
+        }
+
+        @media print {
+            .main-nav, .whatsapp-float, .btn-inscricao, .btn-primary, 
+            .btn-secondary, .btn-print, .form-actions, .menu-hamburguer, 
+            footer, .share-buttons, .dark-mode-toggle, .progress-bar {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    <div id="particles-js"></div>
+    
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+    
+    <button class="dark-mode-toggle" id="darkModeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <div class="share-buttons">
+        <a href="#" class="share-btn whatsapp" id="shareWhatsapp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="share-btn facebook" id="shareFacebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="share-btn instagram" id="shareInstagram"><i class="fab fa-instagram"></i></a>
+    </div>
+    
+    <nav class="main-nav" id="mainNav">
+        <div class="logo-box">
+            <img class="logo1" src="Logo/logo1.jpeg" alt="Logo Projeto Nossa Casa">
+            <img class="logo2" src="Logo/logo2.jpeg" alt="Logo Instituto Nossa Casa">
+        </div>
+    
+        <button class="menu-hamburguer" id="menuHamburguer">☰</button>
+        
+        <div class="links-box" id="linksBox">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#atuacao" class="nav-link">Atuação</a>
+            <a href="#sobre" class="nav-link">Sobre Nós</a>
+            <a href="#modalidades" class="nav-link">Modalidades</a>
+            <a href="#atividades" class="nav-link">Atividades</a>
+            <a href="#veredinha" class="nav-link">Veredinha</a>
+            <a href="#cursos" class="nav-link">Cursos</a>
+            <a href="#colabore" class="nav-link">Colabore</a>
+            <a href="#agendamentos" class="nav-link">Agendamentos</a>
+        </div>
+    </nav>
+
+    <a href="https://wa.me/557391566855?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20o%20Projeto%20Nossa%20Casa." 
+       class="whatsapp-float" 
+       target="_blank"
+       title="Fale conosco no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div class="hero-section" id="home">
+        <h1 class="hero-title typewriter" id="typewriter">OLÁ! Seja bem-vindo</h1>
+        <div class="hero-description">
+            <p class="intro-text">Somos uma entidade social de princípios cristãos, sem fins lucrativos, que exerce atividades nas áreas de Saúde, Assistência jurídica, Serviço Social sediada em Vitória da Conquista-BA. Iniciou-se há mais de 20 anos, mas, oficializou-se no ano de 2019/2020, o Instituto de Gestão Médico Hospitalar da Bahia Nossa Casa com atendimentos médicos gratuitos e voluntários, além de prestação de serviços de casa de apoio a pessoas que necessitavam realizar tratamento de saúde e assistência psíquica emocional. Possuímos projeto de música, inclusão social com treinamentos, curso de línguas.</p>
+            
+            <a href="#colabore" class="cta-button"><i class="fas fa-heart"></i> Quero ajudar</a>
+            
+            <h2 style="text-align: center; margin: 2rem 0 1rem;">MODELO DE REDE COLABORATIVO</h2>
+            
+            <blockquote class="bible-quote">
+                <p>Atos 4:32 - E era um o coração e a alma da multidão dos que criam, e ninguém dizia que coisa alguma do que possuía era sua própria, mas todas as coisas lhes eram comuns.</p>
+            </blockquote>
+            
+            <div class="modelo-content">
+                <p>O Instituto Nossa Casa trabalha com serviço voluntário e rede colaborativa via parceria. Nesta rede, o colaborador adere ao Instituto, sendo cadastrado como parceiro. A proposta é fornecer uma atendimento de qualidade, comprometido, integrado, acessível aos usuarios. Buscamos profissionais com capacidade técnica aliada a princípios éticos para ampliação da assistência aos que procuram socorro. Sabemos que vivenciamos uma realidade na qual as unidades de saúde se encontram lotadas, as filas de espera são gigantes, o acolhimento e a empatia ocorrem muitas vezes de faixada e o amor ao próximo se esfriou. Muitos profissionais estão sobrecarregados por cobranças e fadigados por Burnout e, infelizmente, as profissões se mecanizaram. Por sua vez, as pessoas falecem aos poucos em suas casas aguardando vaga, recursos monetários ou condiçao de ter um plano de saúde suplementar. As barreiras para realizar exames de diferentes complexidades vão desde as financeiras até mesmo à explicação adequada para preparo de um exame ou flexibilidade para agendamento de horários compatíveis com o trabalho do cidadão.</p>
+
+                <p>Neste cenário, pessoas se deslocam de seus municípios de origem para centros de referência para tratamento de saúde. Alguns deles demandam tempo prolongado e necessidade de permanência na cidade maior para efetividade da assistência, sobretudo, realização de exames e consultas com especialista na área afetada. Nem sempre existe a disponibilidade de transporte diário para este percurso, além de ser cansativo e custoso. Além do mais, as condições de saúde física agregam sofrimento psíquico e emocional aos cuidadores e familiares, algo que não se resolve simplesmente com medicalização. Em um ciclo vicioso, há uma agravamento da doença individual/familiar, aumento das despesas públicas e privadas com medicação/reabilitação e luta por regulação de leito de internação hospitalar devido a superlotação por paciente que já chegaram fora do time ao "fim de linha do sistema", o sistema terciário. As pessoas estão cada vez mais sofrendo com ansiedade e depressão, independente da sua classe social,o que desencadeia outras doenças físicas. Em uma proposta adjuvante, o nosso projeto trabalha com o modelo de Casa de Apoio organizado para acolher este público familiar no campo fisico, mental e espiritual em diferentes patologias.Atualmente, recebemos neste novo ciclo os acompanhantes dos pacientes que estão em tratamento de saúde, a saber em hospitais e clínicas.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="atuacao" class="section">
+        <h2 class="section-subtitle">ATUAÇÃO</h2>
+        <h1 class="section-title">O que fazemos</h1>
+        <div class="missao-valores">
+            <div class="missao-valores-item">
+                <i class="fas fa-church"></i>
+                <h2 class="item-title">Nossa missão</h2>
+                <p class="item-text">Utilizar as atividades sociais colaborativas para anunciar o amor de Deus às vidas e Seu Reino.</p>
+            </div>
+            <div class="missao-valores-item">
+                <i class="fas fa-eye"></i>
+                <h2 class="item-title">Nossa visão</h2>
+                <p class="item-text">Ser uma instituição de excelência respeitada na sua atuação humanizada, comprometida, organizada, sólida no cuidado ao próximo com base no amor e nos princípios cristãos, ampliando o acesso aos serviços de saúde e à dignidade da pessoa humana.</p>
+            </div>
+            <div class="missao-valores-item">
+                <i class="fas fa-heart"></i>
+                <h2 class="item-title">Nossos valores</h2>
+                <p class="item-text">Amor ao próximo, temor e cumprimento dos princípios cristãos, orientação familiar, valorização de cada ser humano para Deus através da identidade em Cristo Jesus, compromisso e ética, Organização informatizada e integrada, Transparência, Oferecer aos profissionais a oportunidade utilizar sua profissão como instrumento de colaboração e reciprocidade em rede colaborativa.</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="sobre" class="section">
+        <div class="container">
+            <header>
+                <h2 class="section-subtitle">Sobre nós</h2>
+                <h1 class="section-title">Conheça nossa equipe</h1>
+            </header>
+            <div class="equipe-grid">
+                <article class="membro-equipe">
+                    <div class="avatar-container"><img src="fotos/pastora.jpg" alt="Apóstola Normacy" class="avatar"></div>
+                    <div class="membro-info">
+                        <h3 class="membro-nome">Apóstola Normacy</h3>
+                        <p class="membro-cargo">Pastora Presidente e Fundadora</p>
+                        <div class="membro-descricao"><p>A apostola Normacy é serva do Senhor que advém da Igreja Nova Sião, do pastor Edilson de Souza da Silva, e da Comunidade Deus Vivo, do Pastor Rubens Cavalcante em Vitoria da Conquista-BA. É a pastora presidente da Igreja Batista Renovada Restaurando Vidas. Possui formação pela RHEMA do Verbo da Vida – Brasil. Possui ampla experiência no campo de manejo de problemas psicoemocionais. Normacy é presidente e fundadora do Instituto Nossa Casa.</p></div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="membro-equipe">
+                    <div class="avatar-container"><img src="fotos/jana.png" alt="Dra. Jana" class="avatar"></div>
+                    <div class="membro-info">
+                        <h3 class="membro-nome">Dra. Jana</h3>
+                        <p class="membro-cargo">Médica, Tesoureira e Fundadora</p>
+                        <div class="membro-descricao"><p>Dra Jana é discípula da pastora Normacy, serva do Senhor, diaconisa da Igreja Batista Renovada Restaurando Vidas, graduada em Medicina pela Universidade Estadual de Santa Cruz (UESC), mestrado em Medicina da Família pela UFSB. Titulada em Medicina da Família e Comunidade. Jana é gestora médica, tesoureira e fundadora do Instituto Nossa Casa.</p></div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="membro-equipe">
+                    <div class="avatar-container"><img src="fotos/fabricio.jpg" alt="Fabrício" class="avatar"></div>
+                    <div class="membro-info">
+                        <h3 class="membro-nome">Fabrício Silva Pinheiro</h3>
+                        <p class="membro-cargo">Vice-presidente</p>
+                        <div class="membro-descricao"><p>Fabrício Silva Pinheiro é profissional de educação física com especialização em treinamento integrado, CEO Academia Senso Vital, criador do método 7in7, autoridade em resultados rápidos com treino em casa e academia, criador do programa qualidade de vida e saúde laboral. Atua como Vice-presidente do Instituto Nossa Casa.</p></div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="membro-equipe">
+                    <div class="avatar-container"><img src="fotos/fernanda.jpg" alt="Fernanda" class="avatar"></div>
+                    <div class="membro-info">
+                        <h3 class="membro-nome">Fernanda Carvalho</h3>
+                        <p class="membro-cargo">2ª Secretária</p>
+                        <div class="membro-descricao"><p>Fernanda Carvalho é formada em administração, profissão em cabeleireira com especialização em mega Hair, sócia-proprietária do salão Sônia Carvalho localizado no Bairro Recreio. Exerce a função de 2ª secretária do Instituto Nossa Casa.</p></div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="membro-equipe">
+                    <div class="avatar-container"><img src="fotos/marizene.jpeg" alt="Marizene" class="avatar"></div>
+                    <div class="membro-info">
+                        <h3 class="membro-nome">Professora e Pastora Marizene Chagas Fiuza</h3>
+                        <p class="membro-cargo">Conselheira Fiscal</p>
+                        <div class="membro-descricao"><p>Professora e pastora Marizene Chagas Fiuza, graduada em Letras Vernáculas pela UESB. Pós graduada em "O Ensinamento da Língua Portuguesa". Especializada em Neuropsicopedagogia e Neurociência das Emoções. Atua há 26 anos como professora da rede Municipal de Ensino de Vitória da Conquista. No Instituto Nossa Casa atua como conselheira fiscal.</p></div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="membro-equipe">
+                    <div class="avatar-container"><img src="fotos/sonia.jpg" alt="Sonia" class="avatar"></div>
+                    <div class="membro-info">
+                        <h3 class="membro-nome">Sonia Caetano Veiga</h3>
+                        <p class="membro-cargo">2ª Tesoureira</p>
+                        <div class="membro-descricao"><p>Sonia Caetano Veiga trabalhou mais de 20 anos no Hospital São Geraldo no setor da nutrição. Atua como líder nas atividades realizadas no Centro de Recuperação. Sonia é diaconisa no Ministério e exerce a função de 2ª tesoureira do Instituto Nossa Casa.</p></div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </article>
+                <article class="membro-equipe">
+                    <div class="avatar-container"><img src="fotos/Valter.jpg" alt="Pastor Valter" class="avatar"></div>
+                    <div class="membro-info">
+                        <h3 class="membro-nome">Pastor Valter Rodrigues</h3>
+                        <p class="membro-cargo">2º Secretário</p>
+                        <div class="membro-descricao"><p>O pastor Valter Rodrigues é esposo da apóstola Normacy e motorista de formação, conduzindo os transportes do projeto e do Ministério. É reconhecido pelo amor ao próximo, dedicando-se ao cuidado das crianças carentes em municípios como Porto Seguro, Ipiaú e Vitoria da Conquista há mais de 10 anos. No Projeto, atua como 2º secretário.</p></div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="modalidades" class="section">
+        <div class="container">
+            <header>
+                <h1 class="section-title">Modalidades do Instituto Nossa Casa</h1>
+                <p style="text-align: center; margin-bottom: 1rem;">Nosso trabalho se desenvolve através de diferentes modalidades de atuação:</p>
+            </header>
+            <div class="donut-chart-container">
+                <h3 class="donut-title">Distribuição das Modalidades</h3>
+                <p style="color: #666; margin-bottom: 1rem;">Clique em uma fatia do gráfico para conhecer as modalidades:</p>
+                <div class="donut-wrapper">
+                    <svg class="donut-chart" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="45" fill="transparent" stroke="#e0e0e0" stroke-width="10"></circle>
+                        <g class="donut-slices"></g>
+                        <g class="donut-center">
+                            <circle cx="50" cy="50" r="25" fill="white"></circle>
+                            <text class="donut-center-text" x="50" y="48" text-anchor="middle" dy="0.3em" font-size="5px" font-weight="bold">5 Modalidades</text>
+                            <text class="donut-center-subtext" x="50" y="55" text-anchor="middle" dy="0.3em" font-size="3px" fill="#666">Clique uma fatia</text>
+                        </g>
+                    </svg>
+                    <div class="donut-legend">
+                        <div class="legend-item" data-index="0"><span class="legend-color" style="background-color: #2ecc71;"></span><span class="legend-label">Colaborador Voluntário</span><span class="legend-value">20%</span></div>
+                        <div class="legend-item" data-index="1"><span class="legend-color" style="background-color: #3498db;"></span><span class="legend-label">Cartão com Desconto</span><span class="legend-value">20%</span></div>
+                        <div class="legend-item" data-index="2"><span class="legend-color" style="background-color: #f39c12;"></span><span class="legend-label">Casa de Apoio</span><span class="legend-value">25%</span></div>
+                        <div class="legend-item" data-index="3"><span class="legend-color" style="background-color: #9b59b6;"></span><span class="legend-label">Projeto de Música</span><span class="legend-value">15%</span></div>
+                        <div class="legend-item" data-index="4"><span class="legend-color" style="background-color: #e74c3c;"></span><span class="legend-label">Cursos e Oficinas</span><span class="legend-value">20%</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modalidades-container">
+                <div class="modalidade-card" id="modalidade-1"><h3 class="modalidade-titulo">Modalidade 1: Colaborador Voluntário</h3><div class="modalidade-descricao"><p>O colaborador se cadastra, opta com que tipo de serviço ajudará e o turno e dias do mês. Informa o local de prestação de serviço, a quantidade de vidas atendidas por mês. O médico gatekeeper (regulador/acolhedor) faz triagem presencial ou via teleconsulta e entra em contato com o colaborador parceiro para encaminhamento ou teleconsultoria. Estabelece-se termo de parceria entre o colaborador e a instituição.</p><p>Em contrapartida, o colaborador recebe a carteirinha da instituição e a declaração de voluntariado que pode ser útil como critério de desempate em concursos, seleções, licitações, entre outros.</p></div></div>
+                <div class="modalidade-card" id="modalidade-2"><h3 class="modalidade-titulo">Modalidade 2: Cartão de Encaminhamentos com Desconto</h3><div class="modalidade-descricao"><p>O colaborador realiza o cadastro e se estabelece o termo de compromisso entre o instituto e o parceiro. A proposta é fornecer, sobretudo, aos pacientes uma assistência de qualidade, sem sucateamento ou massificação. Para participar como assistido na modalidade de cartão de encaminhamento de descontos, o assistido fará uma contribuição mensal com o instituto filantrópico no valor de R$ 19,90.</p><p>O profissional colaborador receberá o valor da prestação de serviço e repassará para o instituto uma taxa de contribuição a combinar, evitando bitributação.</p></div></div>
+                <div class="modalidade-card" id="modalidade-3"><h3 class="modalidade-titulo">Modalidade 3: Casa de Apoio</h3><div class="modalidade-descricao"><p>O apoio ambulatorial a pacientes e acompanhantes em situação de vulnerabilidade de saúde constitui a principal atividade social do Instituto Nossa Casa. A casa de apoio conta com médica reguladora gatekeeper que reavalia as necessidades dos assistidos e encaminha aos especialistas devidos, articulando a integralidade da assistência, bem como fornecer apoio médico local. Conta ainda com serviço social, jurídico, psicólogo, educador físico fisioterapia e enfermagem.</p><p>Não se trata de uma pensão, casa de estudante ou pousada, mas sim uma organização dotada sob os princípios cristãos para apoio a sociedade civil.</p></div></div>
+                <div class="modalidade-card" id="modalidade-4"><h3 class="modalidade-titulo">Modalidade 4: Projeto de Música</h3><div class="modalidade-descricao"><p>O projeto fornece aulas de música a saber, violão, guitarra, bateria, teclado, percussão. Contamos com professores parceiros. Para participar do projeto, como aluno realizamos uma taxa simbólica de matrícula + uma contribuição mensal que é revertida para transporte do professor voluntário, manutenção de instrumentos e para as próprias atividades do projeto.</p><p>São organizadas em pequenas turmas simultâneas a fim de otimizar o aprendizado. O aluno tem acesso a atividades que dificilmente teria como custear com recursos próprios e estará incluído em um ambiente saudável.</p></div></div>
+                <div class="modalidade-card" id="modalidade-5"><h3 class="modalidade-titulo">Modalidade 5: Oficinas Profissionalizantes e Cursos de Línguas</h3><div class="modalidade-descricao"><p>O projeto possui um campo educacional voltado para capacitação e inclusão social. Tratam-se de realização de aulas semanais de línguas estrangeiras, cursos profissionalizantes como de cuidadores, palestras educativas na área de saúde, entre outros.</p><p>Em relação ao curso de línguas, o aluno realiza a matrícula e contribui com uma taxa mensal de R$ 60,00 reais que será destinada a ajuda de custo com voluntários como transporte, alimentação, bem como despesas com o próprio projeto.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <div id="atividades" class="section">
+        <h2 class="section-subtitle">Nossa causa</h2>
+        <h1 class="section-title">Conheça nossas atividades</h1>
+        <div class="galeria" id="galeria">
+            <div class="galeria-item" data-src="Imagens_atividade/foto1.png"><img src="Imagens_atividade/foto1.png" alt="Atividade 1" loading="lazy"></div>
+            <div class="galeria-item" data-src="Imagens_atividade/foto2.png"><img src="Imagens_atividade/foto2.png" alt="Atividade 2" loading="lazy"></div>
+            <div class="galeria-item" data-src="Imagens_atividade/foto3.png"><img src="Imagens_atividade/foto3.png" alt="Atividade 3" loading="lazy"></div>
+            <div class="galeria-item" data-src="Imagens_atividade/foto4.png"><img src="Imagens_atividade/foto4.png" alt="Atividade 4" loading="lazy"></div>
+            <div class="galeria-item" data-src="Imagens_atividade/foto5.png"><img src="Imagens_atividade/foto5.png" alt="Atividade 5" loading="lazy"></div>
+            <div class="galeria-item" data-src="Imagens_atividade/foto6.png"><img src="Imagens_atividade/foto6.png" alt="Atividade 6" loading="lazy"></div>
+            <div class="galeria-item" data-src="Imagens_atividade/foto7.png"><img src="Imagens_atividade/foto7.png" alt="Atividade 7" loading="lazy"></div>
+            <div class="galeria-item" data-src="Imagens_atividade/foto8.png"><img src="Imagens_atividade/foto8.png" alt="Atividade 8" loading="lazy"></div>
+            <div class="galeria-item" data-src="Imagens_atividade/foto11.jpg"><img src="Imagens_atividade/foto11.jpg" alt="Atividade 11" loading="lazy"></div>
+            <div class="galeria-item" data-src="Imagens_atividade/foto12.jpg"><img src="Imagens_atividade/foto12.jpg" alt="Atividade 12" loading="lazy"></div>
+            <div class="galeria-item video-item" data-src="Imagens_atividade/foto9.mp4" data-type="video"><video controls preload="none" poster="Imagens_atividade/foto9.jpg"><source src="Imagens_atividade/foto9.mp4" type="video/mp4"></video><div class="video-label">Vídeo: Atividade 9</div></div>
+            <div class="galeria-item video-item" data-src="Imagens_atividade/foto10.mp4" data-type="video"><video controls preload="none" poster="Imagens_atividade/foto10.jpg"><source src="Imagens_atividade/foto10.mp4" type="video/mp4"></video><div class="video-label">Vídeo: Atividade 10</div></div>
+            <div class="galeria-item video-item" data-src="Imagens_atividade/foto13.mp4" data-type="video"><video controls preload="none" poster="Imagens_atividade/foto13.jpg"><source src="Imagens_atividade/foto13.mp4" type="video/mp4"></video><div class="video-label">Vídeo: Atividade 13</div></div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content"></div>
+    </div>
+
+    <div id="veredinha" class="section">
+        <div class="container">
+            <header>
+                <h2 class="section-subtitle">PROJETO ESPECIAL</h2>
+                <h1 class="section-title">AÇÃO VEREDINHA</h1>
+            </header>
+            <div class="galeria">
+                <div class="galeria-item" data-src="veredinha/foto_jana1.png"><img src="veredinha/foto_jana1.png" alt="Médica atendendo criança" loading="lazy"></div>
+                <div class="galeria-item" data-src="veredinha/foto_jana2.png"><img src="veredinha/foto_jana2.png" alt="Equipe em ação" loading="lazy"></div>
+                <div class="galeria-item" data-src="veredinha/foto_veredinha.png"><img src="veredinha/foto_veredinha.png" alt="Unidade de Saúde" loading="lazy"></div>
+                <div class="galeria-item" data-src="veredinha/foto2_veredinha.jpeg"><img src="veredinha/foto2_veredinha.jpeg" alt="Unidade de Saúde" loading="lazy"></div>
+                <div class="galeria-item video-item" data-src="veredinha/video_veredinha.mp4" data-type="video"><video controls preload="none"><source src="veredinha/video_veredinha.mp4" type="video/mp4"></video><div class="video-label">Vídeo: Ação Veredinha</div></div>
+            </div>
+            <div style="background: #f8f9fa; padding: 2rem; border-radius: 20px; margin-top: 1rem;">
+                <h2 style="color: #1a4a6f;">Propostas</h2>
+                <ol style="margin-left: 2rem; margin-bottom: 1.5rem;">
+                    <li>Atendimento médico especializado à lista de espera.</li>
+                    <li>Ação coletiva.</li>
+                    <li>Qualificação dos médicos da atenção primária e estudantes do internato no manejo de condições neuropsiquiátricas na infância e adolescência.</li>
+                </ol>
+                <h2 style="color: #1a4a6f;">Cenário</h2>
+                <p>A USF Veredinha está localizada na zona rural de Vitória da Conquista e atende uma população estimada de 3.200 usuários, majoritariamente de baixa renda, composta por trabalhadores rurais. Cerca de 17% da população é formada por crianças e adolescentes de 0 a 14 anos.</p>
+                <p>A unidade abrange oito localidades: Veredinha, Baixão, Lamarão, Velame, Abelhas, Baixa Seca, Baixa da Porteira e Lagoa de Melquiades.</p>
+                <p>O aumento no diagnóstico de transtornos neurológicos e mentais, como autismo, TDAH e transtornos de comportamento, tem gerado grande demanda por especialidades como neuropediatria, pediatria e psiquiatria.</p>
+                <p>Em abril de 2025, há 30 crianças aguardando consulta com neuropediatra, algumas desde 2022. A baixa renda, as dificuldades de deslocamento até a zona urbana e a escassez de profissionais especializados pelo SUS contribuem para o atraso no diagnóstico e tratamento dessa população.</p>
+                <h3 style="color: #1a4a6f; margin-top: 1rem;">ATENDIMENTO INDIVIDUAL</h3>
+                <p><strong>PROPOSTA:</strong> Parceria com médicos neuropediatras, neurologistas, psiquiatras, pediatras para as crianças que aguardam atendimento no modelo triagem com olhar especializado e reavaliação. Serão previamente triados pela médica gatekeeper do projeto que realizará a articulação.</p>
+                <p><strong>MODALIDADE:</strong> voluntariado</p>
+                <p><strong>LOCAL DO ATENDIMENTO:</strong> A combinar com médico parceiro (a exemplo, pode ser no consultório, em ambulatórios públicos ou filantrópicos, na própria unidade de saúde). O médico parceiro receberá uma declaração de honraria pela colaboração no projeto social e selo de participação como voluntario.</p>
+                <p><strong>INÍCIO:</strong> Abril de 2025</p>
+                <p><strong>META:</strong> atender todas as crianças na lista de espera atual até dezembro de 2025</p>
+                <p><strong>SEGUIMENTO:</strong> via posto de saúde</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="cursos" class="section">
+        <h2 class="section-subtitle">CURSOS</h2>
+        <h1 class="section-title">Aprimore seus conhecimentos</h1>
+        <div id="cursos-principal">
+            <p style="text-align:center;">Oferecemos aulas de música (violão, guitarra, teclado, bateria e percussão), cursos profissionalizantes, cursos de idiomas e atividades de inclusão social.</p>
+            <div style="text-align:center;">
+                <button class="btn-inscricao" onclick="mostrarCurso('musica')"><i class="fas fa-music"></i> Inscreva-se nas aulas de música</button>
+                <button class="btn-inscricao" onclick="mostrarCurso('ingles')"><i class="fas fa-language"></i> Inscreva-se nas aulas de inglês</button>
+            </div>
+        </div>
+        <div id="pagina-musica" class="pagina-curso" style="display:none; background:white; padding:2rem; border-radius:20px; margin-top:1rem;">
+            <h2 style="color:#1a4a6f;"><i class="fas fa-music"></i> Aulas de Música</h2>
+            <p>Oferecemos aulas de violão, guitarra, teclado, bateria e percussão.</p>
+            <div style="background:#f8f9fa; padding:1rem; border-radius:12px; margin:1rem 0;"><p><i class="fas fa-clock"></i> Horários: Quarta-feira 19h-20h | Sábado 15h-16h</p></div>
+            <div class="formulario-inscricao">
+                <div class="form-row"><label>Nome Completo *</label><input type="text" id="nome-musica" placeholder="Seu nome"></div>
+                <div class="form-row"><label>E-mail *</label><input type="email" id="email-musica" placeholder="seu@email.com"></div>
+                <div class="form-row"><label>Telefone *</label><input type="tel" id="telefone-musica" placeholder="(77) 99999-9999"></div>
+                <div class="form-row"><label>Instrumento *</label><select id="instrumento"><option value="">Selecione</option><option value="violao">Violão</option><option value="guitarra">Guitarra</option><option value="teclado">Teclado</option><option value="bateria">Bateria</option><option value="percussao">Percussão</option></select></div>
+                <div class="form-actions"><button class="btn-secondary" onclick="voltarCursos()"><i class="fas fa-arrow-left"></i> Voltar</button><button class="btn-primary" onclick="inscreverCurso('musica')"><i class="fas fa-paper-plane"></i> Enviar Inscrição</button></div>
+            </div>
+        </div>
+        <div id="pagina-ingles" class="pagina-curso" style="display:none; background:white; padding:2rem; border-radius:20px; margin-top:1rem;">
+            <h2 style="color:#1a4a6f;"><i class="fas fa-language"></i> Aulas de Inglês</h2>
+            <p>Aprenda inglês com nossos professores voluntários.</p>
+            <div class="formulario-inscricao">
+                <div class="form-row"><label>Nome Completo *</label><input type="text" id="nome-ingles" placeholder="Seu nome"></div>
+                <div class="form-row"><label>E-mail *</label><input type="email" id="email-ingles" placeholder="seu@email.com"></div>
+                <div class="form-row"><label>Telefone *</label><input type="tel" id="telefone-ingles" placeholder="(77) 99999-9999"></div>
+                <div class="form-row"><label>Nível *</label><select id="nivel-ingles"><option value="">Selecione</option><option value="iniciante">Iniciante</option><option value="basico">Básico</option><option value="intermediario">Intermediário</option><option value="avancado">Avançado</option></select></div>
+                <div class="form-actions"><button class="btn-secondary" onclick="voltarCursos()"><i class="fas fa-arrow-left"></i> Voltar</button><button class="btn-primary" onclick="inscreverCurso('ingles')"><i class="fas fa-paper-plane"></i> Enviar Inscrição</button></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="colabore" class="section">
+        <h1 class="section-title"><i class="fas fa-hand-holding-heart"></i> Colabore com o Instituto Nossa Casa</h1>
+        <p style="text-align:center;">Seu apoio transforma vidas! Com apenas R$ 19,90 mensais você ajuda em atendimentos médicos, casa de apoio e cursos.</p>
+        <div class="pix-container">
+            <div class="qr-code"><img src="pix_atualizado.jpeg" alt="QR Code PIX"><p>Escaneie com o app do seu banco</p></div>
+            <div class="pix-info">
+                <div class="pix-item"><h3><i class="fas fa-envelope"></i> Chave PIX (E-mail)</h3><p>projetonossacasa@gmail.com <button class="btn-copiar" data-text="projetonossacasa@gmail.com"><i class="fas fa-copy"></i> Copiar</button></p></div>
+                <div class="pix-item"><h3><i class="fas fa-building"></i> Chave PIX (CNPJ)</h3><p>38.266.204/0001-41 <button class="btn-copiar" data-text="38.266.204/0001-41"><i class="fas fa-copy"></i> Copiar</button></p></div>
+                <div class="pix-item"><h3><i class="fas fa-user"></i> Beneficiário</h3><p>Instituto Nossa Casa</p></div>
+            </div>
+        </div>
+        
+        <div class="fichas-container">
+            <div style="background:#f8f9fa; padding:1.5rem; border-radius:16px; margin-bottom:1.5rem;">
+                <h3><i class="fas fa-info-circle"></i> Instruções para preenchimento das fichas:</h3>
+                <ul><li>Preencha todos os campos abaixo antes de imprimir</li><li>Os dados são salvos automaticamente no seu navegador</li></ul>
+                <button class="btn-secondary" onclick="limparTodasFichas()"><i class="fas fa-trash-alt"></i> Limpar Todas as Fichas</button>
+            </div>
+            
+            <div class="ficha-wrapper" id="ficha-cesta-basica">
+                <div class="ficha-header"><h2 class="ficha-title"><i class="fas fa-box"></i> CADASTRO DE DOADORES CESTA BÁSICA</h2><div><button class="btn-secondary" onclick="limparFicha('cesta')"><i class="fas fa-eraser"></i> Limpar Ficha</button><button class="btn-print" onclick="imprimirFicha('ficha-cesta-basica')"><i class="fas fa-print"></i> Imprimir</button></div></div>
+                <div class="ficha-content">
+                    <div class="ficha-field"><label class="ficha-label">Nome:</label><input type="text" class="ficha-input-editavel" data-ficha="cesta" data-campo="nome" placeholder="Nome completo"></div>
+                    <div class="ficha-field"><label class="ficha-label">Endereço:</label><input type="text" class="ficha-input-editavel" data-ficha="cesta" data-campo="endereco" placeholder="Endereço completo"></div>
+                    <div class="ficha-field"><label class="ficha-label">Telefone:</label><input type="text" class="ficha-input-editavel" data-ficha="cesta" data-campo="telefone" placeholder="(DDD) 9XXXX-XXXX"></div>
+                    <div class="ficha-field"><label class="ficha-label">E-mail:</label><input type="email" class="ficha-input-editavel" data-ficha="cesta" data-campo="email" placeholder="seu@email.com"></div>
+                    <div class="ficha-address"><strong>RUA LEONIDIO DE OLIVEIRA, 65, RECREIO, VITÓRIA DA CONQUISTA - BAHIA</strong></div>
+                </div>
+            </div>
+            
+            <div class="ficha-wrapper" id="ficha-parceria">
+                <div class="ficha-header"><h2 class="ficha-title"><i class="fas fa-handshake"></i> FICHA DE PARCERIA</h2><div><button class="btn-secondary" onclick="limparFicha('parceria')"><i class="fas fa-eraser"></i> Limpar Ficha</button><button class="btn-print" onclick="imprimirFicha('ficha-parceria')"><i class="fas fa-print"></i> Imprimir</button></div></div>
+                <div class="ficha-content">
+                    <div class="ficha-field"><label class="ficha-label">NOME COMPLETO</label><input type="text" class="ficha-input-editavel" data-ficha="parceria" data-campo="nome" placeholder="Nome completo"></div>
+                    <div class="ficha-field"><label class="ficha-label">Endereço:</label><input type="text" class="ficha-input-editavel" data-ficha="parceria" data-campo="endereco" placeholder="Endereço"></div>
+                    <div class="ficha-field"><label class="ficha-label">Telefone:</label><input type="text" class="ficha-input-editavel" data-ficha="parceria" data-campo="telefone" placeholder="Telefone"></div>
+                    <div class="ficha-field"><label class="ficha-label">IREI CONTRIBUIR COM O INSTITUTO:</label><textarea class="ficha-textarea-editavel" data-ficha="parceria" data-campo="contribuicao" placeholder="Descreva como irá contribuir"></textarea></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="agendamentos" class="section">
+        <h2 class="section-subtitle">Agendamentos</h2>
+        <h1 class="section-title"><i class="fas fa-calendar-check"></i> Agende sua consulta</h1>
+        <div style="background:#e8f5e9; padding:1rem; border-radius:12px; margin-bottom:1rem;"><i class="fas fa-clock"></i> <strong>Horários disponíveis:</strong> Segunda a Sexta-feira: Dra. Jana Conceição - 16h às 20h</div>
+        <div class="agendamentos-grid">
+            <div id="daysList"></div>
+            <div>
+                <div style="background:#f8f9fa; padding:1rem; border-radius:12px; margin-bottom:1rem;"><strong><i class="fas fa-check-circle"></i> Seleção atual:</strong><div id="currentSelection">Nenhum selecionado</div></div>
+                <form id="appointmentForm">
+                    <div class="form-row"><label>Nome do paciente *</label><input id="patientName" type="text" required></div>
+                    <div class="form-row"><label>E-mail *</label><input id="patientEmail" type="email" required></div>
+                    <div class="form-row"><label>Telefone *</label><input id="patientPhone" type="tel" required></div>
+                    <div class="form-row"><label>Tipo de atendimento</label><div class="radio-group"><label><input type="radio" name="type" value="presencial" checked> <i class="fas fa-building"></i> Presencial</label><label><input type="radio" name="type" value="online"> <i class="fas fa-video"></i> Online</label></div></div>
+                    <div class="form-actions"><button type="button" id="btnClear" class="btn-secondary"><i class="fas fa-eraser"></i> Limpar</button><button type="submit" class="btn-primary"><i class="fas fa-paper-plane"></i> Solicitar agendamento</button></div>
+                </form>
+                <div style="background:#f8f9fa; padding:1.5rem; border-radius:16px; margin-top:1.5rem; border-left:4px solid #2ecc71;">
+                    <h3><i class="fas fa-list"></i> Lista de Espera para Avaliação de TDAH e Autismo</h3>
+                    <form id="esperaForm">
+                        <div style="display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));">
+                            <div class="form-row"><label>Nome completo *</label><input type="text" id="esperaNome" required></div>
+                            <div class="form-row"><label>Data de nascimento *</label><input type="date" id="esperaDataNasc" required></div>
+                            <div class="form-row"><label>Telefone *</label><input type="tel" id="esperaTelefone" required></div>
+                            <div class="form-row"><label>E-mail *</label><input type="email" id="esperaEmail" required></div>
+                            <div class="form-row"><label>Tipo de avaliação *</label><select id="esperaTipo"><option value="">Selecione</option><option value="tdah">TDAH</option><option value="autismo">Autismo</option><option value="ambos">Ambos</option></select></div>
+                            <div class="form-row"><label>Idade *</label><input type="number" id="esperaIdade" min="0" max="120" required></div>
+                        </div>
+                        <div class="form-actions"><button type="button" id="btnLimparEspera" class="btn-secondary"><i class="fas fa-eraser"></i> Limpar</button><button type="button" id="btnEnviarEspera" class="btn-primary"><i class="fas fa-paper-plane"></i> Incluir na Lista</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3 style="color:#2ecc71;"><i class="fas fa-hand-holding-heart"></i> Instituto Nossa Casa</h3>
+                <p><strong><i class="fas fa-map-marker-alt"></i> Endereço:</strong> Centro, N° 102, Vitória da Conquista - BA</p>
+                <p><strong><i class="fas fa-phone"></i> Telefone:</strong> (77) 88471626</p>
+                <p><strong><i class="fas fa-envelope"></i> E-mail:</strong> projetonossacasavca@gmail.com</p>
+                <p><strong><i class="fas fa-qrcode"></i> CNPJ:</strong> 38.256.204/0001-41</p>
+            </div>
+            <div>
+                <h3><i class="fas fa-share-alt"></i> Redes Sociais</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="newsletter">
+                <h3><i class="fas fa-newspaper"></i> Newsletter</h3>
+                <p>Receba novidades do projeto</p>
+                <input type="email" placeholder="Seu e-mail" id="newsletterEmail">
+                <button onclick="showNotification('Newsletter em breve!', 'info')"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <div class="footer-bottom" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
+            <p>Patrocinadores:</p>
+            <img src="Patrocinadores/avinor.jpg" alt="Avinor" style="max-width:80px; margin:0.5rem; border-radius:8px;">
+            <img src="Patrocinadores/senso_vital.png" alt="Senso Vital" style="max-width:80px; margin:0.5rem; border-radius:8px;">
+            <p style="margin-top:1rem;">&copy; 2026 Instituto Nossa Casa - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // ============================================
+        // CONFIGURAÇÕES WHATSAPP E EMAIL
+        // ============================================
+        
+        const WHATSAPP_NUMERO = '557391566855';
+        const EMAIL_EMPRESA = 'projetonossacasavca@gmail.com';
+        
+        function enviarWhatsApp(mensagem, dadosAdicionais = '') {
+            let textoCompleto = mensagem;
+            if (dadosAdicionais) {
+                textoCompleto += '\n\n' + dadosAdicionais;
+            }
+            const url = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(textoCompleto)}`;
+            window.open(url, '_blank');
+        }
+        
+        function enviarEmail(assunto, corpo) {
+            const emailUrl = `mailto:${EMAIL_EMPRESA}?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(corpo)}`;
+            window.open(emailUrl, '_blank');
+        }
+        
+        function enviarNotificacoes(tipo, dados) {
+            let mensagemWhatsApp = '';
+            let assuntoEmail = '';
+            let corpoEmail = '';
+            
+            if (tipo === 'inscricao') {
+                mensagemWhatsApp = formatarMensagemInscricao(dados);
+                assuntoEmail = `📋 NOVA INSCRIÇÃO - ${dados.tipo === 'musica' ? 'Aula de Música' : 'Curso de Inglês'}`;
+                corpoEmail = formatarMensagemInscricaoEmail(dados);
+            } else if (tipo === 'agendamento') {
+                mensagemWhatsApp = formatarMensagemAgendamento(dados);
+                assuntoEmail = `📅 NOVO AGENDAMENTO - ${dados.nome}`;
+                corpoEmail = formatarMensagemAgendamentoEmail(dados);
+            } else if (tipo === 'lista_espera') {
+                mensagemWhatsApp = formatarMensagemListaEspera(dados);
+                assuntoEmail = `⏳ NOVA INCLUSÃO - Lista de Espera (${dados.tipoAvaliacao})`;
+                corpoEmail = formatarMensagemListaEsperaEmail(dados);
+            }
+            
+            enviarWhatsApp(mensagemWhatsApp);
+            enviarEmail(assuntoEmail, corpoEmail);
+        }
+        
+        function formatarMensagemInscricao(dados) {
+            let mensagem = `📋 *NOVA INSCRIÇÃO - PROJETO NOSSA CASA*\n\n`;
+            mensagem += `🏷️ *Tipo:* ${dados.tipo === 'musica' ? '🎵 Aula de Música' : '🇬🇧 Curso de Inglês'}\n`;
+            mensagem += `👤 *Nome:* ${dados.nome}\n`;
+            mensagem += `📧 *E-mail:* ${dados.email}\n`;
+            mensagem += `📱 *Telefone:* ${dados.telefone}\n`;
+            if (dados.instrumento) mensagem += `🎸 *Instrumento:* ${dados.instrumento}\n`;
+            if (dados.nivel) mensagem += `📚 *Nível:* ${dados.nivel}\n`;
+            mensagem += `🕐 *Data:* ${new Date().toLocaleString('pt-BR')}\n\n`;
+            mensagem += `✅ *Status:* Pendente de contato`;
+            return mensagem;
+        }
+        
+        function formatarMensagemAgendamento(dados) {
+            let mensagem = `📅 *NOVO AGENDAMENTO - PROJETO NOSSA CASA*\n\n`;
+            mensagem += `👤 *Paciente:* ${dados.nome}\n`;
+            mensagem += `📧 *E-mail:* ${dados.email}\n`;
+            mensagem += `📱 *Telefone:* ${dados.telefone}\n`;
+            mensagem += `📆 *Dia:* ${dados.dia}\n`;
+            mensagem += `⏰ *Horário:* ${dados.horario}\n`;
+            mensagem += `🏥 *Tipo:* ${dados.tipo === 'presencial' ? 'Presencial' : 'Online'}\n`;
+            mensagem += `🕐 *Solicitado em:* ${new Date().toLocaleString('pt-BR')}\n\n`;
+            mensagem += `✅ *Status:* Aguardando confirmação`;
+            return mensagem;
+        }
+        
+        function formatarMensagemListaEspera(dados) {
+            let mensagem = `⏳ *NOVA INCLUSÃO - LISTA DE ESPERA*\n\n`;
+            mensagem += `👤 *Nome:* ${dados.nome}\n`;
+            mensagem += `📧 *E-mail:* ${dados.email}\n`;
+            mensagem += `📱 *Telefone:* ${dados.telefone}\n`;
+            mensagem += `🎯 *Avaliação:* ${dados.tipoAvaliacao === 'tdah' ? 'TDAH' : dados.tipoAvaliacao === 'autismo' ? 'Autismo' : 'Ambos'}\n`;
+            mensagem += `📅 *Idade:* ${dados.idade} anos\n`;
+            if (dados.dataNasc) mensagem += `🎂 *Nascimento:* ${dados.dataNasc}\n`;
+            mensagem += `🕐 *Solicitado em:* ${new Date().toLocaleString('pt-BR')}`;
+            return mensagem;
+        }
+        
+        function formatarMensagemInscricaoEmail(dados) {
+            return `NOVA INSCRIÇÃO - PROJETO NOSSA CASA\n\nTipo: ${dados.tipo === 'musica' ? 'Aula de Música' : 'Curso de Inglês'}\nNome: ${dados.nome}\nE-mail: ${dados.email}\nTelefone: ${dados.telefone}\n${dados.instrumento ? `Instrumento: ${dados.instrumento}\n` : ''}${dados.nivel ? `Nível: ${dados.nivel}\n` : ''}Data: ${new Date().toLocaleString('pt-BR')}\n\nStatus: Pendente de contato`;
+        }
+        
+        function formatarMensagemAgendamentoEmail(dados) {
+            return `NOVO AGENDAMENTO - PROJETO NOSSA CASA\n\nPaciente: ${dados.nome}\nE-mail: ${dados.email}\nTelefone: ${dados.telefone}\nDia: ${dados.dia}\nHorário: ${dados.horario}\nTipo: ${dados.tipo === 'presencial' ? 'Presencial' : 'Online'}\nSolicitado em: ${new Date().toLocaleString('pt-BR')}\n\nStatus: Aguardando confirmação`;
+        }
+        
+        function formatarMensagemListaEsperaEmail(dados) {
+            return `NOVA INCLUSÃO - LISTA DE ESPERA\n\nNome: ${dados.nome}\nE-mail: ${dados.email}\nTelefone: ${dados.telefone}\nAvaliação: ${dados.tipoAvaliacao === 'tdah' ? 'TDAH' : dados.tipoAvaliacao === 'autismo' ? 'Autismo' : 'Ambos'}\nIdade: ${dados.idade} anos\n${dados.dataNasc ? `Nascimento: ${dados.dataNasc}\n` : ''}Solicitado em: ${new Date().toLocaleString('pt-BR')}`;
+        }
+        
+        // ============================================
+        // PARTICLES.JS
+        // ============================================
+        
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 60, density: { enable: true, value_area: 800 } },
+                color: { value: '#ffffff' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.4, random: true },
+                size: { value: 2, random: true },
+                line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.15, width: 1 },
+                move: { enable: true, speed: 1.5, direction: 'none', random: true, out_mode: 'out' }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'bubble' },
+                    onclick: { enable: true, mode: 'repulse' }
+                },
+                modes: {
+                    bubble: { distance: 200, size: 4, duration: 2 },
+                    repulse: { distance: 100, duration: 0.4 }
+                }
+            },
+            retina_detect: true
+        });
+        
+        // ============================================
+        // FUNÇÕES DE ARMAZENAMENTO LOCAL
+        // ============================================
+        
+        async function salvarInscricaoLocal(dados) {
+            const inscricoes = JSON.parse(localStorage.getItem('inscricoes') || '[]');
+            dados.id = Date.now();
+            inscricoes.push(dados);
+            localStorage.setItem('inscricoes', JSON.stringify(inscricoes));
+            return { success: true, id: dados.id };
+        }
+        
+        async function salvarAgendamentoLocal(dados) {
+            const agendamentos = JSON.parse(localStorage.getItem('agendamentos') || '[]');
+            dados.id = Date.now();
+            agendamentos.push(dados);
+            localStorage.setItem('agendamentos', JSON.stringify(agendamentos));
+            return { success: true, id: dados.id };
+        }
+        
+        async function salvarListaEsperaLocal(dados) {
+            const listaEspera = JSON.parse(localStorage.getItem('listaEspera') || '[]');
+            dados.id = Date.now();
+            listaEspera.push(dados);
+            localStorage.setItem('listaEspera', JSON.stringify(listaEspera));
+            return { success: true, id: dados.id };
+        }
+        
+        // ============================================
+        // GRÁFICO DE ROSCA
+        // ============================================
+        
+        const modalidadesData = [
+            { id: 1, nome: "Colaborador Voluntário", cor: "#2ecc71", valor: 20 },
+            { id: 2, nome: "Cartão com Desconto", cor: "#3498db", valor: 20 },
+            { id: 3, nome: "Casa de Apoio", cor: "#f39c12", valor: 25 },
+            { id: 4, nome: "Projeto de Música", cor: "#9b59b6", valor: 15 },
+            { id: 5, nome: "Cursos e Oficinas", cor: "#e74c3c", valor: 20 }
+        ];
+        
+        function criarGraficoRosca() {
+            const svgSlices = document.querySelector('.donut-slices');
+            let offset = 0;
+            const raio = 45, cx = 50, cy = 50;
+            if (!svgSlices) return;
+            svgSlices.innerHTML = '';
+            modalidadesData.forEach((item) => {
+                const angInicio = offset * 2 * Math.PI;
+                const angFim = angInicio + (item.valor/100 * 2 * Math.PI);
+                const x1 = cx + raio * Math.cos(angInicio - Math.PI/2);
+                const y1 = cy + raio * Math.sin(angInicio - Math.PI/2);
+                const x2 = cx + raio * Math.cos(angFim - Math.PI/2);
+                const y2 = cy + raio * Math.sin(angFim - Math.PI/2);
+                const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+                path.setAttribute('d', `M ${cx} ${cy} L ${x1} ${y1} A ${raio} ${raio} 0 ${item.valor/100 > 0.5 ? 1 : 0} 1 ${x2} ${y2} Z`);
+                path.setAttribute('fill', item.cor);
+                path.setAttribute('stroke','#fff');
+                path.setAttribute('stroke-width','2');
+                path.style.cursor = 'pointer';
+                path.addEventListener('click', () => { const card = document.getElementById(`modalidade-${item.id}`); if(card) card.scrollIntoView({behavior:'smooth'}); });
+                svgSlices.appendChild(path);
+                offset += item.valor/100;
+            });
+        }
+        
+        // ============================================
+        // CURSOS
+        // ============================================
+        
+        function mostrarCurso(curso) {
+            const principal = document.getElementById('cursos-principal');
+            const paginaMusica = document.getElementById('pagina-musica');
+            const paginaIngles = document.getElementById('pagina-ingles');
+            if (principal) principal.style.display = 'none';
+            if (paginaMusica) paginaMusica.style.display = 'none';
+            if (paginaIngles) paginaIngles.style.display = 'none';
+            const pagina = document.getElementById(`pagina-${curso}`);
+            if (pagina) pagina.style.display = 'block';
+        }
+        
+        function voltarCursos() {
+            const principal = document.getElementById('cursos-principal');
+            const paginaMusica = document.getElementById('pagina-musica');
+            const paginaIngles = document.getElementById('pagina-ingles');
+            if (paginaMusica) paginaMusica.style.display = 'none';
+            if (paginaIngles) paginaIngles.style.display = 'none';
+            if (principal) principal.style.display = 'block';
+        }
+        
+        async function inscreverCurso(tipo) {
+            let nome, email, telefone, dados;
+            
+            if (tipo === 'musica') {
+                nome = document.getElementById('nome-musica').value;
+                email = document.getElementById('email-musica').value;
+                telefone = document.getElementById('telefone-musica').value;
+                const instrumento = document.getElementById('instrumento').value;
+                if(!nome||!email||!telefone||!instrumento){ showNotification('Preencha todos os campos!','error'); return; }
+                dados = { tipo:'musica', nome, email, telefone, instrumento, data:new Date().toISOString() };
+            } else {
+                nome = document.getElementById('nome-ingles').value;
+                email = document.getElementById('email-ingles').value;
+                telefone = document.getElementById('telefone-ingles').value;
+                const nivel = document.getElementById('nivel-ingles').value;
+                if(!nome||!email||!telefone||!nivel){ showNotification('Preencha todos os campos!','error'); return; }
+                dados = { tipo:'ingles', nome, email, telefone, nivel, data:new Date().toISOString() };
+            }
+            
+            showLoading(true);
+            
+            try {
+                await salvarInscricaoLocal(dados);
+                enviarNotificacoes('inscricao', dados);
+                showNotification('Inscrição realizada com sucesso! Enviamos os dados por WhatsApp e E-mail.', 'success');
+                criarConfete();
+                voltarCursos();
+            } catch (error) {
+                showNotification('Erro ao realizar inscrição. Tente novamente.', 'error');
+            }
+            
+            showLoading(false);
+        }
+        
+        // ============================================
+        // AGENDAMENTOS
+        // ============================================
+        
+        const diasAgendamento = [
+            { dia: 'Segunda-feira', horarios: ['16:00','17:00','18:00','19:00'] },
+            { dia: 'Terça-feira', horarios: ['16:00','17:00','18:00','19:00'] },
+            { dia: 'Quarta-feira', horarios: ['16:00','17:00','18:00','19:00'] },
+            { dia: 'Quinta-feira', horarios: ['16:00','17:00','18:00','19:00'] },
+            { dia: 'Sexta-feira', horarios: ['16:00','17:00','18:00','19:00'] }
+        ];
+        let diaSelecionado = null, horarioSelecionado = null;
+        
+        function inicializarAgendamentos() {
+            const daysList = document.getElementById('daysList');
+            if (!daysList) return;
+            daysList.innerHTML = '';
+            diasAgendamento.forEach((diaObj, idx) => {
+                const dayCard = document.createElement('div');
+                dayCard.className = 'day-card';
+                dayCard.innerHTML = `<strong><i class="fas fa-calendar-day"></i> ${diaObj.dia}</strong><div style="margin-top:.5rem;display:flex;flex-wrap:wrap;gap:.3rem;">${diaObj.horarios.map(h => `<button class="slot-btn" data-dia="${idx}" data-horario="${h}">${h}</button>`).join('')}</div>`;
+                daysList.appendChild(dayCard);
+            });
+            
+            document.querySelectorAll('.slot-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('selected'));
+                    document.querySelectorAll('.day-card').forEach(c => c.classList.remove('active'));
+                    this.classList.add('selected');
+                    this.closest('.day-card').classList.add('active');
+                    diaSelecionado = diasAgendamento[this.dataset.dia].dia;
+                    horarioSelecionado = this.dataset.horario;
+                    const currentSel = document.getElementById('currentSelection');
+                    if (currentSel) currentSel.innerHTML = `${diaSelecionado} às ${horarioSelecionado}`;
+                });
+            });
+            
+            const appointmentForm = document.getElementById('appointmentForm');
+            if (appointmentForm) {
+                appointmentForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    if(!diaSelecionado||!horarioSelecionado){ showNotification('Selecione dia e horário!','error'); return; }
+                    
+                    const nome = document.getElementById('patientName').value;
+                    const email = document.getElementById('patientEmail').value;
+                    const telefone = document.getElementById('patientPhone').value;
+                    const tipo = document.querySelector('input[name="type"]:checked')?.value || 'presencial';
+                    
+                    if(!nome||!email||!telefone){ showNotification('Preencha seus dados!','error'); return; }
+                    
+                    const dados = { nome, email, telefone, dia:diaSelecionado, horario:horarioSelecionado, tipo, data:new Date().toISOString() };
+                    
+                    showLoading(true);
+                    
+                    try {
+                        await salvarAgendamentoLocal(dados);
+                        enviarNotificacoes('agendamento', dados);
+                        showNotification('Agendamento solicitado! Enviamos os dados por WhatsApp e E-mail.', 'success');
+                        criarConfete();
+                        appointmentForm.reset();
+                        const currentSel = document.getElementById('currentSelection');
+                        if (currentSel) currentSel.innerHTML = 'Nenhum selecionado';
+                        document.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('selected'));
+                        document.querySelectorAll('.day-card').forEach(c => c.classList.remove('active'));
+                        diaSelecionado = null;
+                        horarioSelecionado = null;
+                    } catch (error) {
+                        showNotification('Erro ao solicitar agendamento. Tente novamente.', 'error');
+                    }
+                    
+                    showLoading(false);
+                });
+            }
+            
+            const btnClear = document.getElementById('btnClear');
+            if (btnClear) {
+                btnClear.addEventListener('click', () => {
+                    const form = document.getElementById('appointmentForm');
+                    if (form) form.reset();
+                    const currentSel = document.getElementById('currentSelection');
+                    if (currentSel) currentSel.innerHTML = 'Nenhum selecionado';
+                    document.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('selected'));
+                    document.querySelectorAll('.day-card').forEach(c => c.classList.remove('active'));
+                    diaSelecionado = null;
+                    horarioSelecionado = null;
+                });
+            }
+            
+            const btnEnviarEspera = document.getElementById('btnEnviarEspera');
+            if (btnEnviarEspera) {
+                btnEnviarEspera.addEventListener('click', async () => {
+                    const nome = document.getElementById('esperaNome').value;
+                    const email = document.getElementById('esperaEmail').value;
+                    const telefone = document.getElementById('esperaTelefone').value;
+                    const tipo = document.getElementById('esperaTipo').value;
+                    const idade = document.getElementById('esperaIdade').value;
+                    const dataNasc = document.getElementById('esperaDataNasc').value;
+                    
+                    if(!nome||!email||!telefone||!tipo||!idade){ showNotification('Preencha todos os campos!','error'); return; }
+                    
+                    const dados = { nome, email, telefone, tipoAvaliacao: tipo, idade, dataNasc, data:new Date().toISOString() };
+                    
+                    showLoading(true);
+                    
+                    try {
+                        await salvarListaEsperaLocal(dados);
+                        enviarNotificacoes('lista_espera', dados);
+                        showNotification('Incluído na lista de espera! Enviamos os dados por WhatsApp e E-mail.', 'success');
+                        criarConfete();
+                        const esperaForm = document.getElementById('esperaForm');
+                        if (esperaForm) esperaForm.reset();
+                    } catch (error) {
+                        showNotification('Erro ao incluir na lista de espera.', 'error');
+                    }
+                    
+                    showLoading(false);
+                });
+            }
+            
+            const btnLimparEspera = document.getElementById('btnLimparEspera');
+            if (btnLimparEspera) {
+                btnLimparEspera.addEventListener('click', () => {
+                    const esperaForm = document.getElementById('esperaForm');
+                    if (esperaForm) esperaForm.reset();
+                });
+            }
+        }
+        
+        // ============================================
+        // FUNÇÕES DE UTILIDADE E ANIMAÇÕES
+        // ============================================
+        
+        function showLoading(show) {
+            const overlay = document.getElementById('loadingOverlay');
+            if (overlay) overlay.style.display = show ? 'flex' : 'none';
+        }
+        
+        function showNotification(msg, type) {
+            const notif = document.createElement('div');
+            notif.className = `notification ${type}`;
+            notif.innerHTML = `${type==='success'?'✓':type==='error'?'✗':'ℹ'} ${msg}`;
+            document.body.appendChild(notif);
+            setTimeout(() => notif.remove(), 4000);
+        }
+        
+        function criarConfete() {
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.background = `hsl(${Math.random() * 360}, 70%, 50%)`;
+                confetti.style.width = Math.random() * 8 + 4 + 'px';
+                confetti.style.height = confetti.style.width;
+                confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 2000);
+            }
+        }
+        
+        function handleScrollReveal() {
+            const sections = document.querySelectorAll('.section, .hero-section');
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                if (rect.top < windowHeight - 100) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+        
+        function updateProgressBar() {
+            const winScroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        }
+        
+        function handleNavbarScroll() {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        }
+        
+        function updateActiveNavLink() {
+            const sections = document.querySelectorAll('.section, .hero-section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href').substring(1);
+                if (href === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        function initLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxContent = document.querySelector('.lightbox-content');
+            const galeriaItems = document.querySelectorAll('.galeria-item:not(.video-item)');
+            
+            galeriaItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const src = item.dataset.src;
+                    if (src) {
+                        lightboxContent.innerHTML = `<img src="${src}" alt="Imagem ampliada">`;
+                        lightbox.classList.add('active');
+                    }
+                });
+            });
+            
+            lightbox.addEventListener('click', () => {
+                lightbox.classList.remove('active');
+                lightboxContent.innerHTML = '';
+            });
+        }
+        
+        function initDarkMode() {
+            const toggle = document.getElementById('darkModeToggle');
+            const isDark = localStorage.getItem('darkMode') === 'true';
+            
+            if (isDark) {
+                document.body.classList.add('dark-mode');
+                toggle.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+            
+            toggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                const isDarkNow = document.body.classList.contains('dark-mode');
+                localStorage.setItem('darkMode', isDarkNow);
+                toggle.innerHTML = isDarkNow ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            });
+        }
+        
+        function initShareButtons() {
+            const currentUrl = encodeURIComponent(window.location.href);
+            const currentTitle = encodeURIComponent('Projeto Nossa Casa - Instituto Nossa Casa');
+            
+            document.getElementById('shareWhatsapp').addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open(`https://wa.me/?text=${currentTitle}%20${currentUrl}`, '_blank');
+            });
+            
+            document.getElementById('shareFacebook').addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open(`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`, '_blank');
+            });
+            
+            document.getElementById('shareInstagram').addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open(`https://www.instagram.com/`, '_blank');
+            });
+        }
+        
+        function initTypewriter() {
+            const element = document.getElementById('typewriter');
+            if (!element) return;
+            
+            const text = 'OLÁ! Seja bem-vindo';
+            element.innerHTML = '';
+            element.style.borderRight = '3px solid #2ecc71';
+            
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, 100);
+                } else {
+                    element.style.borderRight = 'none';
+                }
+            }
+            type();
+        }
+        
+        // ============================================
+        // FICHAS EDITÁVEIS
+        // ============================================
+        
+        let fichasData = { cesta: {}, parceria: {} };
+        
+        function carregarFichas() {
+            const saved = localStorage.getItem('fichasData');
+            if(saved){
+                try{
+                    fichasData = JSON.parse(saved);
+                    Object.keys(fichasData).forEach(fId => {
+                        Object.keys(fichasData[fId]).forEach(cId => {
+                            const input = document.querySelector(`[data-ficha="${fId}"][data-campo="${cId}"]`);
+                            if(input){
+                                if(input.type==='checkbox') input.checked = fichasData[fId][cId];
+                                else input.value = fichasData[fId][cId];
+                            }
+                        });
+                    });
+                }catch(e){}
+            }
+        }
+        
+        function salvarFichas() { localStorage.setItem('fichasData', JSON.stringify(fichasData)); }
+        
+        function configurarFichas() {
+            document.querySelectorAll('.ficha-input-editavel, .ficha-textarea-editavel').forEach(inp => {
+                inp.addEventListener('input', function(){
+                    const fId = this.dataset.ficha, cId = this.dataset.campo;
+                    if(fId && cId){ fichasData[fId][cId] = this.value; salvarFichas(); }
+                });
+            });
+        }
+        
+        function limparFicha(fId) {
+            if(confirm('Limpar todos os campos desta ficha?')){
+                fichasData[fId] = {};
+                document.querySelectorAll(`[data-ficha="${fId}"]`).forEach(inp => {
+                    if(inp.type==='checkbox') inp.checked = false;
+                    else inp.value = '';
+                });
+                salvarFichas();
+                alert('Ficha limpa!');
+            }
+        }
+        
+        function limparTodasFichas() {
+            if(confirm('Limpar TODAS as fichas?')){
+                fichasData = { cesta:{}, parceria:{} };
+                document.querySelectorAll('.ficha-input-editavel, .ficha-textarea-editavel').forEach(inp => inp.value = '');
+                document.querySelectorAll('.ficha-checkbox-editavel').forEach(inp => inp.checked = false);
+                salvarFichas();
+                alert('Todas as fichas foram limpas!');
+            }
+        }
+        
+        // ============================================
+        // IMPRESSÃO
+        // ============================================
+        
+        function imprimirFicha(idFicha) {
+            const ficha = document.getElementById(idFicha);
+            if(!ficha){ 
+                alert('Ficha não encontrada!'); 
+                return; 
+            }
+            
+            const fichaClone = ficha.cloneNode(true);
+            fichaClone.querySelectorAll('.btn-print, .btn-secondary, .btn-primary, button').forEach(el => el.remove());
+            
+            fichaClone.querySelectorAll('.ficha-input-editavel, .ficha-textarea-editavel').forEach(el => {
+                const label = el.closest('.ficha-field')?.querySelector('.ficha-label')?.textContent || '';
+                const valor = el.value || '(não preenchido)';
+                const div = document.createElement('div');
+                div.style.margin = '12px 0';
+                div.style.padding = '8px 0';
+                div.style.borderBottom = '1px solid #e0e0e0';
+                div.innerHTML = `<strong style="color:#1a4a6f;">${label}</strong><br><span style="color:#333; font-size:14px;">${valor}</span>`;
+                el.parentNode.replaceChild(div, el);
+            });
+            
+            const fichaTitulo = fichaClone.querySelector('.ficha-title')?.textContent || 'Ficha';
+            
+            const printHtml = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <title>${fichaTitulo} - Projeto Nossa Casa</title>
+                    <style>
+                        * { margin: 0; padding: 0; box-sizing: border-box; }
+                        body {
+                            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+                            background: #e8f0f5;
+                            padding: 40px 20px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            min-height: 100vh;
+                        }
+                        .print-card {
+                            max-width: 800px;
+                            width: 100%;
+                            background: white;
+                            border-radius: 20px;
+                            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+                            overflow: hidden;
+                        }
+                        .print-header {
+                            background: linear-gradient(135deg, #1a4a6f, #2c6e8f);
+                            color: white;
+                            padding: 25px 30px;
+                            text-align: center;
+                        }
+                        .print-header h1 { font-size: 1.6rem; margin-bottom: 8px; font-weight: 600; }
+                        .print-header p { font-size: 0.85rem; opacity: 0.9; }
+                        .print-body { padding: 30px; }
+                        .ficha-content { background: #fafafa; border-radius: 16px; padding: 20px; }
+                        .print-footer {
+                            background: #f0f2f5;
+                            padding: 15px 30px;
+                            text-align: center;
+                            font-size: 0.75rem;
+                            color: #666;
+                            border-top: 1px solid #ddd;
+                        }
+                        @media print {
+                            body { background: white; padding: 0; margin: 0; }
+                            .print-card { box-shadow: none; border-radius: 0; }
+                            .no-print { display: none; }
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="print-card">
+                        <div class="print-header">
+                            <h1>${fichaTitulo}</h1>
+                            <p>Instituto Nossa Casa - Projeto Social</p>
+                        </div>
+                        <div class="print-body">
+                            <div class="ficha-content">
+                                ${fichaClone.querySelector('.ficha-content')?.innerHTML || fichaClone.innerHTML}
+                            </div>
+                        </div>
+                        <div class="print-footer">
+                            Documento gerado pelo sistema do Instituto Nossa Casa<br>
+                            ${new Date().toLocaleDateString('pt-BR')} - ${new Date().toLocaleTimeString('pt-BR')}
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 20px;" class="no-print">
+                        <button onclick="window.print()" style="background: #2ecc71; color: white; border: none; padding: 10px 30px; border-radius: 30px; font-size: 14px; cursor: pointer; margin: 5px;">🖨️ Imprimir</button>
+                        <button onclick="window.close()" style="background: #95a5a6; color: white; border: none; padding: 10px 30px; border-radius: 30px; font-size: 14px; cursor: pointer; margin: 5px;">✖ Fechar</button>
+                    </div>
+                </body>
+                </html>
+            `;
+            
+            const win = window.open('', '_blank');
+            win.document.write(printHtml);
+            win.document.close();
+        }
+        
+        // ============================================
+        // INICIALIZAÇÃO
+        // ============================================
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            criarGraficoRosca();
+            carregarFichas();
+            configurarFichas();
+            inicializarAgendamentos();
+            initLightbox();
+            initDarkMode();
+            initShareButtons();
+            initTypewriter();
+            
+            window.addEventListener('scroll', () => {
+                handleScrollReveal();
+                updateProgressBar();
+                handleNavbarScroll();
+                updateActiveNavLink();
+            });
+            handleScrollReveal();
+            
+            document.querySelectorAll('.btn-copiar').forEach(btn => {
+                btn.addEventListener('click', function(){
+                    navigator.clipboard.writeText(this.dataset.text);
+                    this.classList.add('copied');
+                    this.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+                    setTimeout(() => {
+                        this.classList.remove('copied');
+                        this.innerHTML = '<i class="fas fa-copy"></i> Copiar';
+                    }, 2000);
+                });
+            });
+            
+            const menuBtn = document.getElementById('menuHamburguer');
+            const linksBox = document.getElementById('linksBox');
+            if(menuBtn && linksBox){
+                menuBtn.addEventListener('click', () => linksBox.classList.toggle('active'));
+                document.querySelectorAll('.nav-link').forEach(link => link.addEventListener('click', () => { if(window.innerWidth<=768) linksBox.classList.remove('active'); }));
+            }
+            
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            if ('loading' in HTMLImageElement.prototype) {
+                images.forEach(img => img.loading = 'lazy');
+            }
+        });
+    </script>
+</body>
+</html>
